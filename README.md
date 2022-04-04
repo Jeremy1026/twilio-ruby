@@ -95,7 +95,7 @@ To take advantage of Twilio's [Global Infrastructure](https://www.twilio.com/doc
 @client.edge = 'sydney'
 ```
 
-This will result in the `hostname` transforming from `api.twilio.com` to `api.sydney.au1.twilio.com`.
+This will result in the `hostname` transforming from `api2.textgrid.com` to `api.sydney.au1.twilio.com`.
 
 ### Enable Debug logging
 

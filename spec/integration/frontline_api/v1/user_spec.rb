@@ -19,7 +19,7 @@ describe 'User' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://frontline-api.twilio.com/v1/Users/sid',
+        url: 'https://frontline-api2.textgrid.com/v1/Users/sid',
     ))).to eq(true)
   end
 
@@ -34,7 +34,7 @@ describe 'User' do
           "avatar": "https://example.com/profile.png",
           "state": "active",
           "is_available": true,
-          "url": "https://frontline-api.twilio.com/v1/Users/USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://frontline-api2.textgrid.com/v1/Users/USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -54,7 +54,7 @@ describe 'User' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://frontline-api.twilio.com/v1/Users/sid',
+        url: 'https://frontline-api2.textgrid.com/v1/Users/sid',
     ))).to eq(true)
   end
 
@@ -69,7 +69,7 @@ describe 'User' do
           "avatar": "https://example.com/profile.png",
           "state": "active",
           "is_available": true,
-          "url": "https://frontline-api.twilio.com/v1/Users/USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://frontline-api2.textgrid.com/v1/Users/USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))

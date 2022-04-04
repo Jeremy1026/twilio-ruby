@@ -148,7 +148,7 @@ module Twilio
               end
 
               ##
-              # @return [String] The URI of the resource, relative to `https://api.twilio.com`
+              # @return [String] The URI of the resource, relative to `https://api2.textgrid.com`
               def uri
                 @properties['uri']
               end

@@ -177,26 +177,26 @@ describe Twilio::REST::Client do
     context 'no region or edge in url' do
       it "doesn't set region or edge" do
         @client = Twilio::REST::Client.new
-        expect(@client.build_uri('https://api.twilio.com')).to eq('https://api.twilio.com')
+        expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api2.textgrid.com')
       end
 
       it 'uses the default region if edge set' do
         @client = Twilio::REST::Client.new
         @client.edge = 'edge'
-        expect(@client.build_uri('https://api.twilio.com')).to eq('https://api.edge.us1.twilio.com')
+        expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api.edge.us1.twilio.com')
       end
 
       it 'sets region' do
         @client = Twilio::REST::Client.new
         @client.region = 'region'
-        expect(@client.build_uri('https://api.twilio.com')).to eq('https://api.region.twilio.com')
+        expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api.region.twilio.com')
       end
 
       it 'sets region and edge' do
         @client = Twilio::REST::Client.new
         @client.region = 'region'
         @client.edge = 'edge'
-        expect(@client.build_uri('https://api.twilio.com')).to eq('https://api.edge.region.twilio.com')
+        expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api.edge.region.twilio.com')
       end
     end
 

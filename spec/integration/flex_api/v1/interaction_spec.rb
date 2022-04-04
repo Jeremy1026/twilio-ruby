@@ -19,7 +19,7 @@ describe 'Interaction' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/Interactions/KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        url: 'https://flex-api2.textgrid.com/v1/Interactions/KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     ))).to eq(true)
   end
 
@@ -41,9 +41,9 @@ describe 'Interaction' do
                   "queue_name": "WQXX"
               }
           },
-          "url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "links": {
-              "channels": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels"
+              "channels": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels"
           }
       }
       ]
@@ -65,7 +65,7 @@ describe 'Interaction' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/Interactions',
+        url: 'https://flex-api2.textgrid.com/v1/Interactions',
         data: values,
     ))).to eq(true)
   end
@@ -88,9 +88,9 @@ describe 'Interaction' do
                   "queue_name": "WQXX"
               }
           },
-          "url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "links": {
-              "channels": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels"
+              "channels": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels"
           }
       }
       ]

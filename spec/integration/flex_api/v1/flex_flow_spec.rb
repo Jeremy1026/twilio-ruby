@@ -19,7 +19,7 @@ describe 'FlexFlow' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/FlexFlows',
+        url: 'https://flex-api2.textgrid.com/v1/FlexFlows',
     ))).to eq(true)
   end
 
@@ -31,9 +31,9 @@ describe 'FlexFlow' do
           "meta": {
               "page": 0,
               "page_size": 50,
-              "first_page_url": "https://flex-api.twilio.com/v1/FlexFlows?PageSize=50&Page=0",
+              "first_page_url": "https://flex-api2.textgrid.com/v1/FlexFlows?PageSize=50&Page=0",
               "previous_page_url": null,
-              "url": "https://flex-api.twilio.com/v1/FlexFlows?PageSize=50&Page=0",
+              "url": "https://flex-api2.textgrid.com/v1/FlexFlows?PageSize=50&Page=0",
               "next_page_url": null,
               "key": "flex_flows"
           },
@@ -55,7 +55,7 @@ describe 'FlexFlow' do
                   },
                   "long_lived": true,
                   "janitor_enabled": true,
-                  "url": "https://flex-api.twilio.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  "url": "https://flex-api2.textgrid.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               }
           ]
       }
@@ -75,9 +75,9 @@ describe 'FlexFlow' do
           "meta": {
               "page": 0,
               "page_size": 50,
-              "first_page_url": "https://flex-api.twilio.com/v1/FlexFlows?PageSize=50&Page=0",
+              "first_page_url": "https://flex-api2.textgrid.com/v1/FlexFlows?PageSize=50&Page=0",
               "previous_page_url": null,
-              "url": "https://flex-api.twilio.com/v1/FlexFlows?PageSize=50&Page=0",
+              "url": "https://flex-api2.textgrid.com/v1/FlexFlows?PageSize=50&Page=0",
               "next_page_url": null,
               "key": "flex_flows"
           },
@@ -101,7 +101,7 @@ describe 'FlexFlow' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/FlexFlows/FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        url: 'https://flex-api2.textgrid.com/v1/FlexFlows/FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     ))).to eq(true)
   end
 
@@ -126,7 +126,7 @@ describe 'FlexFlow' do
           },
           "long_lived": true,
           "janitor_enabled": true,
-          "url": "https://flex-api.twilio.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://flex-api2.textgrid.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -151,7 +151,7 @@ describe 'FlexFlow' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/FlexFlows',
+        url: 'https://flex-api2.textgrid.com/v1/FlexFlows',
         data: values,
     ))).to eq(true)
   end
@@ -177,7 +177,7 @@ describe 'FlexFlow' do
           },
           "long_lived": true,
           "janitor_enabled": true,
-          "url": "https://flex-api.twilio.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://flex-api2.textgrid.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -197,7 +197,7 @@ describe 'FlexFlow' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/FlexFlows/FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        url: 'https://flex-api2.textgrid.com/v1/FlexFlows/FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     ))).to eq(true)
   end
 
@@ -222,7 +222,7 @@ describe 'FlexFlow' do
           },
           "long_lived": true,
           "janitor_enabled": true,
-          "url": "https://flex-api.twilio.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://flex-api2.textgrid.com/v1/FlexFlows/FOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -242,7 +242,7 @@ describe 'FlexFlow' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'delete',
-        url: 'https://flex-api.twilio.com/v1/FlexFlows/FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        url: 'https://flex-api2.textgrid.com/v1/FlexFlows/FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     ))).to eq(true)
   end
 

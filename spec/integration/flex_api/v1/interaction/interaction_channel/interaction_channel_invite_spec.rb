@@ -22,7 +22,7 @@ describe 'InteractionChannelInvite' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/Interactions/KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Channels/UOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Invites',
+        url: 'https://flex-api2.textgrid.com/v1/Interactions/KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Channels/UOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Invites',
         data: values,
     ))).to eq(true)
   end
@@ -61,7 +61,7 @@ describe 'InteractionChannelInvite' do
                   "addons": "{}"
               }
           },
-          "url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites/KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites/KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -85,7 +85,7 @@ describe 'InteractionChannelInvite' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/Interactions/KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Channels/UOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Invites',
+        url: 'https://flex-api2.textgrid.com/v1/Interactions/KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Channels/UOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Invites',
     ))).to eq(true)
   end
 
@@ -125,7 +125,7 @@ describe 'InteractionChannelInvite' do
                           "addons": "{}"
                       }
                   },
-                  "url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites/KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1"
+                  "url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites/KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1"
               },
               {
                   "sid": "KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2",
@@ -157,15 +157,15 @@ describe 'InteractionChannelInvite' do
                           "addons": "{}"
                       }
                   },
-                  "url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites/KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2"
+                  "url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites/KGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2"
               }
           ],
           "meta": {
               "page": 0,
               "page_size": 50,
-              "first_page_url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites?PageSize=50&Page=0",
+              "first_page_url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites?PageSize=50&Page=0",
               "previous_page_url": null,
-              "url": "https://flex-api.twilio.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites?PageSize=50&Page=0",
+              "url": "https://flex-api2.textgrid.com/v1/Interactions/KDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/Channels/UOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1/Invites?PageSize=50&Page=0",
               "next_page_url": null,
               "key": "invites"
           }

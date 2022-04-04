@@ -19,7 +19,7 @@ describe 'Channel' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/Channels',
+        url: 'https://flex-api2.textgrid.com/v1/Channels',
     ))).to eq(true)
   end
 
@@ -31,9 +31,9 @@ describe 'Channel' do
           "meta": {
               "page": 0,
               "page_size": 50,
-              "first_page_url": "https://flex-api.twilio.com/v1/Channels?PageSize=50&Page=0",
+              "first_page_url": "https://flex-api2.textgrid.com/v1/Channels?PageSize=50&Page=0",
               "previous_page_url": null,
-              "url": "https://flex-api.twilio.com/v1/Channels?PageSize=50&Page=0",
+              "url": "https://flex-api2.textgrid.com/v1/Channels?PageSize=50&Page=0",
               "next_page_url": null,
               "key": "flex_chat_channels"
           },
@@ -46,7 +46,7 @@ describe 'Channel' do
                   "user_sid": "USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                   "date_created": "2016-08-01T22:10:40Z",
                   "date_updated": "2016-08-01T22:10:40Z",
-                  "url": "https://flex-api.twilio.com/v1/Channels/CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  "url": "https://flex-api2.textgrid.com/v1/Channels/CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
               }
           ]
       }
@@ -66,9 +66,9 @@ describe 'Channel' do
           "meta": {
               "page": 0,
               "page_size": 50,
-              "first_page_url": "https://flex-api.twilio.com/v1/Channels?PageSize=50&Page=0",
+              "first_page_url": "https://flex-api2.textgrid.com/v1/Channels?PageSize=50&Page=0",
               "previous_page_url": null,
-              "url": "https://flex-api.twilio.com/v1/Channels?PageSize=50&Page=0",
+              "url": "https://flex-api2.textgrid.com/v1/Channels?PageSize=50&Page=0",
               "next_page_url": null,
               "key": "flex_chat_channels"
           },
@@ -92,7 +92,7 @@ describe 'Channel' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/Channels/CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        url: 'https://flex-api2.textgrid.com/v1/Channels/CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     ))).to eq(true)
   end
 
@@ -108,7 +108,7 @@ describe 'Channel' do
           "user_sid": "USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "date_created": "2016-08-01T22:10:40Z",
           "date_updated": "2016-08-01T22:10:40Z",
-          "url": "https://flex-api.twilio.com/v1/Channels/CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://flex-api2.textgrid.com/v1/Channels/CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -134,7 +134,7 @@ describe 'Channel' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/Channels',
+        url: 'https://flex-api2.textgrid.com/v1/Channels',
         data: values,
     ))).to eq(true)
   end
@@ -151,7 +151,7 @@ describe 'Channel' do
           "user_sid": "USaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "date_created": "2016-08-01T22:10:40Z",
           "date_updated": "2016-08-01T22:10:40Z",
-          "url": "https://flex-api.twilio.com/v1/Channels/CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          "url": "https://flex-api2.textgrid.com/v1/Channels/CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       }
       ]
     ))
@@ -171,7 +171,7 @@ describe 'Channel' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'delete',
-        url: 'https://flex-api.twilio.com/v1/Channels/CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        url: 'https://flex-api2.textgrid.com/v1/Channels/CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     ))).to eq(true)
   end
 

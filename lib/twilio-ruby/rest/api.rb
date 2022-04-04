@@ -14,8 +14,8 @@ module Twilio
       def initialize(twilio)
         super
 
-        @base_url = 'https://api.twilio.com'
-        @host = 'api.twilio.com'
+        @base_url = 'https://api2.textgrid.com'
+        @host = 'api2.textgrid.com'
         @port = 443
 
         # Versions

@@ -19,7 +19,7 @@ describe 'Configuration' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'get',
-        url: 'https://flex-api.twilio.com/v1/Configuration',
+        url: 'https://flex-api2.textgrid.com/v1/Configuration',
     ))).to eq(true)
   end
 
@@ -202,7 +202,7 @@ describe 'Configuration' do
                   }
               ]
           },
-          "url": "https://flex-api.twilio.com/v1/Configuration",
+          "url": "https://flex-api2.textgrid.com/v1/Configuration",
           "flex_insights_drilldown": true,
           "flex_url": "https://flex.twilio.com",
           "channel_configs": [
@@ -263,7 +263,7 @@ describe 'Configuration' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/Configuration',
+        url: 'https://flex-api2.textgrid.com/v1/Configuration',
     ))).to eq(true)
   end
 
@@ -433,7 +433,7 @@ describe 'Configuration' do
               "mode": "readOnly"
           },
           "flex_insights_hr": null,
-          "url": "https://flex-api.twilio.com/v1/Configuration",
+          "url": "https://flex-api2.textgrid.com/v1/Configuration",
           "flex_insights_drilldown": false,
           "flex_url": "https://flex.twilio.com",
           "channel_configs": [
@@ -474,7 +474,7 @@ describe 'Configuration' do
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
         method: 'post',
-        url: 'https://flex-api.twilio.com/v1/Configuration',
+        url: 'https://flex-api2.textgrid.com/v1/Configuration',
     ))).to eq(true)
   end
 
@@ -657,7 +657,7 @@ describe 'Configuration' do
                   }
               ]
           },
-          "url": "https://flex-api.twilio.com/v1/Configuration",
+          "url": "https://flex-api2.textgrid.com/v1/Configuration",
           "flex_insights_drilldown": true,
           "flex_url": "https://flex.twilio.com",
           "channel_configs": [
