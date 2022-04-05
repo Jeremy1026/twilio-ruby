@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'twilio-ruby/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'twilio-ruby'
+  spec.name          = 'textgrid-ruby'
   spec.version       = Twilio::VERSION
   spec.authors       = ['Twilio API Team']
   spec.summary       = 'The official library for communicating with the Twilio REST API, '\
