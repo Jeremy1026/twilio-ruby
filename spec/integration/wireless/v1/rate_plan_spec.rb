@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'RatePlan' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.rate_plans.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -24,7 +24,7 @@ describe 'RatePlan' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -48,7 +48,7 @@ describe 'RatePlan' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -98,11 +98,11 @@ describe 'RatePlan' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.rate_plans('WPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -112,7 +112,7 @@ describe 'RatePlan' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -149,11 +149,11 @@ describe 'RatePlan' do
   end
 
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.rate_plans.create()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -163,7 +163,7 @@ describe 'RatePlan' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -200,11 +200,11 @@ describe 'RatePlan' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.rate_plans('WPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -214,7 +214,7 @@ describe 'RatePlan' do
   end
 
   it "receives update responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -251,11 +251,11 @@ describe 'RatePlan' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.rate_plans('WPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -265,7 +265,7 @@ describe 'RatePlan' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trunking < Domain
       class V1 < Version
@@ -41,7 +41,7 @@ module Twilio
             #   Origination calls to. This must be a `sip:` schema.
             # @return [OriginationUrlInstance] Created OriginationUrlInstance
             def create(weight: nil, priority: nil, enabled: nil, friendly_name: nil, sip_url: nil)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Weight' => weight,
                   'Priority' => priority,
                   'Enabled' => enabled,
@@ -110,7 +110,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of OriginationUrlInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -224,7 +224,7 @@ module Twilio
             #   Origination calls to. This must be a `sip:` schema. `sips` is NOT supported.
             # @return [OriginationUrlInstance] Updated OriginationUrlInstance
             def update(weight: :unset, priority: :unset, enabled: :unset, friendly_name: :unset, sip_url: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Weight' => weight,
                   'Priority' => priority,
                   'Enabled' => enabled,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -88,7 +88,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of FactorInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -225,7 +225,7 @@ module Twilio
               #   Required when `factor_type` is `push`.
               # @return [FactorInstance] Updated FactorInstance
               def update(auth_payload: :unset, friendly_name: :unset, config_notification_token: :unset, config_sdk_version: :unset, config_time_step: :unset, config_skew: :unset, config_code_length: :unset, config_alg: :unset, config_notification_platform: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'AuthPayload' => auth_payload,
                     'FriendlyName' => friendly_name,
                     'Config.NotificationToken' => config_notification_token,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Events < Domain
       class V1 < Version
@@ -87,7 +87,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of SubscriptionInstance
           def page(sink_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'SinkSid' => sink_sid,
                 'PageToken' => page_token,
                 'Page' => page_number,
@@ -123,7 +123,7 @@ module Twilio
           #   Types
           # @return [SubscriptionInstance] Created SubscriptionInstance
           def create(description: nil, sink_sid: nil, types: nil)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Description' => description,
                 'SinkSid' => sink_sid,
                 'Types' => Twilio.serialize_list(types) { |e| Twilio.serialize_object(e) },
@@ -209,7 +209,7 @@ module Twilio
           #   created.
           # @return [SubscriptionInstance] Updated SubscriptionInstance
           def update(description: :unset, sink_sid: :unset)
-            data = Twilio::Values.of({'Description' => description, 'SinkSid' => sink_sid, })
+            data = Textgrid::Values.of({'Description' => description, 'SinkSid' => sink_sid, })
 
             payload = @version.update('POST', @uri, data: data)
 

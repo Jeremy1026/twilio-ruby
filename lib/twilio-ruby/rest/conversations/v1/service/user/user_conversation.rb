@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -86,7 +86,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of UserConversationInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -187,7 +187,7 @@ module Twilio
               #   Conversation that the Participant has read.
               # @return [UserConversationInstance] Updated UserConversationInstance
               def update(notification_level: :unset, last_read_timestamp: :unset, last_read_message_index: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'NotificationLevel' => notification_level,
                     'LastReadTimestamp' => Twilio.serialize_iso8601_datetime(last_read_timestamp),
                     'LastReadMessageIndex' => last_read_message_index,

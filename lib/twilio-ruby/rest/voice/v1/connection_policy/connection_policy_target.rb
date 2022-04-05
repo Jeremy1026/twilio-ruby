@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -43,7 +43,7 @@ module Twilio
             # @param [Boolean] enabled Whether the Target is enabled. The default is `true`.
             # @return [ConnectionPolicyTargetInstance] Created ConnectionPolicyTargetInstance
             def create(target: nil, friendly_name: :unset, priority: :unset, weight: :unset, enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Target' => target,
                   'FriendlyName' => friendly_name,
                   'Priority' => priority,
@@ -116,7 +116,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ConnectionPolicyTargetInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -227,7 +227,7 @@ module Twilio
             # @param [Boolean] enabled Whether the Target is enabled.
             # @return [ConnectionPolicyTargetInstance] Updated ConnectionPolicyTargetInstance
             def update(friendly_name: :unset, target: :unset, priority: :unset, weight: :unset, enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'Target' => target,
                   'Priority' => priority,

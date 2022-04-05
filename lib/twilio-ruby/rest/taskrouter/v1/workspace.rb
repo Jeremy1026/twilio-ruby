@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -85,7 +85,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of WorkspaceInstance
           def page(friendly_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'PageToken' => page_token,
                 'Page' => page_number,
@@ -146,7 +146,7 @@ module Twilio
           #   Ordering}[https://www.twilio.com/docs/taskrouter/queue-ordering-last-first-out-lifo].
           # @return [WorkspaceInstance] Created WorkspaceInstance
           def create(friendly_name: nil, event_callback_url: :unset, events_filter: :unset, multi_task_enabled: :unset, template: :unset, prioritize_queue_order: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'EventCallbackUrl' => event_callback_url,
                 'EventsFilter' => events_filter,
@@ -267,7 +267,7 @@ module Twilio
           #   Ordering}[https://www.twilio.com/docs/taskrouter/queue-ordering-last-first-out-lifo].
           # @return [WorkspaceInstance] Updated WorkspaceInstance
           def update(default_activity_sid: :unset, event_callback_url: :unset, events_filter: :unset, friendly_name: :unset, multi_task_enabled: :unset, timeout_activity_sid: :unset, prioritize_queue_order: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'DefaultActivitySid' => default_activity_sid,
                 'EventCallbackUrl' => event_callback_url,
                 'EventsFilter' => events_filter,

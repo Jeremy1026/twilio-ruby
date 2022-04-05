@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V2 < Version
@@ -104,7 +104,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of UserBindingInstance
               def page(binding_type: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'BindingType' => Twilio.serialize_list(binding_type) { |e| e },
                     'PageToken' => page_token,
                     'Page' => page_number,

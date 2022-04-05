@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -49,7 +49,7 @@ module Twilio
           #   X-Twilio-Webhook-Enabled HTTP request header
           # @return [ConversationInstance] Created ConversationInstance
           def create(friendly_name: :unset, unique_name: :unset, date_created: :unset, date_updated: :unset, messaging_service_sid: :unset, attributes: :unset, state: :unset, timers_inactive: :unset, timers_closed: :unset, x_twilio_webhook_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'UniqueName' => unique_name,
                 'DateCreated' => Twilio.serialize_iso8601_datetime(date_created),
@@ -60,7 +60,7 @@ module Twilio
                 'Timers.Inactive' => timers_inactive,
                 'Timers.Closed' => timers_closed,
             })
-            headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+            headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
             payload = @version.create('POST', @uri, data: data, headers: headers)
 
@@ -123,7 +123,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ConversationInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -229,7 +229,7 @@ module Twilio
           #   X-Twilio-Webhook-Enabled HTTP request header
           # @return [ConversationInstance] Updated ConversationInstance
           def update(friendly_name: :unset, date_created: :unset, date_updated: :unset, attributes: :unset, messaging_service_sid: :unset, state: :unset, timers_inactive: :unset, timers_closed: :unset, unique_name: :unset, x_twilio_webhook_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'DateCreated' => Twilio.serialize_iso8601_datetime(date_created),
                 'DateUpdated' => Twilio.serialize_iso8601_datetime(date_updated),
@@ -240,7 +240,7 @@ module Twilio
                 'Timers.Closed' => timers_closed,
                 'UniqueName' => unique_name,
             })
-            headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+            headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
             payload = @version.update('POST', @uri, data: data, headers: headers)
 
@@ -253,7 +253,7 @@ module Twilio
           #   X-Twilio-Webhook-Enabled HTTP request header
           # @return [Boolean] true if delete succeeds, false otherwise
           def delete(x_twilio_webhook_enabled: :unset)
-            headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+            headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
              @version.delete('DELETE', @uri, headers: headers)
           end

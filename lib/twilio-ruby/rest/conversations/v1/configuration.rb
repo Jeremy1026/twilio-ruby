@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -98,7 +98,7 @@ module Twilio
           #   will be switched to `closed` state. Minimum value for this timer is 10 minutes.
           # @return [ConfigurationInstance] Updated ConfigurationInstance
           def update(default_chat_service_sid: :unset, default_messaging_service_sid: :unset, default_inactive_timer: :unset, default_closed_timer: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'DefaultChatServiceSid' => default_chat_service_sid,
                 'DefaultMessagingServiceSid' => default_messaging_service_sid,
                 'DefaultInactiveTimer' => default_inactive_timer,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -35,7 +35,7 @@ module Twilio
             #   the Service.
             # @return [ShortCodeInstance] Created ShortCodeInstance
             def create(short_code_sid: nil)
-              data = Twilio::Values.of({'ShortCodeSid' => short_code_sid, })
+              data = Textgrid::Values.of({'ShortCodeSid' => short_code_sid, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -98,7 +98,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ShortCodeInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,

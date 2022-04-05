@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Events
       class V1 < Version
@@ -23,8 +23,8 @@ module Twilio
 
         ##
         # @param [String] type A string that uniquely identifies this Event Type.
-        # @return [Twilio::REST::Events::V1::EventTypeContext] if type was passed.
-        # @return [Twilio::REST::Events::V1::EventTypeList]
+        # @return [Textgrid::REST::Events::V1::EventTypeContext] if type was passed.
+        # @return [Textgrid::REST::Events::V1::EventTypeList]
         def event_types(type=:unset)
           if type.nil?
               raise ArgumentError, 'type cannot be nil'
@@ -39,8 +39,8 @@ module Twilio
         ##
         # @param [String] id The unique identifier of the schema. Each schema can have
         #   multiple versions, that share the same id.
-        # @return [Twilio::REST::Events::V1::SchemaContext] if id was passed.
-        # @return [Twilio::REST::Events::V1::SchemaList]
+        # @return [Textgrid::REST::Events::V1::SchemaContext] if id was passed.
+        # @return [Textgrid::REST::Events::V1::SchemaList]
         def schemas(id=:unset)
           if id.nil?
               raise ArgumentError, 'id cannot be nil'
@@ -54,8 +54,8 @@ module Twilio
 
         ##
         # @param [String] sid A 34 character string that uniquely identifies this Sink.
-        # @return [Twilio::REST::Events::V1::SinkContext] if sid was passed.
-        # @return [Twilio::REST::Events::V1::SinkList]
+        # @return [Textgrid::REST::Events::V1::SinkContext] if sid was passed.
+        # @return [Textgrid::REST::Events::V1::SinkList]
         def sinks(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -70,8 +70,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   Subscription.
-        # @return [Twilio::REST::Events::V1::SubscriptionContext] if sid was passed.
-        # @return [Twilio::REST::Events::V1::SubscriptionList]
+        # @return [Textgrid::REST::Events::V1::SubscriptionContext] if sid was passed.
+        # @return [Textgrid::REST::Events::V1::SubscriptionList]
         def subscriptions(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -86,7 +86,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Events::V1>'
+          '<Textgrid::REST::Events::V1>'
         end
       end
     end

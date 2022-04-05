@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trunking < Domain
       class V1 < Version
@@ -32,7 +32,7 @@ module Twilio
             #   that you want to associate with the trunk.
             # @return [IpAccessControlListInstance] Created IpAccessControlListInstance
             def create(ip_access_control_list_sid: nil)
-              data = Twilio::Values.of({'IpAccessControlListSid' => ip_access_control_list_sid, })
+              data = Textgrid::Values.of({'IpAccessControlListSid' => ip_access_control_list_sid, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -95,7 +95,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of IpAccessControlListInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,

@@ -10,14 +10,14 @@ require 'spec_helper.rb'
 
 describe 'FunctionVersionContent' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.serverless.v1.services('ZSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .functions('ZHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .function_versions('ZNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .function_version_content().fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -27,7 +27,7 @@ describe 'FunctionVersionContent' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
           #   is associated with.
           # @return [ExternalCampaignInstance] Created ExternalCampaignInstance
           def create(campaign_id: nil, messaging_service_sid: nil)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'CampaignId' => campaign_id,
                 'MessagingServiceSid' => messaging_service_sid,
             })

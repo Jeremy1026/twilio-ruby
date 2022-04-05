@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module TwiML
     ##
     # <Response> TwiML for Messages

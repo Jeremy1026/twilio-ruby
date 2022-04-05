@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'TrustProductsChannelEndpointAssignment' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_channel_endpoint_assignment.create(channel_endpoint_type: 'channel_endpoint_type', channel_endpoint_sid: 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {
         'ChannelEndpointType' => 'channel_endpoint_type',
@@ -30,7 +30,7 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -52,12 +52,12 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_channel_endpoint_assignment.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -67,7 +67,7 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -92,7 +92,7 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -127,12 +127,12 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_channel_endpoint_assignment('RAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -142,7 +142,7 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -164,12 +164,12 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_channel_endpoint_assignment('RAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -179,7 +179,7 @@ describe 'TrustProductsChannelEndpointAssignment' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Numbers < Domain
       class V2 < Version
@@ -44,7 +44,7 @@ module Twilio
             #   request. Can be `local`, `mobile`, `national`, or `toll free`.
             # @return [BundleInstance] Created BundleInstance
             def create(friendly_name: nil, email: nil, status_callback: :unset, regulation_sid: :unset, iso_country: :unset, end_user_type: :unset, number_type: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'Email' => email,
                   'StatusCallback' => status_callback,
@@ -211,7 +211,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of BundleInstance
             def page(status: :unset, friendly_name: :unset, regulation_sid: :unset, iso_country: :unset, number_type: :unset, has_valid_until_date: :unset, sort_by: :unset, sort_direction: :unset, valid_until_date_before: :unset, valid_until_date: :unset, valid_until_date_after: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'Status' => status,
                   'FriendlyName' => friendly_name,
                   'RegulationSid' => regulation_sid,
@@ -323,7 +323,7 @@ module Twilio
             #   Bundle resource changes status.
             # @return [BundleInstance] Updated BundleInstance
             def update(status: :unset, status_callback: :unset, friendly_name: :unset, email: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Status' => status,
                   'StatusCallback' => status_callback,
                   'FriendlyName' => friendly_name,

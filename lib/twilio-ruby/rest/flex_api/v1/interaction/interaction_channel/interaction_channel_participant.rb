@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -35,7 +35,7 @@ module Twilio
               #   new Participant.
               # @return [InteractionChannelParticipantInstance] Created InteractionChannelParticipantInstance
               def create(type: nil, media_properties: nil)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Type' => type,
                     'MediaProperties' => Twilio.serialize_object(media_properties),
                 })
@@ -106,7 +106,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of InteractionChannelParticipantInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -194,7 +194,7 @@ module Twilio
               #   Can be: `closed` or `wrapup`.  Participant must be an agent.
               # @return [InteractionChannelParticipantInstance] Updated InteractionChannelParticipantInstance
               def update(status: nil)
-                data = Twilio::Values.of({'Status' => status, })
+                data = Textgrid::Values.of({'Status' => status, })
 
                 payload = @version.update('POST', @uri, data: data)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       class V1 < Version
@@ -36,7 +36,7 @@ module Twilio
               #   object that makes up the Stream Message body. Can be up to 4 KiB in length.
               # @return [StreamMessageInstance] Created StreamMessageInstance
               def create(data: nil)
-                data = Twilio::Values.of({'Data' => Twilio.serialize_object(data), })
+                data = Textgrid::Values.of({'Data' => Twilio.serialize_object(data), })
 
                 payload = @version.create('POST', @uri, data: data)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -79,7 +79,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of AddressConfigurationInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -134,7 +134,7 @@ module Twilio
           #   times to retry the webhook request
           # @return [AddressConfigurationInstance] Created AddressConfigurationInstance
           def create(type: nil, address: nil, friendly_name: :unset, auto_creation_enabled: :unset, auto_creation_type: :unset, auto_creation_conversation_service_sid: :unset, auto_creation_webhook_url: :unset, auto_creation_webhook_method: :unset, auto_creation_webhook_filters: :unset, auto_creation_studio_flow_sid: :unset, auto_creation_studio_retry_count: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Type' => type,
                 'Address' => address,
                 'FriendlyName' => friendly_name,
@@ -240,7 +240,7 @@ module Twilio
           #   times to retry the webhook request
           # @return [AddressConfigurationInstance] Updated AddressConfigurationInstance
           def update(friendly_name: :unset, auto_creation_enabled: :unset, auto_creation_type: :unset, auto_creation_conversation_service_sid: :unset, auto_creation_webhook_url: :unset, auto_creation_webhook_method: :unset, auto_creation_webhook_filters: :unset, auto_creation_studio_flow_sid: :unset, auto_creation_studio_retry_count: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'AutoCreation.Enabled' => auto_creation_enabled,
                 'AutoCreation.Type' => auto_creation_type,

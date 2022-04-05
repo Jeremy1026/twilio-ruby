@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'Command' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.commands('DCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -24,7 +24,7 @@ describe 'Command' do
   end
 
   it "receives fetch_command_sms responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -50,7 +50,7 @@ describe 'Command' do
   end
 
   it "receives fetch_command_ip responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -76,11 +76,11 @@ describe 'Command' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.commands.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -90,7 +90,7 @@ describe 'Command' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -114,7 +114,7 @@ describe 'Command' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -153,7 +153,7 @@ describe 'Command' do
   end
 
   it "receives read_ip responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -192,11 +192,11 @@ describe 'Command' do
   end
 
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.commands.create(command: 'command')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Command' => 'command', }
     expect(
@@ -208,7 +208,7 @@ describe 'Command' do
   end
 
   it "receives create_command_sms responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -234,7 +234,7 @@ describe 'Command' do
   end
 
   it "receives create_command_ip responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -260,11 +260,11 @@ describe 'Command' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.wireless.v1.commands('DCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -274,7 +274,7 @@ describe 'Command' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))

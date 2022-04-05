@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       class V1 < Version
@@ -58,7 +58,7 @@ module Twilio
           #   Defaults to `POST`.
           # @return [FleetInstance] Created FleetInstance
           def create(network_access_profile: nil, unique_name: :unset, data_enabled: :unset, data_limit: :unset, ip_commands_url: :unset, ip_commands_method: :unset, sms_commands_enabled: :unset, sms_commands_url: :unset, sms_commands_method: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'NetworkAccessProfile' => network_access_profile,
                 'UniqueName' => unique_name,
                 'DataEnabled' => data_enabled,
@@ -144,7 +144,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of FleetInstance
           def page(network_access_profile: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'NetworkAccessProfile' => network_access_profile,
                 'PageToken' => page_token,
                 'Page' => page_number,
@@ -256,7 +256,7 @@ module Twilio
           #   Defaults to `POST`.
           # @return [FleetInstance] Updated FleetInstance
           def update(unique_name: :unset, network_access_profile: :unset, ip_commands_url: :unset, ip_commands_method: :unset, sms_commands_url: :unset, sms_commands_method: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'UniqueName' => unique_name,
                 'NetworkAccessProfile' => network_access_profile,
                 'IpCommandsUrl' => ip_commands_url,

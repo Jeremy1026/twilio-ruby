@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -81,7 +81,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of AssistantInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -126,7 +126,7 @@ module Twilio
           #   assistant
           # @return [AssistantInstance] Created AssistantInstance
           def create(friendly_name: :unset, log_queries: :unset, unique_name: :unset, callback_url: :unset, callback_events: :unset, fallback_actions: :unset, initiation_actions: :unset, style_sheet: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'LogQueries' => log_queries,
                 'UniqueName' => unique_name,
@@ -237,7 +237,7 @@ module Twilio
           #   assistant
           # @return [AssistantInstance] Updated AssistantInstance
           def update(friendly_name: :unset, log_queries: :unset, unique_name: :unset, callback_url: :unset, callback_events: :unset, fallback_actions: :unset, initiation_actions: :unset, style_sheet: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'LogQueries' => log_queries,
                 'UniqueName' => unique_name,

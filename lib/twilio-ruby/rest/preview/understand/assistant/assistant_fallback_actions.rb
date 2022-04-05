@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -94,7 +94,7 @@ module Twilio
             # @param [Hash] fallback_actions The fallback_actions
             # @return [AssistantFallbackActionsInstance] Updated AssistantFallbackActionsInstance
             def update(fallback_actions: :unset)
-              data = Twilio::Values.of({'FallbackActions' => Twilio.serialize_object(fallback_actions), })
+              data = Textgrid::Values.of({'FallbackActions' => Twilio.serialize_object(fallback_actions), })
 
               payload = @version.update('POST', @uri, data: data)
 

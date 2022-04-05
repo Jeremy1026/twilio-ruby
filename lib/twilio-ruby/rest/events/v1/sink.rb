@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Events < Domain
       class V1 < Version
@@ -35,7 +35,7 @@ module Twilio
           #   "webhook" currently.
           # @return [SinkInstance] Created SinkInstance
           def create(description: nil, sink_configuration: nil, sink_type: nil)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Description' => description,
                 'SinkConfiguration' => Twilio.serialize_object(sink_configuration),
                 'SinkType' => sink_type,
@@ -114,7 +114,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of SinkInstance
           def page(in_use: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'InUse' => in_use,
                 'Status' => status,
                 'PageToken' => page_token,
@@ -220,7 +220,7 @@ module Twilio
           #   value should not contain PII.**
           # @return [SinkInstance] Updated SinkInstance
           def update(description: nil)
-            data = Twilio::Values.of({'Description' => description, })
+            data = Textgrid::Values.of({'Description' => description, })
 
             payload = @version.update('POST', @uri, data: data)
 

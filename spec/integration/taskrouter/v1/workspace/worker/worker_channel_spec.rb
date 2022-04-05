@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'WorkerChannel' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.taskrouter.v1.workspaces('WSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .workers('WKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .worker_channels.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -26,7 +26,7 @@ describe 'WorkerChannel' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -68,7 +68,7 @@ describe 'WorkerChannel' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -94,13 +94,13 @@ describe 'WorkerChannel' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.taskrouter.v1.workspaces('WSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .workers('WKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .worker_channels('WCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -110,7 +110,7 @@ describe 'WorkerChannel' do
   end
 
   it "receives fetch_sid responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -139,13 +139,13 @@ describe 'WorkerChannel' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.taskrouter.v1.workspaces('WSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .workers('WKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                            .worker_channels('WCXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -155,7 +155,7 @@ describe 'WorkerChannel' do
   end
 
   it "receives update responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'UsAppToPerson' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.services('MGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .us_app_to_person.create(brand_registration_sid: 'BNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', description: 'description', message_samples: ['message_samples'], us_app_to_person_usecase: 'us_app_to_person_usecase', has_embedded_links: true, has_embedded_phone: true)
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {
         'BrandRegistrationSid' => 'BNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
@@ -34,7 +34,7 @@ describe 'UsAppToPerson' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -77,12 +77,12 @@ describe 'UsAppToPerson' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.services('MGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .us_app_to_person('QEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -92,7 +92,7 @@ describe 'UsAppToPerson' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))
@@ -104,12 +104,12 @@ describe 'UsAppToPerson' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.services('MGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .us_app_to_person.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -119,7 +119,7 @@ describe 'UsAppToPerson' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -175,12 +175,12 @@ describe 'UsAppToPerson' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.services('MGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .us_app_to_person('QEXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -190,7 +190,7 @@ describe 'UsAppToPerson' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

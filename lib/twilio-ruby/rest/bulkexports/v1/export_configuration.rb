@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Bulkexports < Domain
       class V1 < Version
@@ -93,7 +93,7 @@ module Twilio
           #   destination is set in the webhook_url
           # @return [ExportConfigurationInstance] Updated ExportConfigurationInstance
           def update(enabled: :unset, webhook_url: :unset, webhook_method: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Enabled' => enabled,
                 'WebhookUrl' => webhook_url,
                 'WebhookMethod' => webhook_method,

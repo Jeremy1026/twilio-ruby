@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V2 < Version
@@ -45,13 +45,13 @@ module Twilio
             #   X-Twilio-Webhook-Enabled HTTP request header
             # @return [UserInstance] Created UserInstance
             def create(identity: nil, role_sid: :unset, attributes: :unset, friendly_name: :unset, x_twilio_webhook_enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Identity' => identity,
                   'RoleSid' => role_sid,
                   'Attributes' => attributes,
                   'FriendlyName' => friendly_name,
               })
-              headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+              headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
               payload = @version.create('POST', @uri, data: data, headers: headers)
 
@@ -114,7 +114,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of UserInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -225,12 +225,12 @@ module Twilio
             #   X-Twilio-Webhook-Enabled HTTP request header
             # @return [UserInstance] Updated UserInstance
             def update(role_sid: :unset, attributes: :unset, friendly_name: :unset, x_twilio_webhook_enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'RoleSid' => role_sid,
                   'Attributes' => attributes,
                   'FriendlyName' => friendly_name,
               })
-              headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+              headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
               payload = @version.update('POST', @uri, data: data, headers: headers)
 

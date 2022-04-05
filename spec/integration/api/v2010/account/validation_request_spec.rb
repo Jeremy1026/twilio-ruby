@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'ValidationRequest' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .validation_requests.create(phone_number: '+15017122661')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'PhoneNumber' => '+15017122661', }
     expect(
@@ -27,7 +27,7 @@ describe 'ValidationRequest' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {

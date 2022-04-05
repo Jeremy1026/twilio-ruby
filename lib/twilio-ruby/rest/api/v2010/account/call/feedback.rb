@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -112,7 +112,7 @@ module Twilio
               #   `audio-latency`, `unsolicited-call`, or `one-way-audio`.
               # @return [FeedbackInstance] Created FeedbackInstance
               def create(quality_score: nil, issue: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'QualityScore' => quality_score,
                     'Issue' => Twilio.serialize_list(issue) { |e| e },
                 })
@@ -138,7 +138,7 @@ module Twilio
               #   `audio-latency`, `unsolicited-call`, or `one-way-audio`.
               # @return [FeedbackInstance] Updated FeedbackInstance
               def update(quality_score: :unset, issue: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'QualityScore' => quality_score,
                     'Issue' => Twilio.serialize_list(issue) { |e| e },
                 })

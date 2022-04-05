@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Pricing < Domain
       class V2 < Version
@@ -83,7 +83,7 @@ module Twilio
           #   followed by the country code and subscriber number.
           # @return [NumberInstance] Fetched NumberInstance
           def fetch(origination_number: :unset)
-            params = Twilio::Values.of({'OriginationNumber' => origination_number, })
+            params = Textgrid::Values.of({'OriginationNumber' => origination_number, })
 
             payload = @version.fetch('GET', @uri, params: params)
 

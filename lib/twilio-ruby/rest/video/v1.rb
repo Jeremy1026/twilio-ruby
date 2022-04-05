@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video
       class V1 < Version
@@ -25,8 +25,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Composition resource to fetch.
-        # @return [Twilio::REST::Video::V1::CompositionContext] if sid was passed.
-        # @return [Twilio::REST::Video::V1::CompositionList]
+        # @return [Textgrid::REST::Video::V1::CompositionContext] if sid was passed.
+        # @return [Textgrid::REST::Video::V1::CompositionList]
         def compositions(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -40,8 +40,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the CompositionHook resource to fetch.
-        # @return [Twilio::REST::Video::V1::CompositionHookContext] if sid was passed.
-        # @return [Twilio::REST::Video::V1::CompositionHookList]
+        # @return [Textgrid::REST::Video::V1::CompositionHookContext] if sid was passed.
+        # @return [Textgrid::REST::Video::V1::CompositionHookList]
         def composition_hooks(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -54,15 +54,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Video::V1::CompositionSettingsContext]
+        # @return [Textgrid::REST::Video::V1::CompositionSettingsContext]
         def composition_settings
           @composition_settings ||= CompositionSettingsContext.new self
         end
 
         ##
         # @param [String] sid The SID of the Recording resource to fetch.
-        # @return [Twilio::REST::Video::V1::RecordingContext] if sid was passed.
-        # @return [Twilio::REST::Video::V1::RecordingList]
+        # @return [Textgrid::REST::Video::V1::RecordingContext] if sid was passed.
+        # @return [Textgrid::REST::Video::V1::RecordingList]
         def recordings(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -75,15 +75,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Video::V1::RecordingSettingsContext]
+        # @return [Textgrid::REST::Video::V1::RecordingSettingsContext]
         def recording_settings
           @recording_settings ||= RecordingSettingsContext.new self
         end
 
         ##
         # @param [String] sid The SID of the Room resource to fetch.
-        # @return [Twilio::REST::Video::V1::RoomContext] if sid was passed.
-        # @return [Twilio::REST::Video::V1::RoomList]
+        # @return [Textgrid::REST::Video::V1::RoomContext] if sid was passed.
+        # @return [Textgrid::REST::Video::V1::RoomList]
         def rooms(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -98,7 +98,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Video::V1>'
+          '<Textgrid::REST::Video::V1>'
         end
       end
     end

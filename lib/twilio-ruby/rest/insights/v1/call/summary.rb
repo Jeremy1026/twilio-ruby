@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights < Domain
       class V1 < Version
@@ -79,7 +79,7 @@ module Twilio
             # @param [call_summary.ProcessingState] processing_state The processing_state
             # @return [CallSummaryInstance] Fetched CallSummaryInstance
             def fetch(processing_state: :unset)
-              params = Twilio::Values.of({'ProcessingState' => processing_state, })
+              params = Textgrid::Values.of({'ProcessingState' => processing_state, })
 
               payload = @version.fetch('GET', @uri, params: params)
 

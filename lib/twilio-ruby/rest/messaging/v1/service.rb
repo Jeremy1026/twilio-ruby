@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -78,7 +78,7 @@ module Twilio
           #   `inbound_request_url`/`fallback_url` defined for the Messaging Service.
           # @return [ServiceInstance] Created ServiceInstance
           def create(friendly_name: nil, inbound_request_url: :unset, inbound_method: :unset, fallback_url: :unset, fallback_method: :unset, status_callback: :unset, sticky_sender: :unset, mms_converter: :unset, smart_encoding: :unset, scan_message_content: :unset, fallback_to_long_code: :unset, area_code_geomatch: :unset, validity_period: :unset, synchronous_validation: :unset, usecase: :unset, use_inbound_webhook_on_number: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'InboundRequestUrl' => inbound_request_url,
                 'InboundMethod' => inbound_method,
@@ -158,7 +158,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ServiceInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -296,7 +296,7 @@ module Twilio
           #   `inbound_request_url`/`fallback_url` defined for the Messaging Service.
           # @return [ServiceInstance] Updated ServiceInstance
           def update(friendly_name: :unset, inbound_request_url: :unset, inbound_method: :unset, fallback_url: :unset, fallback_method: :unset, status_callback: :unset, sticky_sender: :unset, mms_converter: :unset, smart_encoding: :unset, scan_message_content: :unset, fallback_to_long_code: :unset, area_code_geomatch: :unset, validity_period: :unset, synchronous_validation: :unset, usecase: :unset, use_inbound_webhook_on_number: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'InboundRequestUrl' => inbound_request_url,
                 'InboundMethod' => inbound_method,

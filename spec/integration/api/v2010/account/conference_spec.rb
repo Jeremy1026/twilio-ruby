@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'Conference' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .conferences('CFXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -25,7 +25,7 @@ describe 'Conference' do
   end
 
   it "receives fetch_valid_mixer_zone responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -55,7 +55,7 @@ describe 'Conference' do
   end
 
   it "receives fetch_valid_region_in_progress responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -85,7 +85,7 @@ describe 'Conference' do
   end
 
   it "receives fetch_without_mixer_zone_integer_status responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -115,7 +115,7 @@ describe 'Conference' do
   end
 
   it "receives fetch_unknown_mixer_zone_init_integer_status responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -145,12 +145,12 @@ describe 'Conference' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .conferences.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -160,7 +160,7 @@ describe 'Conference' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -184,7 +184,7 @@ describe 'Conference' do
   end
 
   it "receives read_next responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -260,7 +260,7 @@ describe 'Conference' do
   end
 
   it "receives read_previous responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -336,7 +336,7 @@ describe 'Conference' do
   end
 
   it "receives read_myroom responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -412,7 +412,7 @@ describe 'Conference' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -488,7 +488,7 @@ describe 'Conference' do
   end
 
   it "receives read_date_created_equals responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -564,7 +564,7 @@ describe 'Conference' do
   end
 
   it "receives read_date_created_on_or_after responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -640,12 +640,12 @@ describe 'Conference' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .conferences('CFXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -655,7 +655,7 @@ describe 'Conference' do
   end
 
   it "receives update_end_conference responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -685,7 +685,7 @@ describe 'Conference' do
   end
 
   it "receives announce_to_conference responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

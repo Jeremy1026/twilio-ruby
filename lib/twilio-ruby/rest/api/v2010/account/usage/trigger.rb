@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -55,7 +55,7 @@ module Twilio
               #    The default is `usage`.
               # @return [TriggerInstance] Created TriggerInstance
               def create(callback_url: nil, trigger_value: nil, usage_category: nil, callback_method: :unset, friendly_name: :unset, recurring: :unset, trigger_by: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'CallbackUrl' => callback_url,
                     'TriggerValue' => trigger_value,
                     'UsageCategory' => usage_category,
@@ -164,7 +164,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of TriggerInstance
               def page(recurring: :unset, trigger_by: :unset, usage_category: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Recurring' => recurring,
                     'TriggerBy' => trigger_by,
                     'UsageCategory' => usage_category,
@@ -264,7 +264,7 @@ module Twilio
               #   the resource. It can be up to 64 characters long.
               # @return [TriggerInstance] Updated TriggerInstance
               def update(callback_method: :unset, callback_url: :unset, friendly_name: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'CallbackMethod' => callback_method,
                     'CallbackUrl' => callback_url,
                     'FriendlyName' => friendly_name,

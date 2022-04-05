@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trunking < Domain
       class V1 < Version
@@ -94,7 +94,7 @@ module Twilio
             #   Can be do-not-trim (default) or trim-silence.
             # @return [RecordingInstance] Updated RecordingInstance
             def update(mode: :unset, trim: :unset)
-              data = Twilio::Values.of({'Mode' => mode, 'Trim' => trim, })
+              data = Textgrid::Values.of({'Mode' => mode, 'Trim' => trim, })
 
               payload = @version.update('POST', @uri, data: data)
 

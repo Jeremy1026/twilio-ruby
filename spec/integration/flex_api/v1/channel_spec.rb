@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'Channel' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.flex_api.v1.channel.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -24,7 +24,7 @@ describe 'Channel' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -59,7 +59,7 @@ describe 'Channel' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -83,11 +83,11 @@ describe 'Channel' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.flex_api.v1.channel('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -97,7 +97,7 @@ describe 'Channel' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -119,11 +119,11 @@ describe 'Channel' do
   end
 
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.flex_api.v1.channel.create(flex_flow_sid: 'FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', identity: 'identity', chat_user_friendly_name: 'chat_user_friendly_name', chat_friendly_name: 'chat_friendly_name')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {
         'FlexFlowSid' => 'FOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
@@ -140,7 +140,7 @@ describe 'Channel' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -162,11 +162,11 @@ describe 'Channel' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.flex_api.v1.channel('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -176,7 +176,7 @@ describe 'Channel' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))

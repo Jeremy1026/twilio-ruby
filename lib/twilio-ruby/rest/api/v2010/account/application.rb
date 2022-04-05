@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -63,7 +63,7 @@ module Twilio
             #   the new application. It can be up to 64 characters long.
             # @return [ApplicationInstance] Created ApplicationInstance
             def create(api_version: :unset, voice_url: :unset, voice_method: :unset, voice_fallback_url: :unset, voice_fallback_method: :unset, status_callback: :unset, status_callback_method: :unset, voice_caller_id_lookup: :unset, sms_url: :unset, sms_method: :unset, sms_fallback_url: :unset, sms_fallback_method: :unset, sms_status_callback: :unset, message_status_callback: :unset, friendly_name: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'ApiVersion' => api_version,
                   'VoiceUrl' => voice_url,
                   'VoiceMethod' => voice_method,
@@ -148,7 +148,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ApplicationInstance
             def page(friendly_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'PageToken' => page_token,
                   'Page' => page_number,
@@ -285,7 +285,7 @@ module Twilio
             #   method to send message status information to your application.
             # @return [ApplicationInstance] Updated ApplicationInstance
             def update(friendly_name: :unset, api_version: :unset, voice_url: :unset, voice_method: :unset, voice_fallback_url: :unset, voice_fallback_method: :unset, status_callback: :unset, status_callback_method: :unset, voice_caller_id_lookup: :unset, sms_url: :unset, sms_method: :unset, sms_fallback_url: :unset, sms_fallback_method: :unset, sms_status_callback: :unset, message_status_callback: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'ApiVersion' => api_version,
                   'VoiceUrl' => voice_url,

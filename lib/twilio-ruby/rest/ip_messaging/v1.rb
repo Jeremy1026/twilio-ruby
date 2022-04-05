@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class IpMessaging
       class V1 < Version
@@ -21,8 +21,8 @@ module Twilio
 
         ##
         # @param [String] sid The sid
-        # @return [Twilio::REST::Ip_messaging::V1::CredentialContext] if sid was passed.
-        # @return [Twilio::REST::Ip_messaging::V1::CredentialList]
+        # @return [Textgrid::REST::Ip_messaging::V1::CredentialContext] if sid was passed.
+        # @return [Textgrid::REST::Ip_messaging::V1::CredentialList]
         def credentials(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,8 +36,8 @@ module Twilio
 
         ##
         # @param [String] sid The sid
-        # @return [Twilio::REST::Ip_messaging::V1::ServiceContext] if sid was passed.
-        # @return [Twilio::REST::Ip_messaging::V1::ServiceList]
+        # @return [Textgrid::REST::Ip_messaging::V1::ServiceContext] if sid was passed.
+        # @return [Textgrid::REST::Ip_messaging::V1::ServiceList]
         def services(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -52,7 +52,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::IpMessaging::V1>'
+          '<Textgrid::REST::IpMessaging::V1>'
         end
       end
     end

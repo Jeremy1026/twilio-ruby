@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -157,7 +157,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of VerificationAttemptInstance
           def page(date_created_after: :unset, date_created_before: :unset, channel_data_to: :unset, country: :unset, channel: :unset, verify_service_sid: :unset, verification_sid: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'DateCreatedAfter' => Twilio.serialize_iso8601_datetime(date_created_after),
                 'DateCreatedBefore' => Twilio.serialize_iso8601_datetime(date_created_before),
                 'ChannelData.To' => channel_data_to,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -79,7 +79,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ChannelInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -121,7 +121,7 @@ module Twilio
           # @param [Boolean] long_lived Whether to create the channel as long-lived.
           # @return [ChannelInstance] Created ChannelInstance
           def create(flex_flow_sid: nil, identity: nil, chat_user_friendly_name: nil, chat_friendly_name: nil, target: :unset, chat_unique_name: :unset, pre_engagement_data: :unset, task_sid: :unset, task_attributes: :unset, long_lived: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FlexFlowSid' => flex_flow_sid,
                 'Identity' => identity,
                 'ChatUserFriendlyName' => chat_user_friendly_name,

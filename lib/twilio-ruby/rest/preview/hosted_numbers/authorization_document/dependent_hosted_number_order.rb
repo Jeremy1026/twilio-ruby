@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class HostedNumbers < Version
@@ -141,7 +141,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of DependentHostedNumberOrderInstance
             def page(status: :unset, phone_number: :unset, incoming_phone_number_sid: :unset, friendly_name: :unset, unique_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'Status' => status,
                   'PhoneNumber' => phone_number,
                   'IncomingPhoneNumberSid' => incoming_phone_number_sid,

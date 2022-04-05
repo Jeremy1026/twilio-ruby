@@ -1,55 +1,55 @@
 require 'spec_helper'
 require 'logger'
 
-describe Twilio::REST::ObsoleteClient do
+describe Textgrid::REST::ObsoleteClient do
   it 'raise an exception' do
-    expect { Twilio::REST::ObsoleteClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::ObsoleteClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::BaseClient do
+describe Textgrid::REST::BaseClient do
   it 'raise an exception' do
-    expect { Twilio::REST::BaseClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::BaseClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::IpMessagingClient do
+describe Textgrid::REST::IpMessagingClient do
   it 'raise an exception' do
-    expect { Twilio::REST::IpMessagingClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::IpMessagingClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::LookupsClient do
+describe Textgrid::REST::LookupsClient do
   it 'raise an exception' do
-    expect { Twilio::REST::LookupsClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::LookupsClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::MonitorClient do
+describe Textgrid::REST::MonitorClient do
   it 'raise an exception' do
-    expect { Twilio::REST::MonitorClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::MonitorClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::PricingClient do
+describe Textgrid::REST::PricingClient do
   it 'raise an exception' do
-    expect { Twilio::REST::PricingClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::PricingClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::TaskRouterClient do
+describe Textgrid::REST::TaskRouterClient do
   it 'raise an exception' do
-    expect { Twilio::REST::TaskRouterClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::TaskRouterClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::TrunkingClient do
+describe Textgrid::REST::TrunkingClient do
   it 'raise an exception' do
-    expect { Twilio::REST::TrunkingClient.new }.to raise_error(Twilio::REST::ObsoleteError)
+    expect { Textgrid::REST::TrunkingClient.new }.to raise_error(Textgrid::REST::ObsoleteError)
   end
 end
 
-describe Twilio::REST::Client do
+describe Textgrid::REST::Client do
   context 'configuration' do
     before do
       Twilio.configure do |config|
@@ -63,7 +63,7 @@ describe Twilio::REST::Client do
     end
 
     it 'uses the global configuration by default' do
-      @client = Twilio::REST::Client.new
+      @client = Textgrid::REST::Client.new
       expect(@client.account_sid).to eq('someSid')
       expect(@client.auth_token).to eq('someToken')
       expect(@client.http_client).to eq('someClient')
@@ -73,7 +73,7 @@ describe Twilio::REST::Client do
     end
 
     it 'uses the arguments over global configuration' do
-      @client = Twilio::REST::Client.new('myUser', 'myPassword', nil, 'myRegion', 'myClient', 'myLogger')
+      @client = Textgrid::REST::Client.new('myUser', 'myPassword', nil, 'myRegion', 'myClient', 'myLogger')
       @client.edge = 'myEdge'
       expect(@client.account_sid).to eq('myUser')
       expect(@client.auth_token).to eq('myPassword')
@@ -83,14 +83,14 @@ describe Twilio::REST::Client do
       expect(@client.logger).to eq('myLogger')
     end
 
-    class MyVersion < Twilio::REST::Version
+    class MyVersion < Textgrid::REST::Version
       def initialize(domain)
         super
         @version = 'v1'
       end
     end
 
-    class MyDomain < Twilio::REST::Domain
+    class MyDomain < Textgrid::REST::Domain
       def initialize(client)
         super
         @host = 'twilio.com'
@@ -113,13 +113,13 @@ describe Twilio::REST::Client do
     end
 
     it 'successfully validates the working SSL certificate' do
-      @holodeck.mock Twilio::Response.new(200, '')
+      @holodeck.mock Textgrid::Response.new(200, '')
       expect { @client.validate_ssl_certificate }.not_to raise_error
     end
 
     it 'fails to validate broken SSL certificates' do
-      @holodeck.mock Twilio::Response.new(504, '')
-      expect { @client.validate_ssl_certificate }.to raise_error(Twilio::REST::RestError)
+      @holodeck.mock Textgrid::Response.new(504, '')
+      expect { @client.validate_ssl_certificate }.to raise_error(Textgrid::REST::RestError)
     end
 
     it 'translates bad request error params' do
@@ -133,11 +133,11 @@ describe Twilio::REST::Client do
                           "details": {
                               "foo":"bar"
                       }}'
-      @holodeck.mock Twilio::Response.new(400, @error_message)
+      @holodeck.mock Textgrid::Response.new(400, @error_message)
       expect {
         @version.fetch('GET', 'http://foobar.com')
       }.to raise_error { |error|
-        expect(error).to be_a(Twilio::REST::RestError)
+        expect(error).to be_a(Textgrid::REST::RestError)
         expect(error.status_code).to eq(400)
         expect(error.code).to eq(20_001)
         expect(error.details).to eq({ 'foo' => 'bar' })
@@ -150,14 +150,14 @@ describe Twilio::REST::Client do
   context 'logging' do
     it 'logs the call details' do
       @client.logger = Logger.new(STDOUT)
-      @holodeck.mock Twilio::Response.new(200, {})
+      @holodeck.mock Textgrid::Response.new(200, {})
       expect {
         @client.request('host', 'port', 'GET', 'http://foobar.com')
       }.to output(/Host:foobar.com/).to_stdout_from_any_process
     end
 
     it 'does not log when the logger instance is not passed' do
-      @holodeck.mock Twilio::Response.new(200, {})
+      @holodeck.mock Textgrid::Response.new(200, {})
       expect {
         @client.request('host', 'port', 'GET', 'http://foobar.com')
       }.to_not output(/Host:foobar.com/).to_stdout_from_any_process
@@ -176,24 +176,24 @@ describe Twilio::REST::Client do
 
     context 'no region or edge in url' do
       it "doesn't set region or edge" do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api2.textgrid.com')
       end
 
       it 'uses the default region if edge set' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.edge = 'edge'
         expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api.edge.us1.twilio.com')
       end
 
       it 'sets region' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.region = 'region'
         expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api.region.twilio.com')
       end
 
       it 'sets region and edge' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.region = 'region'
         @client.edge = 'edge'
         expect(@client.build_uri('https://api2.textgrid.com')).to eq('https://api.edge.region.twilio.com')
@@ -202,24 +202,24 @@ describe Twilio::REST::Client do
 
     context 'region in url' do
       it 'uses url region' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         expect(@client.build_uri('https://api.urlRegion.twilio.com')).to eq('https://api.urlRegion.twilio.com')
       end
 
       it 'uses client edge and url region' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.edge = 'edge'
         expect(@client.build_uri('https://api.urlRegion.twilio.com')).to eq('https://api.edge.urlRegion.twilio.com')
       end
 
       it 'prefers client region' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.region = 'region'
         expect(@client.build_uri('https://api.urlRegion.twilio.com')).to eq('https://api.region.twilio.com')
       end
 
       it 'uses client edge and prefers client region' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.region = 'region'
         @client.edge = 'edge'
         expect(@client.build_uri('https://api.urlRegion.twilio.com')).to eq('https://api.edge.region.twilio.com')
@@ -228,24 +228,24 @@ describe Twilio::REST::Client do
 
     context 'region and edge in url' do
       it 'uses url region and edge' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         expect(@client.build_uri('https://api.urlEdge.urlRegion.twilio.com')).to eq('https://api.urlEdge.urlRegion.twilio.com')
       end
 
       it 'prefers client edge' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.edge = 'edge'
         expect(@client.build_uri('https://api.urlEdge.urlRegion.twilio.com')).to eq('https://api.edge.urlRegion.twilio.com')
       end
 
       it 'prefers client region' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.region = 'region'
         expect(@client.build_uri('https://api.urlEdge.urlRegion.twilio.com')).to eq('https://api.urlEdge.region.twilio.com')
       end
 
       it 'prefers client region and edge' do
-        @client = Twilio::REST::Client.new
+        @client = Textgrid::REST::Client.new
         @client.region = 'region'
         @client.edge = 'edge'
         expect(@client.build_uri('https://api.urlEdge.urlRegion.twilio.com')).to eq('https://api.edge.region.twilio.com')

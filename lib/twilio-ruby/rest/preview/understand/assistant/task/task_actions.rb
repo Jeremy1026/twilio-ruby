@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -108,7 +108,7 @@ module Twilio
               #   perform this task.
               # @return [TaskActionsInstance] Updated TaskActionsInstance
               def update(actions: :unset)
-                data = Twilio::Values.of({'Actions' => Twilio.serialize_object(actions), })
+                data = Textgrid::Values.of({'Actions' => Twilio.serialize_object(actions), })
 
                 payload = @version.update('POST', @uri, data: data)
 

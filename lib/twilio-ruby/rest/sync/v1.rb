@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync
       class V1 < Version
@@ -20,8 +20,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Service resource to fetch.
-        # @return [Twilio::REST::Sync::V1::ServiceContext] if sid was passed.
-        # @return [Twilio::REST::Sync::V1::ServiceList]
+        # @return [Textgrid::REST::Sync::V1::ServiceContext] if sid was passed.
+        # @return [Textgrid::REST::Sync::V1::ServiceList]
         def services(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,7 +36,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Sync::V1>'
+          '<Textgrid::REST::Sync::V1>'
         end
       end
     end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -74,7 +74,7 @@ module Twilio
           #   fractions).
           # @return [RoomInstance] Created RoomInstance
           def create(enable_turn: :unset, type: :unset, unique_name: :unset, status_callback: :unset, status_callback_method: :unset, max_participants: :unset, record_participants_on_connect: :unset, video_codecs: :unset, media_region: :unset, recording_rules: :unset, audio_only: :unset, max_participant_duration: :unset, empty_room_timeout: :unset, unused_room_timeout: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'EnableTurn' => enable_turn,
                 'Type' => type,
                 'UniqueName' => unique_name,
@@ -186,7 +186,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of RoomInstance
           def page(status: :unset, unique_name: :unset, date_created_after: :unset, date_created_before: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Status' => status,
                 'UniqueName' => unique_name,
                 'DateCreatedAfter' => Twilio.serialize_iso8601_datetime(date_created_after),
@@ -284,7 +284,7 @@ module Twilio
           #   `completed` to end the room.
           # @return [RoomInstance] Updated RoomInstance
           def update(status: nil)
-            data = Twilio::Values.of({'Status' => status, })
+            data = Textgrid::Values.of({'Status' => status, })
 
             payload = @version.update('POST', @uri, data: data)
 

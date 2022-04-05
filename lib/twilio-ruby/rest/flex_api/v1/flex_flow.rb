@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -85,7 +85,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of FlexFlowInstance
           def page(friendly_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'PageToken' => page_token,
                 'Page' => page_number,
@@ -162,7 +162,7 @@ module Twilio
           #   applicable otherwise.
           # @return [FlexFlowInstance] Created FlexFlowInstance
           def create(friendly_name: nil, chat_service_sid: nil, channel_type: nil, contact_identity: :unset, enabled: :unset, integration_type: :unset, integration_flow_sid: :unset, integration_url: :unset, integration_workspace_sid: :unset, integration_workflow_sid: :unset, integration_channel: :unset, integration_timeout: :unset, integration_priority: :unset, integration_creation_on_message: :unset, long_lived: :unset, janitor_enabled: :unset, integration_retry_count: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'ChatServiceSid' => chat_service_sid,
                 'ChannelType' => channel_type,
@@ -298,7 +298,7 @@ module Twilio
           #   applicable otherwise.
           # @return [FlexFlowInstance] Updated FlexFlowInstance
           def update(friendly_name: :unset, chat_service_sid: :unset, channel_type: :unset, contact_identity: :unset, enabled: :unset, integration_type: :unset, integration_flow_sid: :unset, integration_url: :unset, integration_workspace_sid: :unset, integration_workflow_sid: :unset, integration_channel: :unset, integration_timeout: :unset, integration_priority: :unset, integration_creation_on_message: :unset, long_lived: :unset, janitor_enabled: :unset, integration_retry_count: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'ChatServiceSid' => chat_service_sid,
                 'ChannelType' => channel_type,

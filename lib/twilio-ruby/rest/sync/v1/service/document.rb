@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       class V1 < Version
@@ -38,7 +38,7 @@ module Twilio
             #   the Sync Document expires and is deleted (the Sync Document's time-to-live).
             # @return [DocumentInstance] Created DocumentInstance
             def create(unique_name: :unset, data: :unset, ttl: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'Data' => Twilio.serialize_object(data),
                   'Ttl' => ttl,
@@ -105,7 +105,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of DocumentInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -212,8 +212,8 @@ module Twilio
             # @param [String] if_match The If-Match HTTP request header
             # @return [DocumentInstance] Updated DocumentInstance
             def update(data: :unset, ttl: :unset, if_match: :unset)
-              data = Twilio::Values.of({'Data' => Twilio.serialize_object(data), 'Ttl' => ttl, })
-              headers = Twilio::Values.of({'If-Match' => if_match, })
+              data = Textgrid::Values.of({'Data' => Twilio.serialize_object(data), 'Ttl' => ttl, })
+              headers = Textgrid::Values.of({'If-Match' => if_match, })
 
               payload = @version.update('POST', @uri, data: data, headers: headers)
 

@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'TrustProductsEvaluations' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_evaluations.create(policy_sid: 'RNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'PolicySid' => 'RNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', }
     expect(
@@ -27,7 +27,7 @@ describe 'TrustProductsEvaluations' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -200,12 +200,12 @@ describe 'TrustProductsEvaluations' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_evaluations.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -215,7 +215,7 @@ describe 'TrustProductsEvaluations' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -240,7 +240,7 @@ describe 'TrustProductsEvaluations' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -426,12 +426,12 @@ describe 'TrustProductsEvaluations' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.trusthub.v1.trust_products('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .trust_products_evaluations('ELXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -441,7 +441,7 @@ describe 'TrustProductsEvaluations' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

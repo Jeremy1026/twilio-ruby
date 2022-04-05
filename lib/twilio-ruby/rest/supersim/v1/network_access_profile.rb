@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       class V1 < Version
@@ -34,7 +34,7 @@ module Twilio
           #   Profile will allow connections to.
           # @return [NetworkAccessProfileInstance] Created NetworkAccessProfileInstance
           def create(unique_name: :unset, networks: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'UniqueName' => unique_name,
                 'Networks' => Twilio.serialize_list(networks) { |e| e },
             })
@@ -100,7 +100,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of NetworkAccessProfileInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -195,7 +195,7 @@ module Twilio
           # @param [String] unique_name The new unique name of the Network Access Profile.
           # @return [NetworkAccessProfileInstance] Updated NetworkAccessProfileInstance
           def update(unique_name: :unset)
-            data = Twilio::Values.of({'UniqueName' => unique_name, })
+            data = Textgrid::Values.of({'UniqueName' => unique_name, })
 
             payload = @version.update('POST', @uri, data: data)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V2 < Version
@@ -87,7 +87,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of UserChannelInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -197,7 +197,7 @@ module Twilio
               #   X-Twilio-Webhook-Enabled HTTP request header
               # @return [Boolean] true if delete succeeds, false otherwise
               def delete(x_twilio_webhook_enabled: :unset)
-                headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+                headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
                  @version.delete('DELETE', @uri, headers: headers)
               end
@@ -215,7 +215,7 @@ module Twilio
               #   the Member within the {Channel}[https://www.twilio.com/docs/chat/channels].
               # @return [UserChannelInstance] Updated UserChannelInstance
               def update(notification_level: :unset, last_consumed_message_index: :unset, last_consumption_timestamp: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'NotificationLevel' => notification_level,
                     'LastConsumedMessageIndex' => last_consumed_message_index,
                     'LastConsumptionTimestamp' => Twilio.serialize_iso8601_datetime(last_consumption_timestamp),

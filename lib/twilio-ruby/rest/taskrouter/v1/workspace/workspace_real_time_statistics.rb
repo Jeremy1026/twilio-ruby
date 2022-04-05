@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -81,7 +81,7 @@ module Twilio
             #   `sms`, or `default`.
             # @return [WorkspaceRealTimeStatisticsInstance] Fetched WorkspaceRealTimeStatisticsInstance
             def fetch(task_channel: :unset)
-              params = Twilio::Values.of({'TaskChannel' => task_channel, })
+              params = Textgrid::Values.of({'TaskChannel' => task_channel, })
 
               payload = @version.fetch('GET', @uri, params: params)
 

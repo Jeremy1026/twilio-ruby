@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -109,7 +109,7 @@ module Twilio
               #   statistics on up to 10,000 Tasks for any given threshold.
               # @return [WorkflowCumulativeStatisticsInstance] Fetched WorkflowCumulativeStatisticsInstance
               def fetch(end_date: :unset, minutes: :unset, start_date: :unset, task_channel: :unset, split_by_wait_time: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'EndDate' => Twilio.serialize_iso8601_datetime(end_date),
                     'Minutes' => minutes,
                     'StartDate' => Twilio.serialize_iso8601_datetime(start_date),

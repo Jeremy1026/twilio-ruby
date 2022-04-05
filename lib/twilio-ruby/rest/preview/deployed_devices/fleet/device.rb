@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class DeployedDevices < Version
@@ -42,7 +42,7 @@ module Twilio
             # @param [Boolean] enabled The enabled
             # @return [DeviceInstance] Created DeviceInstance
             def create(unique_name: :unset, friendly_name: :unset, identity: :unset, deployment_sid: :unset, enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'FriendlyName' => friendly_name,
                   'Identity' => identity,
@@ -117,7 +117,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of DeviceInstance
             def page(deployment_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'DeploymentSid' => deployment_sid,
                   'PageToken' => page_token,
                   'Page' => page_number,
@@ -225,7 +225,7 @@ module Twilio
             # @param [Boolean] enabled The enabled
             # @return [DeviceInstance] Updated DeviceInstance
             def update(friendly_name: :unset, identity: :unset, deployment_sid: :unset, enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'Identity' => identity,
                   'DeploymentSid' => deployment_sid,

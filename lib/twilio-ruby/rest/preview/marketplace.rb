@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class Marketplace < Version
@@ -21,8 +21,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the AvailableAddOn resource to fetch.
-        # @return [Twilio::REST::Preview::Marketplace::AvailableAddOnContext] if sid was passed.
-        # @return [Twilio::REST::Preview::Marketplace::AvailableAddOnList]
+        # @return [Textgrid::REST::Preview::Marketplace::AvailableAddOnContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::Marketplace::AvailableAddOnList]
         def available_add_ons(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,8 +36,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the InstalledAddOn resource to fetch.
-        # @return [Twilio::REST::Preview::Marketplace::InstalledAddOnContext] if sid was passed.
-        # @return [Twilio::REST::Preview::Marketplace::InstalledAddOnList]
+        # @return [Textgrid::REST::Preview::Marketplace::InstalledAddOnContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::Marketplace::InstalledAddOnList]
         def installed_add_ons(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -52,7 +52,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::Marketplace>'
+          '<Textgrid::REST::Preview::Marketplace>'
         end
       end
     end

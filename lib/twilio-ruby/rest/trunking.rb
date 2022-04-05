@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trunking < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Trunk
       #   resource.
-      # @return [Twilio::REST::Trunking::V1::TrunkInstance] if sid was passed.
-      # @return [Twilio::REST::Trunking::V1::TrunkList]
+      # @return [Textgrid::REST::Trunking::V1::TrunkInstance] if sid was passed.
+      # @return [Textgrid::REST::Trunking::V1::TrunkList]
       def trunks(sid=:unset)
         self.v1.trunks(sid)
       end
@@ -40,7 +40,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Trunking>'
+        '#<Textgrid::REST::Trunking>'
       end
     end
   end

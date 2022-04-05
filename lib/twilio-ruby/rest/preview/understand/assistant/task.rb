@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -83,7 +83,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of TaskInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -119,7 +119,7 @@ module Twilio
             #   fetches actions
             # @return [TaskInstance] Created TaskInstance
             def create(unique_name: nil, friendly_name: :unset, actions: :unset, actions_url: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'FriendlyName' => friendly_name,
                   'Actions' => Twilio.serialize_object(actions),
@@ -214,7 +214,7 @@ module Twilio
             #   fetches actions
             # @return [TaskInstance] Updated TaskInstance
             def update(friendly_name: :unset, unique_name: :unset, actions: :unset, actions_url: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'UniqueName' => unique_name,
                   'Actions' => Twilio.serialize_object(actions),

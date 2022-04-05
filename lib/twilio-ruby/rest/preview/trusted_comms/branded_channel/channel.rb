@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class TrustedComms < Version
@@ -34,7 +34,7 @@ module Twilio
             #   of the Phone number to be assigned to the Branded Channel.
             # @return [ChannelInstance] Created ChannelInstance
             def create(phone_number_sid: nil)
-              data = Twilio::Values.of({'PhoneNumberSid' => phone_number_sid, })
+              data = Textgrid::Values.of({'PhoneNumberSid' => phone_number_sid, })
 
               payload = @version.create('POST', @uri, data: data)
 

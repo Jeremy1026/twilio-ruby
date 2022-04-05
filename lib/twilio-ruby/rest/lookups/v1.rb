@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Lookups
       class V1 < Version
@@ -22,8 +22,8 @@ module Twilio
         # @param [String] phone_number The phone number to lookup in
         #   {E.164}[https://www.twilio.com/docs/glossary/what-e164] format, which consists
         #   of a + followed by the country code and subscriber number.
-        # @return [Twilio::REST::Lookups::V1::PhoneNumberContext] if phone_number was passed.
-        # @return [Twilio::REST::Lookups::V1::PhoneNumberList]
+        # @return [Textgrid::REST::Lookups::V1::PhoneNumberContext] if phone_number was passed.
+        # @return [Textgrid::REST::Lookups::V1::PhoneNumberList]
         def phone_numbers(phone_number=:unset)
           if phone_number.nil?
               raise ArgumentError, 'phone_number cannot be nil'
@@ -38,7 +38,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Lookups::V1>'
+          '<Textgrid::REST::Lookups::V1>'
         end
       end
     end

@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'MediaProcessor' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.media.v1.media_processor.create(extension: 'extension', extension_context: 'extension_context')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Extension' => 'extension', 'ExtensionContext' => 'extension_context', }
     expect(
@@ -26,7 +26,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -52,11 +52,11 @@ describe 'MediaProcessor' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.media.v1.media_processor('ZXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -66,7 +66,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -92,11 +92,11 @@ describe 'MediaProcessor' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.media.v1.media_processor('ZXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update(status: 'ended')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Status' => 'ended', }
     expect(
@@ -108,7 +108,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives update_ended responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -134,11 +134,11 @@ describe 'MediaProcessor' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.media.v1.media_processor.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -148,7 +148,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -172,7 +172,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives read_items responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -211,7 +211,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives read_items_using_page_token responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -250,7 +250,7 @@ describe 'MediaProcessor' do
   end
 
   it "receives read_items_page_larger_than_max responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

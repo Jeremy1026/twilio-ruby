@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -85,7 +85,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of MemberInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -194,7 +194,7 @@ module Twilio
               #   `GET` sends the data as query parameters.
               # @return [MemberInstance] Updated MemberInstance
               def update(url: nil, method: :unset)
-                data = Twilio::Values.of({'Url' => url, 'Method' => method, })
+                data = Textgrid::Values.of({'Url' => url, 'Method' => method, })
 
                 payload = @version.update('POST', @uri, data: data)
 

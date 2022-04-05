@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Pricing
       class V1 < Version
@@ -21,19 +21,19 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Pricing::V1::MessagingContext]
+        # @return [Textgrid::REST::Pricing::V1::MessagingContext]
         def messaging
           @messaging ||= MessagingList.new self
         end
 
         ##
-        # @return [Twilio::REST::Pricing::V1::PhoneNumberContext]
+        # @return [Textgrid::REST::Pricing::V1::PhoneNumberContext]
         def phone_numbers
           @phone_numbers ||= PhoneNumberList.new self
         end
 
         ##
-        # @return [Twilio::REST::Pricing::V1::VoiceContext]
+        # @return [Textgrid::REST::Pricing::V1::VoiceContext]
         def voice
           @voice ||= VoiceList.new self
         end
@@ -41,7 +41,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Pricing::V1>'
+          '<Textgrid::REST::Pricing::V1>'
         end
       end
     end

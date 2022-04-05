@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -93,7 +93,7 @@ module Twilio
             #   inherit voice dialing permissions from the Master Project; otherwise `false`.
             # @return [SettingsInstance] Updated SettingsInstance
             def update(dialing_permissions_inheritance: :unset)
-              data = Twilio::Values.of({'DialingPermissionsInheritance' => dialing_permissions_inheritance, })
+              data = Textgrid::Values.of({'DialingPermissionsInheritance' => dialing_permissions_inheritance, })
 
               payload = @version.update('POST', @uri, data: data)
 

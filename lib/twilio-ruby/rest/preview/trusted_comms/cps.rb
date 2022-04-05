@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class TrustedComms < Version
@@ -83,7 +83,7 @@ module Twilio
           #   corresponding CPS.
           # @return [CpsInstance] Fetched CpsInstance
           def fetch(x_xcnam_sensitive_phone_number: :unset)
-            headers = Twilio::Values.of({'X-Xcnam-Sensitive-Phone-Number' => x_xcnam_sensitive_phone_number, })
+            headers = Textgrid::Values.of({'X-Xcnam-Sensitive-Phone-Number' => x_xcnam_sensitive_phone_number, })
 
             payload = @version.fetch('GET', @uri, headers: headers)
 

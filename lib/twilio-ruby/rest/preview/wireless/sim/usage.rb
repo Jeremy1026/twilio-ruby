@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Wireless < Version
@@ -86,7 +86,7 @@ module Twilio
             # @param [String] start The start
             # @return [UsageInstance] Fetched UsageInstance
             def fetch(end_: :unset, start: :unset)
-              params = Twilio::Values.of({'End' => end_, 'Start' => start, })
+              params = Textgrid::Values.of({'End' => end_, 'Start' => start, })
 
               payload = @version.fetch('GET', @uri, params: params)
 

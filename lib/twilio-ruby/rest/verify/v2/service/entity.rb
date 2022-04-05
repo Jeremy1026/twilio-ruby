@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -35,7 +35,7 @@ module Twilio
             #   GUID, or SID. It can only contain dash (-) separated alphanumeric characters.
             # @return [EntityInstance] Created EntityInstance
             def create(identity: nil)
-              data = Twilio::Values.of({'Identity' => identity, })
+              data = Textgrid::Values.of({'Identity' => identity, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -98,7 +98,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of EntityInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,

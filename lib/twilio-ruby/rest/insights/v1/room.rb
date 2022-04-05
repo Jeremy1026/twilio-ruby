@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights < Domain
       class V1 < Version
@@ -123,7 +123,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of RoomInstance
           def page(room_type: :unset, codec: :unset, room_name: :unset, created_after: :unset, created_before: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'RoomType' => Twilio.serialize_list(room_type) { |e| e },
                 'Codec' => Twilio.serialize_list(codec) { |e| e },
                 'RoomName' => room_name,

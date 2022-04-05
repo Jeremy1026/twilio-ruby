@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class IpMessaging < Domain
       class V1 < Version
@@ -32,7 +32,7 @@ module Twilio
             # @param [Array[String]] permission The permission
             # @return [RoleInstance] Created RoleInstance
             def create(friendly_name: nil, type: nil, permission: nil)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'Type' => type,
                   'Permission' => Twilio.serialize_list(permission) { |e| e },
@@ -99,7 +99,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of RoleInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -195,7 +195,7 @@ module Twilio
             # @param [Array[String]] permission The permission
             # @return [RoleInstance] Updated RoleInstance
             def update(permission: nil)
-              data = Twilio::Values.of({'Permission' => Twilio.serialize_list(permission) { |e| e }, })
+              data = Textgrid::Values.of({'Permission' => Twilio.serialize_list(permission) { |e| e }, })
 
               payload = @version.update('POST', @uri, data: data)
 

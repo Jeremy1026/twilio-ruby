@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trusthub
       class V1 < Version
@@ -27,8 +27,8 @@ module Twilio
         ##
         # @param [String] sid The unique string that we created to identify the
         #   Customer-Profile resource.
-        # @return [Twilio::REST::Trusthub::V1::CustomerProfilesContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::CustomerProfilesList]
+        # @return [Textgrid::REST::Trusthub::V1::CustomerProfilesContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::CustomerProfilesList]
         def customer_profiles(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -43,8 +43,8 @@ module Twilio
         ##
         # @param [String] sid The unique string created by Twilio to identify the End User
         #   resource.
-        # @return [Twilio::REST::Trusthub::V1::EndUserContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::EndUserList]
+        # @return [Textgrid::REST::Trusthub::V1::EndUserContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::EndUserList]
         def end_users(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -59,8 +59,8 @@ module Twilio
         ##
         # @param [String] sid The unique string that identifies the End-User Type
         #   resource.
-        # @return [Twilio::REST::Trusthub::V1::EndUserTypeContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::EndUserTypeList]
+        # @return [Textgrid::REST::Trusthub::V1::EndUserTypeContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::EndUserTypeList]
         def end_user_types(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -74,8 +74,8 @@ module Twilio
 
         ##
         # @param [String] sid The unique string that identifies the Policy resource.
-        # @return [Twilio::REST::Trusthub::V1::PoliciesContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::PoliciesList]
+        # @return [Textgrid::REST::Trusthub::V1::PoliciesContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::PoliciesList]
         def policies(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -90,8 +90,8 @@ module Twilio
         ##
         # @param [String] sid The unique string created by Twilio to identify the
         #   Supporting Document resource.
-        # @return [Twilio::REST::Trusthub::V1::SupportingDocumentContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::SupportingDocumentList]
+        # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentList]
         def supporting_documents(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -106,8 +106,8 @@ module Twilio
         ##
         # @param [String] sid The unique string that identifies the Supporting Document
         #   Type resource.
-        # @return [Twilio::REST::Trusthub::V1::SupportingDocumentTypeContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::SupportingDocumentTypeList]
+        # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentTypeContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentTypeList]
         def supporting_document_types(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -122,8 +122,8 @@ module Twilio
         ##
         # @param [String] sid The unique string that we created to identify the
         #   Customer-Profile resource.
-        # @return [Twilio::REST::Trusthub::V1::TrustProductsContext] if sid was passed.
-        # @return [Twilio::REST::Trusthub::V1::TrustProductsList]
+        # @return [Textgrid::REST::Trusthub::V1::TrustProductsContext] if sid was passed.
+        # @return [Textgrid::REST::Trusthub::V1::TrustProductsList]
         def trust_products(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -138,7 +138,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Trusthub::V1>'
+          '<Textgrid::REST::Trusthub::V1>'
         end
       end
     end

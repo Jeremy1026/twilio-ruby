@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights < Domain
       class V1 < Version
@@ -83,7 +83,7 @@ module Twilio
           # @param [String] incident The incident
           # @return [AnnotationInstance] Updated AnnotationInstance
           def update(answered_by: :unset, connectivity_issue: :unset, quality_issues: :unset, spam: :unset, call_score: :unset, comment: :unset, incident: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'AnsweredBy' => answered_by,
                 'ConnectivityIssue' => connectivity_issue,
                 'QualityIssues' => quality_issues,

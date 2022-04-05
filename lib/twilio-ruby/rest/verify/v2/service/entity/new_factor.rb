@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -100,7 +100,7 @@ module Twilio
               #   be up to 1024 characters in length.
               # @return [NewFactorInstance] Created NewFactorInstance
               def create(friendly_name: nil, factor_type: nil, binding_alg: :unset, binding_public_key: :unset, config_app_id: :unset, config_notification_platform: :unset, config_notification_token: :unset, config_sdk_version: :unset, binding_secret: :unset, config_time_step: :unset, config_skew: :unset, config_code_length: :unset, config_alg: :unset, metadata: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'FriendlyName' => friendly_name,
                     'FactorType' => factor_type,
                     'Binding.Alg' => binding_alg,

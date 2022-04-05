@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       class V1 < Version
@@ -171,7 +171,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of UsageRecordInstance
           def page(sim: :unset, fleet: :unset, network: :unset, iso_country: :unset, group: :unset, granularity: :unset, start_time: :unset, end_time: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Sim' => sim,
                 'Fleet' => fleet,
                 'Network' => network,

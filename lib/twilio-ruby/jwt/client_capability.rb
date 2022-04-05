@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module JWT
     module Scope
       def _generate_payload

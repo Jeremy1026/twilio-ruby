@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Monitor
       class V1 < Version
@@ -21,8 +21,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Alert resource to fetch.
-        # @return [Twilio::REST::Monitor::V1::AlertContext] if sid was passed.
-        # @return [Twilio::REST::Monitor::V1::AlertList]
+        # @return [Textgrid::REST::Monitor::V1::AlertContext] if sid was passed.
+        # @return [Textgrid::REST::Monitor::V1::AlertList]
         def alerts(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,8 +36,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Event resource to fetch.
-        # @return [Twilio::REST::Monitor::V1::EventContext] if sid was passed.
-        # @return [Twilio::REST::Monitor::V1::EventList]
+        # @return [Textgrid::REST::Monitor::V1::EventContext] if sid was passed.
+        # @return [Textgrid::REST::Monitor::V1::EventList]
         def events(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -52,7 +52,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Monitor::V1>'
+          '<Textgrid::REST::Monitor::V1>'
         end
       end
     end

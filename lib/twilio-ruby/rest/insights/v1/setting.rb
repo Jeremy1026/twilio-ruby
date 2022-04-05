@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights < Domain
       class V1 < Version
@@ -76,7 +76,7 @@ module Twilio
           # @param [String] subaccount_sid The subaccount_sid
           # @return [SettingInstance] Fetched SettingInstance
           def fetch(subaccount_sid: :unset)
-            params = Twilio::Values.of({'SubaccountSid' => subaccount_sid, })
+            params = Textgrid::Values.of({'SubaccountSid' => subaccount_sid, })
 
             payload = @version.fetch('GET', @uri, params: params)
 
@@ -90,7 +90,7 @@ module Twilio
           # @param [String] subaccount_sid The subaccount_sid
           # @return [SettingInstance] Updated SettingInstance
           def update(advanced_features: :unset, voice_trace: :unset, subaccount_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'AdvancedFeatures' => advanced_features,
                 'VoiceTrace' => voice_trace,
                 'SubaccountSid' => subaccount_sid,

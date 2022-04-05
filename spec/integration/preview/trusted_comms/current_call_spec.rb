@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'CurrentCall' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.preview.trusted_comms.current_calls().fetch(x_xcnam_sensitive_phone_number_from: 'x_xcnam_sensitive_phone_number_from', x_xcnam_sensitive_phone_number_to: 'x_xcnam_sensitive_phone_number_to')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {
         'X-Xcnam-Sensitive-Phone-Number-From' => 'x_xcnam_sensitive_phone_number_from',
@@ -29,7 +29,7 @@ describe 'CurrentCall' do
   end
 
   it "receives read_found responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

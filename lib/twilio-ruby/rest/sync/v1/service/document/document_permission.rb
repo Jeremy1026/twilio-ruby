@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       class V1 < Version
@@ -86,7 +86,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of DocumentPermissionInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -204,7 +204,7 @@ module Twilio
               #   Default value is `false`.
               # @return [DocumentPermissionInstance] Updated DocumentPermissionInstance
               def update(read: nil, write: nil, manage: nil)
-                data = Twilio::Values.of({'Read' => read, 'Write' => write, 'Manage' => manage, })
+                data = Textgrid::Values.of({'Read' => read, 'Write' => write, 'Manage' => manage, })
 
                 payload = @version.update('POST', @uri, data: data)
 

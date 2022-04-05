@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -78,7 +78,7 @@ module Twilio
           #   all SMS verifications unless explicitly overriden. SMS channel only.
           # @return [ServiceInstance] Created ServiceInstance
           def create(friendly_name: nil, code_length: :unset, lookup_enabled: :unset, skip_sms_to_landlines: :unset, dtmf_input_required: :unset, tts_name: :unset, psd2_enabled: :unset, do_not_share_warning_enabled: :unset, custom_code_enabled: :unset, push_include_date: :unset, push_apn_credential_sid: :unset, push_fcm_credential_sid: :unset, totp_issuer: :unset, totp_time_step: :unset, totp_code_length: :unset, totp_skew: :unset, default_template_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'CodeLength' => code_length,
                 'LookupEnabled' => lookup_enabled,
@@ -159,7 +159,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ServiceInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -312,7 +312,7 @@ module Twilio
           #   all SMS verifications unless explicitly overriden. SMS channel only.
           # @return [ServiceInstance] Updated ServiceInstance
           def update(friendly_name: :unset, code_length: :unset, lookup_enabled: :unset, skip_sms_to_landlines: :unset, dtmf_input_required: :unset, tts_name: :unset, psd2_enabled: :unset, do_not_share_warning_enabled: :unset, custom_code_enabled: :unset, push_include_date: :unset, push_apn_credential_sid: :unset, push_fcm_credential_sid: :unset, totp_issuer: :unset, totp_time_step: :unset, totp_code_length: :unset, totp_skew: :unset, default_template_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'CodeLength' => code_length,
                 'LookupEnabled' => lookup_enabled,

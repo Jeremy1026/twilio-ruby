@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Studio < Domain
       class V2 < Version
@@ -32,7 +32,7 @@ module Twilio
           # @param [String] commit_message Description of change made in the revision.
           # @return [FlowValidateInstance] Updated FlowValidateInstance
           def update(friendly_name: nil, status: nil, definition: nil, commit_message: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Status' => status,
                 'Definition' => Twilio.serialize_object(definition),

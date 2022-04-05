@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -43,7 +43,7 @@ module Twilio
             #   Requires the PSD2 Service flag enabled.
             # @return [VerificationCheckInstance] Created VerificationCheckInstance
             def create(code: nil, to: :unset, verification_sid: :unset, amount: :unset, payee: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Code' => code,
                   'To' => to,
                   'VerificationSid' => verification_sid,

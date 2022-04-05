@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -88,7 +88,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of WorkflowInstance
             def page(friendly_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'PageToken' => page_token,
                   'Page' => page_number,
@@ -133,7 +133,7 @@ module Twilio
             #   Can be up to `86,400` (24 hours) and the default is `120`.
             # @return [WorkflowInstance] Created WorkflowInstance
             def create(friendly_name: nil, configuration: nil, assignment_callback_url: :unset, fallback_assignment_callback_url: :unset, task_reservation_timeout: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'Configuration' => configuration,
                   'AssignmentCallbackUrl' => assignment_callback_url,
@@ -240,7 +240,7 @@ module Twilio
             #   through the assignment loop again.
             # @return [WorkflowInstance] Updated WorkflowInstance
             def update(friendly_name: :unset, assignment_callback_url: :unset, fallback_assignment_callback_url: :unset, configuration: :unset, task_reservation_timeout: :unset, re_evaluate_tasks: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'AssignmentCallbackUrl' => assignment_callback_url,
                   'FallbackAssignmentCallbackUrl' => fallback_assignment_callback_url,

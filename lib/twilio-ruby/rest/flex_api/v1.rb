@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi
       class V1 < Version
@@ -24,8 +24,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Flex chat channel resource to fetch.
-        # @return [Twilio::REST::Flex_api::V1::ChannelContext] if sid was passed.
-        # @return [Twilio::REST::Flex_api::V1::ChannelList]
+        # @return [Textgrid::REST::Flex_api::V1::ChannelContext] if sid was passed.
+        # @return [Textgrid::REST::Flex_api::V1::ChannelList]
         def channel(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -38,15 +38,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Flex_api::V1::ConfigurationContext]
+        # @return [Textgrid::REST::Flex_api::V1::ConfigurationContext]
         def configuration
           @configuration ||= ConfigurationContext.new self
         end
 
         ##
         # @param [String] sid The SID of the Flex Flow resource to fetch.
-        # @return [Twilio::REST::Flex_api::V1::FlexFlowContext] if sid was passed.
-        # @return [Twilio::REST::Flex_api::V1::FlexFlowList]
+        # @return [Textgrid::REST::Flex_api::V1::FlexFlowContext] if sid was passed.
+        # @return [Textgrid::REST::Flex_api::V1::FlexFlowList]
         def flex_flow(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -60,8 +60,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Interaction resource to fetch.
-        # @return [Twilio::REST::Flex_api::V1::InteractionContext] if sid was passed.
-        # @return [Twilio::REST::Flex_api::V1::InteractionList]
+        # @return [Textgrid::REST::Flex_api::V1::InteractionContext] if sid was passed.
+        # @return [Textgrid::REST::Flex_api::V1::InteractionList]
         def interaction(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -75,8 +75,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the WebChannel resource to fetch.
-        # @return [Twilio::REST::Flex_api::V1::WebChannelContext] if sid was passed.
-        # @return [Twilio::REST::Flex_api::V1::WebChannelList]
+        # @return [Textgrid::REST::Flex_api::V1::WebChannelContext] if sid was passed.
+        # @return [Textgrid::REST::Flex_api::V1::WebChannelList]
         def web_channel(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -91,7 +91,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::FlexApi::V1>'
+          '<Textgrid::REST::FlexApi::V1>'
         end
       end
     end

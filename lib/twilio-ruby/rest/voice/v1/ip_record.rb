@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
           #   By default the entire IP address is used, which for IPv4 is value 32.
           # @return [IpRecordInstance] Created IpRecordInstance
           def create(ip_address: nil, friendly_name: :unset, cidr_prefix_length: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'IpAddress' => ip_address,
                 'FriendlyName' => friendly_name,
                 'CidrPrefixLength' => cidr_prefix_length,
@@ -100,7 +100,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of IpRecordInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -190,7 +190,7 @@ module Twilio
           #   the resource. It is not unique and can be up to 255 characters long.
           # @return [IpRecordInstance] Updated IpRecordInstance
           def update(friendly_name: :unset)
-            data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+            data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
             payload = @version.update('POST', @uri, data: data)
 

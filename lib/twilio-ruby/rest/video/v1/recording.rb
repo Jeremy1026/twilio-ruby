@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -135,7 +135,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of RecordingInstance
           def page(status: :unset, source_sid: :unset, grouping_sid: :unset, date_created_after: :unset, date_created_before: :unset, media_type: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Status' => status,
                 'SourceSid' => source_sid,
                 'GroupingSid' => Twilio.serialize_list(grouping_sid) { |e| e },

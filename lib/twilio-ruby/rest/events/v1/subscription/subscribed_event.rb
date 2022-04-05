@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Events < Domain
       class V1 < Version
@@ -83,7 +83,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of SubscribedEventInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -114,7 +114,7 @@ module Twilio
             #   use.
             # @return [SubscribedEventInstance] Created SubscribedEventInstance
             def create(type: nil, schema_version: :unset)
-              data = Twilio::Values.of({'Type' => type, 'SchemaVersion' => schema_version, })
+              data = Textgrid::Values.of({'Type' => type, 'SchemaVersion' => schema_version, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -196,7 +196,7 @@ module Twilio
             #   use.
             # @return [SubscribedEventInstance] Updated SubscribedEventInstance
             def update(schema_version: :unset)
-              data = Twilio::Values.of({'SchemaVersion' => schema_version, })
+              data = Textgrid::Values.of({'SchemaVersion' => schema_version, })
 
               payload = @version.update('POST', @uri, data: data)
 

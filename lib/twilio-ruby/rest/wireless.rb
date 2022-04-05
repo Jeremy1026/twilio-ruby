@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Wireless < Domain
       ##
@@ -29,7 +29,7 @@ module Twilio
       end
 
       ##
-      # @return [Twilio::REST::Wireless::V1::UsageRecordInstance]
+      # @return [Textgrid::REST::Wireless::V1::UsageRecordInstance]
       def usage_records
         self.v1.usage_records()
       end
@@ -37,8 +37,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Command
       #   resource.
-      # @return [Twilio::REST::Wireless::V1::CommandInstance] if sid was passed.
-      # @return [Twilio::REST::Wireless::V1::CommandList]
+      # @return [Textgrid::REST::Wireless::V1::CommandInstance] if sid was passed.
+      # @return [Textgrid::REST::Wireless::V1::CommandList]
       def commands(sid=:unset)
         self.v1.commands(sid)
       end
@@ -46,8 +46,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the RatePlan
       #   resource.
-      # @return [Twilio::REST::Wireless::V1::RatePlanInstance] if sid was passed.
-      # @return [Twilio::REST::Wireless::V1::RatePlanList]
+      # @return [Textgrid::REST::Wireless::V1::RatePlanInstance] if sid was passed.
+      # @return [Textgrid::REST::Wireless::V1::RatePlanList]
       def rate_plans(sid=:unset)
         self.v1.rate_plans(sid)
       end
@@ -55,8 +55,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Sim
       #   resource.
-      # @return [Twilio::REST::Wireless::V1::SimInstance] if sid was passed.
-      # @return [Twilio::REST::Wireless::V1::SimList]
+      # @return [Textgrid::REST::Wireless::V1::SimInstance] if sid was passed.
+      # @return [Textgrid::REST::Wireless::V1::SimList]
       def sims(sid=:unset)
         self.v1.sims(sid)
       end
@@ -64,7 +64,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Wireless>'
+        '#<Textgrid::REST::Wireless>'
       end
     end
   end

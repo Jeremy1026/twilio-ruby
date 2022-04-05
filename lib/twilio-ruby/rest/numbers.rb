@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Numbers < Domain
       ##
@@ -29,7 +29,7 @@ module Twilio
       end
 
       ##
-      # @return [Twilio::REST::Numbers::V2::RegulatoryComplianceInstance]
+      # @return [Textgrid::REST::Numbers::V2::RegulatoryComplianceInstance]
       def regulatory_compliance
         self.v2.regulatory_compliance()
       end
@@ -37,7 +37,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Numbers>'
+        '#<Textgrid::REST::Numbers>'
       end
     end
   end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class TrustedComms < Version
@@ -84,7 +84,7 @@ module Twilio
           #   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match.
           # @return [BrandsInformationInstance] Fetched BrandsInformationInstance
           def fetch(if_none_match: :unset)
-            headers = Twilio::Values.of({'If-None-Match' => if_none_match, })
+            headers = Textgrid::Values.of({'If-None-Match' => if_none_match, })
 
             payload = @version.fetch('GET', @uri, headers: headers)
 

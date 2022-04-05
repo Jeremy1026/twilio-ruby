@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Twilio::Security::RequestValidator do
+describe Textgrid::Security::RequestValidator do
   describe 'configuration' do
     after(:each) do
       Twilio.instance_variable_set('@configuration', nil)
@@ -11,7 +11,7 @@ describe Twilio::Security::RequestValidator do
         config.auth_token = 'someToken'
       end
 
-      validator = Twilio::Security::RequestValidator.new
+      validator = Textgrid::Security::RequestValidator.new
       expect(validator.instance_variable_get('@auth_token')).to eq('someToken')
     end
 
@@ -20,19 +20,19 @@ describe Twilio::Security::RequestValidator do
         config.auth_token = 'someToken'
       end
 
-      validator = Twilio::Security::RequestValidator.new 'otherToken'
+      validator = Textgrid::Security::RequestValidator.new 'otherToken'
       expect(validator.instance_variable_get('@auth_token')).to eq('otherToken')
     end
 
     it 'should throw an argument error if the auth token isn\'t set' do
-      expect { Twilio::Security::RequestValidator.new }.to raise_error(ArgumentError)
+      expect { Textgrid::Security::RequestValidator.new }.to raise_error(ArgumentError)
     end
   end
 
   describe 'validations' do
     let(:token) { '12345' }
 
-    let(:validator) { Twilio::Security::RequestValidator.new token }
+    let(:validator) { Textgrid::Security::RequestValidator.new token }
 
     let(:url) { 'https://mycompany.com/myapp.php?foo=1&bar=2' }
 

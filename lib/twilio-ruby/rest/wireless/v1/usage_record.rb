@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Wireless < Domain
       class V1 < Version
@@ -106,7 +106,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of UsageRecordInstance
           def page(end_: :unset, start: :unset, granularity: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'End' => Twilio.serialize_iso8601_datetime(end_),
                 'Start' => Twilio.serialize_iso8601_datetime(start),
                 'Granularity' => granularity,

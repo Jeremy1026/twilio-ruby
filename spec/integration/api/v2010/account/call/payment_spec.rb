@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'Payment' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .calls('CAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .payments.create(idempotency_key: 'idempotency_key', status_callback: 'https://example.com')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'IdempotencyKey' => 'idempotency_key', 'StatusCallback' => 'https://example.com', }
     expect(
@@ -28,7 +28,7 @@ describe 'Payment' do
   end
 
   it "receives start_payment_session_success responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -50,13 +50,13 @@ describe 'Payment' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .calls('CAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .payments('PKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update(idempotency_key: 'idempotency_key', status_callback: 'https://example.com')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'IdempotencyKey' => 'idempotency_key', 'StatusCallback' => 'https://example.com', }
     expect(
@@ -68,7 +68,7 @@ describe 'Payment' do
   end
 
   it "receives collect_credit_card_number responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -90,7 +90,7 @@ describe 'Payment' do
   end
 
   it "receives collect_credit_card_expiry_date responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -112,7 +112,7 @@ describe 'Payment' do
   end
 
   it "receives complete_payment responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

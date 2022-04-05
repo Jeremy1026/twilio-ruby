@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Media
       class V1 < Version
@@ -22,8 +22,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the MediaProcessor resource to fetch.
-        # @return [Twilio::REST::Media::V1::MediaProcessorContext] if sid was passed.
-        # @return [Twilio::REST::Media::V1::MediaProcessorList]
+        # @return [Textgrid::REST::Media::V1::MediaProcessorContext] if sid was passed.
+        # @return [Textgrid::REST::Media::V1::MediaProcessorList]
         def media_processor(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,8 +37,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the MediaRecording resource to fetch.
-        # @return [Twilio::REST::Media::V1::MediaRecordingContext] if sid was passed.
-        # @return [Twilio::REST::Media::V1::MediaRecordingList]
+        # @return [Textgrid::REST::Media::V1::MediaRecordingContext] if sid was passed.
+        # @return [Textgrid::REST::Media::V1::MediaRecordingList]
         def media_recording(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -52,8 +52,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the PlayerStreamer resource to fetch.
-        # @return [Twilio::REST::Media::V1::PlayerStreamerContext] if sid was passed.
-        # @return [Twilio::REST::Media::V1::PlayerStreamerList]
+        # @return [Textgrid::REST::Media::V1::PlayerStreamerContext] if sid was passed.
+        # @return [Textgrid::REST::Media::V1::PlayerStreamerList]
         def player_streamer(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -68,7 +68,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Media::V1>'
+          '<Textgrid::REST::Media::V1>'
         end
       end
     end

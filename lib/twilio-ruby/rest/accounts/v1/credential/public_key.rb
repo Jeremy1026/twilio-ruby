@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Accounts < Domain
       class V1 < Version
@@ -80,7 +80,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of PublicKeyInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -116,7 +116,7 @@ module Twilio
             #   request
             # @return [PublicKeyInstance] Created PublicKeyInstance
             def create(public_key: nil, friendly_name: :unset, account_sid: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'PublicKey' => public_key,
                   'FriendlyName' => friendly_name,
                   'AccountSid' => account_sid,
@@ -193,7 +193,7 @@ module Twilio
             #   the resource. It can be up to 64 characters long.
             # @return [PublicKeyInstance] Updated PublicKeyInstance
             def update(friendly_name: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
               payload = @version.update('POST', @uri, data: data)
 

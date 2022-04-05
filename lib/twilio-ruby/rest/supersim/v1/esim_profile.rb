@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       class V1 < Version
@@ -36,7 +36,7 @@ module Twilio
           #   `callback_url`. Can be: `GET` or `POST` and the default is POST.
           # @return [EsimProfileInstance] Created EsimProfileInstance
           def create(eid: nil, callback_url: :unset, callback_method: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Eid' => eid,
                 'CallbackUrl' => callback_url,
                 'CallbackMethod' => callback_method,
@@ -124,7 +124,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of EsimProfileInstance
           def page(eid: :unset, sim_sid: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Eid' => eid,
                 'SimSid' => sim_sid,
                 'Status' => status,

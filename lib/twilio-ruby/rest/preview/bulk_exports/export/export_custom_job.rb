@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class BulkExports < Version
@@ -84,7 +84,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ExportCustomJobInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -123,7 +123,7 @@ module Twilio
             # @param [String] email The optional email to send the completion notification to
             # @return [ExportCustomJobInstance] Created ExportCustomJobInstance
             def create(start_day: nil, end_day: nil, friendly_name: nil, webhook_url: :unset, webhook_method: :unset, email: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'StartDay' => start_day,
                   'EndDay' => end_day,
                   'FriendlyName' => friendly_name,

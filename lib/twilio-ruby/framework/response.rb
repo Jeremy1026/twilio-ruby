@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   class Response
     attr_accessor :status_code, :body, :headers
 

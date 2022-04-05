@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -32,7 +32,7 @@ module Twilio
             #   the resource. It can be up to 64 characters long.
             # @return [NewKeyInstance] Created NewKeyInstance
             def create(friendly_name: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
               payload = @version.create('POST', @uri, data: data)
 

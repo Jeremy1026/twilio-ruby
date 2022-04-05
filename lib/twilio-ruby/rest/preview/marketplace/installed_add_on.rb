@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Marketplace < Version
@@ -36,7 +36,7 @@ module Twilio
           #   identifies the resource. This value must be unique within the Account.
           # @return [InstalledAddOnInstance] Created InstalledAddOnInstance
           def create(available_add_on_sid: nil, accept_terms_of_service: nil, configuration: :unset, unique_name: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'AvailableAddOnSid' => available_add_on_sid,
                 'AcceptTermsOfService' => accept_terms_of_service,
                 'Configuration' => Twilio.serialize_object(configuration),
@@ -104,7 +104,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of InstalledAddOnInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -210,7 +210,7 @@ module Twilio
           #   identifies the resource. This value must be unique within the Account.
           # @return [InstalledAddOnInstance] Updated InstalledAddOnInstance
           def update(configuration: :unset, unique_name: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Configuration' => Twilio.serialize_object(configuration),
                 'UniqueName' => unique_name,
             })

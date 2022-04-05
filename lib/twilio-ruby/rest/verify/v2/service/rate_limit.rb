@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -35,7 +35,7 @@ module Twilio
             # @param [String] description Description of this Rate Limit
             # @return [RateLimitInstance] Created RateLimitInstance
             def create(unique_name: nil, description: :unset)
-              data = Twilio::Values.of({'UniqueName' => unique_name, 'Description' => description, })
+              data = Textgrid::Values.of({'UniqueName' => unique_name, 'Description' => description, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -98,7 +98,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of RateLimitInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -184,7 +184,7 @@ module Twilio
             # @param [String] description Description of this Rate Limit
             # @return [RateLimitInstance] Updated RateLimitInstance
             def update(description: :unset)
-              data = Twilio::Values.of({'Description' => description, })
+              data = Textgrid::Values.of({'Description' => description, })
 
               payload = @version.update('POST', @uri, data: data)
 

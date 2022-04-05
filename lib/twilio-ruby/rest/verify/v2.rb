@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify
       class V2 < Version
@@ -24,8 +24,8 @@ module Twilio
         ##
         # @param [form.FormTypes] form_type The Type of this Form. Currently only
         #   `form-push` is supported.
-        # @return [Twilio::REST::Verify::V2::FormContext] if form_type was passed.
-        # @return [Twilio::REST::Verify::V2::FormList]
+        # @return [Textgrid::REST::Verify::V2::FormContext] if form_type was passed.
+        # @return [Textgrid::REST::Verify::V2::FormList]
         def forms(form_type=:unset)
           if form_type.nil?
               raise ArgumentError, 'form_type cannot be nil'
@@ -40,8 +40,8 @@ module Twilio
         ##
         # @param [String] sid The Twilio-provided string that uniquely identifies the
         #   Verification Service resource to fetch.
-        # @return [Twilio::REST::Verify::V2::ServiceContext] if sid was passed.
-        # @return [Twilio::REST::Verify::V2::ServiceList]
+        # @return [Textgrid::REST::Verify::V2::ServiceContext] if sid was passed.
+        # @return [Textgrid::REST::Verify::V2::ServiceList]
         def services(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -55,8 +55,8 @@ module Twilio
 
         ##
         # @param [String] sid The unique SID identifier of a Verification Attempt
-        # @return [Twilio::REST::Verify::V2::VerificationAttemptContext] if sid was passed.
-        # @return [Twilio::REST::Verify::V2::VerificationAttemptList]
+        # @return [Textgrid::REST::Verify::V2::VerificationAttemptContext] if sid was passed.
+        # @return [Textgrid::REST::Verify::V2::VerificationAttemptList]
         def verification_attempts(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -69,7 +69,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Verify::V2::TemplateContext]
+        # @return [Textgrid::REST::Verify::V2::TemplateContext]
         def templates
           @templates ||= TemplateList.new self
         end
@@ -77,7 +77,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Verify::V2>'
+          '<Textgrid::REST::Verify::V2>'
         end
       end
     end

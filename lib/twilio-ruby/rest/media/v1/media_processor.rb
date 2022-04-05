@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Media < Domain
       class V1 < Version
@@ -49,7 +49,7 @@ module Twilio
           #   still streaming.
           # @return [MediaProcessorInstance] Created MediaProcessorInstance
           def create(extension: nil, extension_context: nil, extension_environment: :unset, status_callback: :unset, status_callback_method: :unset, max_duration: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Extension' => extension,
                 'ExtensionContext' => extension_context,
                 'ExtensionEnvironment' => Twilio.serialize_object(extension_environment),
@@ -134,7 +134,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of MediaProcessorInstance
           def page(order: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Order' => order,
                 'Status' => status,
                 'PageToken' => page_token,
@@ -225,7 +225,7 @@ module Twilio
           #   Can be `ended`.
           # @return [MediaProcessorInstance] Updated MediaProcessorInstance
           def update(status: nil)
-            data = Twilio::Values.of({'Status' => status, })
+            data = Textgrid::Values.of({'Status' => status, })
 
             payload = @version.update('POST', @uri, data: data)
 

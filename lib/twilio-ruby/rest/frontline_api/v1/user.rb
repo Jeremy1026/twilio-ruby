@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FrontlineApi < Domain
       class V1 < Version
@@ -101,7 +101,7 @@ module Twilio
           #   Routing}[https://www.twilio.com/docs/frontline/handle-incoming-conversations#3-pool-routing].
           # @return [UserInstance] Updated UserInstance
           def update(friendly_name: :unset, avatar: :unset, state: :unset, is_available: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Avatar' => avatar,
                 'State' => state,

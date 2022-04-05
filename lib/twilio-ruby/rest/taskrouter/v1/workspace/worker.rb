@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -151,7 +151,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of WorkerInstance
             def page(activity_name: :unset, activity_sid: :unset, available: :unset, friendly_name: :unset, target_workers_expression: :unset, task_queue_name: :unset, task_queue_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'ActivityName' => activity_name,
                   'ActivitySid' => activity_sid,
                   'Available' => available,
@@ -197,7 +197,7 @@ module Twilio
             #   Worker. Defaults to {}.
             # @return [WorkerInstance] Created WorkerInstance
             def create(friendly_name: nil, activity_sid: :unset, attributes: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'ActivitySid' => activity_sid,
                   'Attributes' => attributes,
@@ -306,13 +306,13 @@ module Twilio
             # @param [String] if_match The If-Match HTTP request header
             # @return [WorkerInstance] Updated WorkerInstance
             def update(activity_sid: :unset, attributes: :unset, friendly_name: :unset, reject_pending_reservations: :unset, if_match: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'ActivitySid' => activity_sid,
                   'Attributes' => attributes,
                   'FriendlyName' => friendly_name,
                   'RejectPendingReservations' => reject_pending_reservations,
               })
-              headers = Twilio::Values.of({'If-Match' => if_match, })
+              headers = Textgrid::Values.of({'If-Match' => if_match, })
 
               payload = @version.update('POST', @uri, data: data, headers: headers)
 
@@ -329,7 +329,7 @@ module Twilio
             # @param [String] if_match The If-Match HTTP request header
             # @return [Boolean] true if delete succeeds, false otherwise
             def delete(if_match: :unset)
-              headers = Twilio::Values.of({'If-Match' => if_match, })
+              headers = Textgrid::Values.of({'If-Match' => if_match, })
 
                @version.delete('DELETE', @uri, headers: headers)
             end

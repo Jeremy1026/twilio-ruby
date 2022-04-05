@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class IpMessaging < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
               # @param [String] role_sid The role_sid
               # @return [MemberInstance] Created MemberInstance
               def create(identity: nil, role_sid: :unset)
-                data = Twilio::Values.of({'Identity' => identity, 'RoleSid' => role_sid, })
+                data = Textgrid::Values.of({'Identity' => identity, 'RoleSid' => role_sid, })
 
                 payload = @version.create('POST', @uri, data: data)
 
@@ -104,7 +104,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of MemberInstance
               def page(identity: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Identity' => Twilio.serialize_list(identity) { |e| e },
                     'PageToken' => page_token,
                     'Page' => page_number,
@@ -214,7 +214,7 @@ module Twilio
               # @param [String] last_consumed_message_index The last_consumed_message_index
               # @return [MemberInstance] Updated MemberInstance
               def update(role_sid: :unset, last_consumed_message_index: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'RoleSid' => role_sid,
                     'LastConsumedMessageIndex' => last_consumed_message_index,
                 })

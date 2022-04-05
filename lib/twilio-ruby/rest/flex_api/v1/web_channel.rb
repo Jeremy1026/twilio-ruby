@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -79,7 +79,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of WebChannelInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -113,7 +113,7 @@ module Twilio
           # @param [String] pre_engagement_data The pre-engagement data.
           # @return [WebChannelInstance] Created WebChannelInstance
           def create(flex_flow_sid: nil, identity: nil, customer_friendly_name: nil, chat_friendly_name: nil, chat_unique_name: :unset, pre_engagement_data: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FlexFlowSid' => flex_flow_sid,
                 'Identity' => identity,
                 'CustomerFriendlyName' => customer_friendly_name,
@@ -193,7 +193,7 @@ module Twilio
           # @param [String] post_engagement_data The post-engagement data.
           # @return [WebChannelInstance] Updated WebChannelInstance
           def update(chat_status: :unset, post_engagement_data: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'ChatStatus' => chat_status,
                 'PostEngagementData' => post_engagement_data,
             })

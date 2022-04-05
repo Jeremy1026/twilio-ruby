@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Pricing
       class V2 < Version
@@ -24,8 +24,8 @@ module Twilio
         # @param [String] iso_country The {ISO country
         #   code}[https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2] of the origin-based
         #   voice pricing information to fetch.
-        # @return [Twilio::REST::Pricing::V2::CountryContext] if iso_country was passed.
-        # @return [Twilio::REST::Pricing::V2::CountryList]
+        # @return [Textgrid::REST::Pricing::V2::CountryContext] if iso_country was passed.
+        # @return [Textgrid::REST::Pricing::V2::CountryList]
         def countries(iso_country=:unset)
           if iso_country.nil?
               raise ArgumentError, 'iso_country cannot be nil'
@@ -42,8 +42,8 @@ module Twilio
         #   {E.164}[https://www.twilio.com/docs/glossary/what-e164] format, for which to
         #   fetch the origin-based voice pricing information. E.164 format consists of a +
         #   followed by the country code and subscriber number.
-        # @return [Twilio::REST::Pricing::V2::NumberContext] if destination_number was passed.
-        # @return [Twilio::REST::Pricing::V2::NumberList]
+        # @return [Textgrid::REST::Pricing::V2::NumberContext] if destination_number was passed.
+        # @return [Textgrid::REST::Pricing::V2::NumberList]
         def numbers(destination_number=:unset)
           if destination_number.nil?
               raise ArgumentError, 'destination_number cannot be nil'
@@ -56,7 +56,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Pricing::V2::VoiceContext]
+        # @return [Textgrid::REST::Pricing::V2::VoiceContext]
         def voice
           @voice ||= VoiceList.new self
         end
@@ -64,7 +64,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Pricing::V2>'
+          '<Textgrid::REST::Pricing::V2>'
         end
       end
     end

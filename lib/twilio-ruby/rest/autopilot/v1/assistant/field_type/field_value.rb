@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot < Domain
       class V1 < Version
@@ -97,7 +97,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of FieldValueInstance
               def page(language: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Language' => language,
                     'PageToken' => page_token,
                     'Page' => page_number,
@@ -132,7 +132,7 @@ module Twilio
               #   value is a synonym of.
               # @return [FieldValueInstance] Created FieldValueInstance
               def create(language: nil, value: nil, synonym_of: :unset)
-                data = Twilio::Values.of({'Language' => language, 'Value' => value, 'SynonymOf' => synonym_of, })
+                data = Textgrid::Values.of({'Language' => language, 'Value' => value, 'SynonymOf' => synonym_of, })
 
                 payload = @version.create('POST', @uri, data: data)
 

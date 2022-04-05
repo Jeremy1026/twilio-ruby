@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -171,7 +171,7 @@ module Twilio
               #   Constraints depend on account and configuration.
               # @return [ParticipantInstance] Created ParticipantInstance
               def create(from: nil, to: nil, status_callback: :unset, status_callback_method: :unset, status_callback_event: :unset, label: :unset, timeout: :unset, record: :unset, muted: :unset, beep: :unset, start_conference_on_enter: :unset, end_conference_on_exit: :unset, wait_url: :unset, wait_method: :unset, early_media: :unset, max_participants: :unset, conference_record: :unset, conference_trim: :unset, conference_status_callback: :unset, conference_status_callback_method: :unset, conference_status_callback_event: :unset, recording_channels: :unset, recording_status_callback: :unset, recording_status_callback_method: :unset, sip_auth_username: :unset, sip_auth_password: :unset, region: :unset, conference_recording_status_callback: :unset, conference_recording_status_callback_method: :unset, recording_status_callback_event: :unset, conference_recording_status_callback_event: :unset, coaching: :unset, call_sid_to_coach: :unset, jitter_buffer_size: :unset, byoc: :unset, caller_id: :unset, call_reason: :unset, recording_track: :unset, time_limit: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'From' => from,
                     'To' => to,
                     'StatusCallback' => status_callback,
@@ -303,7 +303,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of ParticipantInstance
               def page(muted: :unset, hold: :unset, coaching: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Muted' => muted,
                     'Hold' => hold,
                     'Coaching' => coaching,
@@ -446,7 +446,7 @@ module Twilio
               #   the participant who is `coaching`.
               # @return [ParticipantInstance] Updated ParticipantInstance
               def update(muted: :unset, hold: :unset, hold_url: :unset, hold_method: :unset, announce_url: :unset, announce_method: :unset, wait_url: :unset, wait_method: :unset, beep_on_exit: :unset, end_conference_on_exit: :unset, coaching: :unset, call_sid_to_coach: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Muted' => muted,
                     'Hold' => hold,
                     'HoldUrl' => hold_url,

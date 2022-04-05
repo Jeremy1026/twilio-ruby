@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -38,7 +38,7 @@ module Twilio
             #   the country of this configuration.
             # @return [MessagingConfigurationInstance] Created MessagingConfigurationInstance
             def create(country: nil, messaging_service_sid: nil)
-              data = Twilio::Values.of({'Country' => country, 'MessagingServiceSid' => messaging_service_sid, })
+              data = Textgrid::Values.of({'Country' => country, 'MessagingServiceSid' => messaging_service_sid, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -101,7 +101,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of MessagingConfigurationInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -188,7 +188,7 @@ module Twilio
             #   the country of this configuration.
             # @return [MessagingConfigurationInstance] Updated MessagingConfigurationInstance
             def update(messaging_service_sid: nil)
-              data = Twilio::Values.of({'MessagingServiceSid' => messaging_service_sid, })
+              data = Textgrid::Values.of({'MessagingServiceSid' => messaging_service_sid, })
 
               payload = @version.update('POST', @uri, data: data)
 

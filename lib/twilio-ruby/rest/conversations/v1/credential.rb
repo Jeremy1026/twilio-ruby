@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -47,7 +47,7 @@ module Twilio
           #   Firebase console, found under Settings / Cloud messaging.
           # @return [CredentialInstance] Created CredentialInstance
           def create(type: nil, friendly_name: :unset, certificate: :unset, private_key: :unset, sandbox: :unset, api_key: :unset, secret: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Type' => type,
                 'FriendlyName' => friendly_name,
                 'Certificate' => certificate,
@@ -118,7 +118,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of CredentialInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -217,7 +217,7 @@ module Twilio
           #   Firebase console, found under Settings / Cloud messaging.
           # @return [CredentialInstance] Updated CredentialInstance
           def update(type: :unset, friendly_name: :unset, certificate: :unset, private_key: :unset, sandbox: :unset, api_key: :unset, secret: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Type' => type,
                 'FriendlyName' => friendly_name,
                 'Certificate' => certificate,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -105,7 +105,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ActivityInstance
             def page(friendly_name: :unset, available: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'Available' => available,
                   'PageToken' => page_token,
@@ -144,7 +144,7 @@ module Twilio
             #   cannot be changed after the Activity is created.
             # @return [ActivityInstance] Created ActivityInstance
             def create(friendly_name: nil, available: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, 'Available' => available, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, 'Available' => available, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -226,7 +226,7 @@ module Twilio
             #   `break`, and `email`.
             # @return [ActivityInstance] Updated ActivityInstance
             def update(friendly_name: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
               payload = @version.update('POST', @uri, data: data)
 

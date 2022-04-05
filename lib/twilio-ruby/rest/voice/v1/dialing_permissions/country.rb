@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -147,7 +147,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of CountryInstance
             def page(iso_code: :unset, continent: :unset, country_code: :unset, low_risk_numbers_enabled: :unset, high_risk_special_numbers_enabled: :unset, high_risk_tollfraud_numbers_enabled: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'IsoCode' => iso_code,
                   'Continent' => continent,
                   'CountryCode' => country_code,

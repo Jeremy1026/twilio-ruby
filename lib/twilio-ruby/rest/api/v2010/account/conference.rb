@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -134,7 +134,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ConferenceInstance
             def page(date_created_before: :unset, date_created: :unset, date_created_after: :unset, date_updated_before: :unset, date_updated: :unset, date_updated_after: :unset, friendly_name: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'DateCreated<' => Twilio.serialize_iso8601_date(date_created_before),
                   'DateCreated' => Twilio.serialize_iso8601_date(date_created),
                   'DateCreated>' => Twilio.serialize_iso8601_date(date_created_after),
@@ -250,7 +250,7 @@ module Twilio
             #   be: `GET` or `POST` and the default is `POST`
             # @return [ConferenceInstance] Updated ConferenceInstance
             def update(status: :unset, announce_url: :unset, announce_method: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Status' => status,
                   'AnnounceUrl' => announce_url,
                   'AnnounceMethod' => announce_method,

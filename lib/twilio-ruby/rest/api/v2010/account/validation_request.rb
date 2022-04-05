@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -47,7 +47,7 @@ module Twilio
             #   `status_callback`. Can be: `GET` or `POST`, and the default is `POST`.
             # @return [ValidationRequestInstance] Created ValidationRequestInstance
             def create(phone_number: nil, friendly_name: :unset, call_delay: :unset, extension: :unset, status_callback: :unset, status_callback_method: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'PhoneNumber' => phone_number,
                   'FriendlyName' => friendly_name,
                   'CallDelay' => call_delay,

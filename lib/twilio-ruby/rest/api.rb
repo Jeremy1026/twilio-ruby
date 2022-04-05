@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       ##
@@ -37,8 +37,8 @@ module Twilio
       ##
       # @param [String] sid A 34 character string that uniquely identifies this
       #   resource.
-      # @return [Twilio::REST::Api::V2010::AccountInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountList]
+      # @return [Textgrid::REST::Api::V2010::AccountInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountList]
       def accounts(sid=:unset)
         self.v2010.accounts(sid)
       end
@@ -46,8 +46,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   Address resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::AddressInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::AddressList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::AddressInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::AddressList]
       def addresses(sid=:unset)
         self.account.addresses(sid)
       end
@@ -55,16 +55,16 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   Application resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ApplicationInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ApplicationList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ApplicationInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ApplicationList]
       def applications(sid=:unset)
         self.account.applications(sid)
       end
 
       ##
       # @param [String] connect_app_sid The SID that we assigned to the Connect App.
-      # @return [Twilio::REST::Api::V2010::AccountContext::AuthorizedConnectAppInstance] if connect_app_sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::AuthorizedConnectAppList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::AuthorizedConnectAppInstance] if connect_app_sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::AuthorizedConnectAppList]
       def authorized_connect_apps(connect_app_sid=:unset)
         self.account.authorized_connect_apps(connect_app_sid)
       end
@@ -73,14 +73,14 @@ module Twilio
       # @param [String] country_code The
       #   {ISO-3166-1}[https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2] country code of
       #   the country.
-      # @return [Twilio::REST::Api::V2010::AccountContext::AvailablePhoneNumberCountryInstance] if country_code was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::AvailablePhoneNumberCountryList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::AvailablePhoneNumberCountryInstance] if country_code was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::AvailablePhoneNumberCountryList]
       def available_phone_numbers(country_code=:unset)
         self.account.available_phone_numbers(country_code)
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::BalanceInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::BalanceInstance]
       def balance
         self.account.balance()
       end
@@ -88,8 +88,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify this Call
       #   resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::CallInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::CallList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::CallInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::CallList]
       def calls(sid=:unset)
         self.account.calls(sid)
       end
@@ -97,8 +97,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify this
       #   Conference resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ConferenceInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ConferenceList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ConferenceInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ConferenceList]
       def conferences(sid=:unset)
         self.account.conferences(sid)
       end
@@ -106,8 +106,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   ConnectApp resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ConnectAppInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ConnectAppList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ConnectAppInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ConnectAppList]
       def connect_apps(sid=:unset)
         self.account.connect_apps(sid)
       end
@@ -115,8 +115,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify this
       #   IncomingPhoneNumber resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::IncomingPhoneNumberInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::IncomingPhoneNumberList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::IncomingPhoneNumberInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::IncomingPhoneNumberList]
       def incoming_phone_numbers(sid=:unset)
         self.account.incoming_phone_numbers(sid)
       end
@@ -124,8 +124,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the Key
       #   resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::KeyInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::KeyList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::KeyInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::KeyList]
       def keys(sid=:unset)
         self.account.keys(sid)
       end
@@ -133,20 +133,20 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   Message resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::MessageInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::MessageList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::MessageInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::MessageList]
       def messages(sid=:unset)
         self.account.messages(sid)
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::NewKeyInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::NewKeyInstance]
       def new_keys
         self.account.new_keys()
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::NewSigningKeyInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::NewSigningKeyInstance]
       def new_signing_keys
         self.account.new_signing_keys()
       end
@@ -154,8 +154,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   Notification resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::NotificationInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::NotificationList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::NotificationInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::NotificationList]
       def notifications(sid=:unset)
         self.account.notifications(sid)
       end
@@ -163,8 +163,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   OutgoingCallerId resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::OutgoingCallerIdInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::OutgoingCallerIdList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::OutgoingCallerIdInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::OutgoingCallerIdList]
       def outgoing_caller_ids(sid=:unset)
         self.account.outgoing_caller_ids(sid)
       end
@@ -172,8 +172,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify this
       #   Queue resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::QueueInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::QueueList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::QueueInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::QueueList]
       def queues(sid=:unset)
         self.account.queues(sid)
       end
@@ -181,22 +181,22 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   Recording resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::RecordingInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::RecordingList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::RecordingInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::RecordingList]
       def recordings(sid=:unset)
         self.account.recordings(sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Api::V2010::AccountContext::SigningKeyInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::SigningKeyList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::SigningKeyInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::SigningKeyList]
       def signing_keys(sid=:unset)
         self.account.signing_keys(sid)
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::SipInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::SipInstance]
       def sip
         self.account.sip()
       end
@@ -204,14 +204,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify this
       #   ShortCode resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ShortCodeInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::ShortCodeList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ShortCodeInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ShortCodeList]
       def short_codes(sid=:unset)
         self.account.short_codes(sid)
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::TokenInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::TokenInstance]
       def tokens
         self.account.tokens()
       end
@@ -219,20 +219,20 @@ module Twilio
       ##
       # @param [String] sid The unique string that that we created to identify the
       #   Transcription resource.
-      # @return [Twilio::REST::Api::V2010::AccountContext::TranscriptionInstance] if sid was passed.
-      # @return [Twilio::REST::Api::V2010::AccountContext::TranscriptionList]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::TranscriptionInstance] if sid was passed.
+      # @return [Textgrid::REST::Api::V2010::AccountContext::TranscriptionList]
       def transcriptions(sid=:unset)
         self.account.transcriptions(sid)
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::UsageInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::UsageInstance]
       def usage
         self.account.usage()
       end
 
       ##
-      # @return [Twilio::REST::Api::V2010::AccountContext::ValidationRequestInstance]
+      # @return [Textgrid::REST::Api::V2010::AccountContext::ValidationRequestInstance]
       def validation_requests
         self.account.validation_requests()
       end
@@ -240,7 +240,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Api>'
+        '#<Textgrid::REST::Api>'
       end
     end
   end

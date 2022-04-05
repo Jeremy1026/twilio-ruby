@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module Security
     class RequestValidator
       ##

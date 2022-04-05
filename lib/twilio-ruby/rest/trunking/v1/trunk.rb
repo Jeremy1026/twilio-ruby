@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trunking < Domain
       class V1 < Version
@@ -58,7 +58,7 @@ module Twilio
           #   target. Can be: `from-transferee` (default) or `from-transferor`.
           # @return [TrunkInstance] Created TrunkInstance
           def create(friendly_name: :unset, domain_name: :unset, disaster_recovery_url: :unset, disaster_recovery_method: :unset, transfer_mode: :unset, secure: :unset, cnam_lookup_enabled: :unset, transfer_caller_id: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'DomainName' => domain_name,
                 'DisasterRecoveryUrl' => disaster_recovery_url,
@@ -130,7 +130,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of TrunkInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -263,7 +263,7 @@ module Twilio
           #   target. Can be: `from-transferee` (default) or `from-transferor`.
           # @return [TrunkInstance] Updated TrunkInstance
           def update(friendly_name: :unset, domain_name: :unset, disaster_recovery_url: :unset, disaster_recovery_method: :unset, transfer_mode: :unset, secure: :unset, cnam_lookup_enabled: :unset, transfer_caller_id: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'DomainName' => domain_name,
                 'DisasterRecoveryUrl' => disaster_recovery_url,

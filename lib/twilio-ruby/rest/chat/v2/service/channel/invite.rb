@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V2 < Version
@@ -42,7 +42,7 @@ module Twilio
               #   member.
               # @return [InviteInstance] Created InviteInstance
               def create(identity: nil, role_sid: :unset)
-                data = Twilio::Values.of({'Identity' => identity, 'RoleSid' => role_sid, })
+                data = Textgrid::Values.of({'Identity' => identity, 'RoleSid' => role_sid, })
 
                 payload = @version.create('POST', @uri, data: data)
 
@@ -122,7 +122,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of InviteInstance
               def page(identity: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Identity' => Twilio.serialize_list(identity) { |e| e },
                     'PageToken' => page_token,
                     'Page' => page_number,

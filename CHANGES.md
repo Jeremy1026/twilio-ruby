@@ -413,8 +413,8 @@ twilio-ruby changelog
 [2021-06-30] Version 5.56.0
 ---------------------------
 **Library - Feature**
-- [PR #559](https://github.com/twilio/twilio-ruby/pull/559): Add `Twilio::HTTP::Client#configure_connection`. Thanks to [@darwinShopify](https://github.com/darwinShopify)!
-- [PR #558](https://github.com/twilio/twilio-ruby/pull/558): Autoload Twilio::REST and Twilio::HTTP. Thanks to [@gmcgibbon](https://github.com/gmcgibbon)!
+- [PR #559](https://github.com/twilio/twilio-ruby/pull/559): Add `Textgrid::HTTP::Client#configure_connection`. Thanks to [@darwinShopify](https://github.com/darwinShopify)!
+- [PR #558](https://github.com/twilio/twilio-ruby/pull/558): Autoload Textgrid::REST and Textgrid::HTTP. Thanks to [@gmcgibbon](https://github.com/gmcgibbon)!
 
 **Conversations**
 - Read-only Conversation Email Binding property `binding`
@@ -2166,7 +2166,7 @@ twilio-ruby changelog
 [2018-04-20] Version 5.8.1
 ---------------------------
 **Library**
-- PR #397: Uses Twilio::REST::RestError when a page fails to load. Thanks to @philnash!
+- PR #397: Uses Textgrid::REST::RestError when a page fails to load. Thanks to @philnash!
 
 **Twiml**
 - Gather input Enum: remove unnecessary "dtmf speech" value as you can now specify multiple enum values for this parameter and both "dtmf" and "speech" are already available.
@@ -2176,7 +2176,7 @@ twilio-ruby changelog
 ---------------------------
 **Library**
 - PR #389: Add incoming.allow to AccessToken VoiceGrant. Thanks to @ryan-rowland!
-- PR #391: Improves error message for Twilio::REST::RestError. Thanks to @philnash!
+- PR #391: Improves error message for Textgrid::REST::RestError. Thanks to @philnash!
 
 **Lookups**
 - Disable support for `fraud` lookups **(breaking change)**
@@ -2378,7 +2378,7 @@ twilio-ruby changelog
 [2017-10-20] Version 5.4.1
 ---------------------------
 **Library**
-- #359 Correctly set headers on Twilio::Response
+- #359 Correctly set headers on Textgrid::Response
 
 **Api**
 - Add `address_sid` param to IncomingPhoneNumbers create and update
@@ -2753,7 +2753,7 @@ Version 3.14.4
 Released January 8, 2015
 
 - Feature: dynamically choose the auth token to validate requests with when using the TwilioWebhookAuthentication middleware.
-- Deprecation: The Twilio::REST::SMS::Message resource is deprecated.
+- Deprecation: The Textgrid::REST::SMS::Message resource is deprecated.
 - More fixing of docs
 
 Version 3.14.3

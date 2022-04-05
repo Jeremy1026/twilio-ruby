@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class TrustedComms < Version
@@ -23,8 +23,8 @@ module Twilio
 
         ##
         # @param [String] sid The unique SID identifier of the Branded Channel.
-        # @return [Twilio::REST::Preview::TrustedComms::BrandedChannelContext] if sid was passed.
-        # @return [Twilio::REST::Preview::TrustedComms::BrandedChannelList]
+        # @return [Textgrid::REST::Preview::TrustedComms::BrandedChannelContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::TrustedComms::BrandedChannelList]
         def branded_channels(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,19 +37,19 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Preview::TrustedComms::BrandsInformationContext]
+        # @return [Textgrid::REST::Preview::TrustedComms::BrandsInformationContext]
         def brands_information
           @brands_information ||= BrandsInformationContext.new self
         end
 
         ##
-        # @return [Twilio::REST::Preview::TrustedComms::CpsContext]
+        # @return [Textgrid::REST::Preview::TrustedComms::CpsContext]
         def cps
           @cps ||= CpsContext.new self
         end
 
         ##
-        # @return [Twilio::REST::Preview::TrustedComms::CurrentCallContext]
+        # @return [Textgrid::REST::Preview::TrustedComms::CurrentCallContext]
         def current_calls
           @current_calls ||= CurrentCallContext.new self
         end
@@ -57,7 +57,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::TrustedComms>'
+          '<Textgrid::REST::Preview::TrustedComms>'
         end
       end
     end

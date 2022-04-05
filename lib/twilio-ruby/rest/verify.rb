@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [form.FormTypes] form_type The Type of this Form. Currently only
       #   `form-push` is supported.
-      # @return [Twilio::REST::Verify::V2::FormInstance] if form_type was passed.
-      # @return [Twilio::REST::Verify::V2::FormList]
+      # @return [Textgrid::REST::Verify::V2::FormInstance] if form_type was passed.
+      # @return [Textgrid::REST::Verify::V2::FormList]
       def forms(form_type=:unset)
         self.v2.forms(form_type)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Service
       #   resource.
-      # @return [Twilio::REST::Verify::V2::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Verify::V2::ServiceList]
+      # @return [Textgrid::REST::Verify::V2::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Verify::V2::ServiceList]
       def services(sid=:unset)
         self.v2.services(sid)
       end
@@ -49,14 +49,14 @@ module Twilio
       ##
       # @param [String] sid The SID that uniquely identifies the verification attempt
       #   resource.
-      # @return [Twilio::REST::Verify::V2::VerificationAttemptInstance] if sid was passed.
-      # @return [Twilio::REST::Verify::V2::VerificationAttemptList]
+      # @return [Textgrid::REST::Verify::V2::VerificationAttemptInstance] if sid was passed.
+      # @return [Textgrid::REST::Verify::V2::VerificationAttemptList]
       def verification_attempts(sid=:unset)
         self.v2.verification_attempts(sid)
       end
 
       ##
-      # @return [Twilio::REST::Verify::V2::TemplateInstance]
+      # @return [Textgrid::REST::Verify::V2::TemplateInstance]
       def templates
         self.v2.templates()
       end
@@ -64,7 +64,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Verify>'
+        '#<Textgrid::REST::Verify>'
       end
     end
   end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V2 < Version
@@ -29,7 +29,7 @@ module Twilio
           #   the new resource.
           # @return [ServiceInstance] Created ServiceInstance
           def create(friendly_name: nil)
-            data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+            data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
             payload = @version.create('POST', @uri, data: data)
 
@@ -92,7 +92,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ServiceInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -281,7 +281,7 @@ module Twilio
           #   default is `false`.
           # @return [ServiceInstance] Updated ServiceInstance
           def update(friendly_name: :unset, default_service_role_sid: :unset, default_channel_role_sid: :unset, default_channel_creator_role_sid: :unset, read_status_enabled: :unset, reachability_enabled: :unset, typing_indicator_timeout: :unset, consumption_report_interval: :unset, notifications_new_message_enabled: :unset, notifications_new_message_template: :unset, notifications_new_message_sound: :unset, notifications_new_message_badge_count_enabled: :unset, notifications_added_to_channel_enabled: :unset, notifications_added_to_channel_template: :unset, notifications_added_to_channel_sound: :unset, notifications_removed_from_channel_enabled: :unset, notifications_removed_from_channel_template: :unset, notifications_removed_from_channel_sound: :unset, notifications_invited_to_channel_enabled: :unset, notifications_invited_to_channel_template: :unset, notifications_invited_to_channel_sound: :unset, pre_webhook_url: :unset, post_webhook_url: :unset, webhook_method: :unset, webhook_filters: :unset, limits_channel_members: :unset, limits_user_channels: :unset, media_compatibility_message: :unset, pre_webhook_retry_count: :unset, post_webhook_retry_count: :unset, notifications_log_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'DefaultServiceRoleSid' => default_service_role_sid,
                 'DefaultChannelRoleSid' => default_channel_role_sid,

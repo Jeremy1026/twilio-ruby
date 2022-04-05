@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       class V1 < Version
@@ -51,7 +51,7 @@ module Twilio
           #   is `false`.
           # @return [ServiceInstance] Created ServiceInstance
           def create(friendly_name: :unset, webhook_url: :unset, reachability_webhooks_enabled: :unset, acl_enabled: :unset, reachability_debouncing_enabled: :unset, reachability_debouncing_window: :unset, webhooks_from_rest_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'WebhookUrl' => webhook_url,
                 'ReachabilityWebhooksEnabled' => reachability_webhooks_enabled,
@@ -122,7 +122,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ServiceInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -246,7 +246,7 @@ module Twilio
           #   is `false`.
           # @return [ServiceInstance] Updated ServiceInstance
           def update(webhook_url: :unset, friendly_name: :unset, reachability_webhooks_enabled: :unset, acl_enabled: :unset, reachability_debouncing_enabled: :unset, reachability_debouncing_window: :unset, webhooks_from_rest_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'WebhookUrl' => webhook_url,
                 'FriendlyName' => friendly_name,
                 'ReachabilityWebhooksEnabled' => reachability_webhooks_enabled,

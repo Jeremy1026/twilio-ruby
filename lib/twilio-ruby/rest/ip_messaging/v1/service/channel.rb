@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class IpMessaging < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
             # @param [channel.ChannelType] type The type
             # @return [ChannelInstance] Created ChannelInstance
             def create(friendly_name: :unset, unique_name: :unset, attributes: :unset, type: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'UniqueName' => unique_name,
                   'Attributes' => attributes,
@@ -104,7 +104,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ChannelInstance
             def page(type: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'Type' => Twilio.serialize_list(type) { |e| e },
                   'PageToken' => page_token,
                   'Page' => page_number,
@@ -208,7 +208,7 @@ module Twilio
             # @param [String] attributes The attributes
             # @return [ChannelInstance] Updated ChannelInstance
             def update(friendly_name: :unset, unique_name: :unset, attributes: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'UniqueName' => unique_name,
                   'Attributes' => attributes,

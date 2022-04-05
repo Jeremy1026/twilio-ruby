@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -45,7 +45,7 @@ module Twilio
             #   won't alter the address you provide.
             # @return [AddressInstance] Created AddressInstance
             def create(customer_name: nil, street: nil, city: nil, region: nil, postal_code: nil, iso_country: nil, friendly_name: :unset, emergency_enabled: :unset, auto_correct_address: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'CustomerName' => customer_name,
                   'Street' => street,
                   'City' => city,
@@ -147,7 +147,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of AddressInstance
             def page(customer_name: :unset, friendly_name: :unset, iso_country: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'CustomerName' => customer_name,
                   'FriendlyName' => friendly_name,
                   'IsoCountry' => iso_country,
@@ -264,7 +264,7 @@ module Twilio
             #   won't alter the address you provide.
             # @return [AddressInstance] Updated AddressInstance
             def update(friendly_name: :unset, customer_name: :unset, street: :unset, city: :unset, region: :unset, postal_code: :unset, emergency_enabled: :unset, auto_correct_address: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'CustomerName' => customer_name,
                   'Street' => street,

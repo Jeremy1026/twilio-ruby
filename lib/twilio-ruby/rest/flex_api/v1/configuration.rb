@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -77,7 +77,7 @@ module Twilio
           #   to fetch.
           # @return [ConfigurationInstance] Fetched ConfigurationInstance
           def fetch(ui_version: :unset)
-            params = Twilio::Values.of({'UiVersion' => ui_version, })
+            params = Textgrid::Values.of({'UiVersion' => ui_version, })
 
             payload = @version.fetch('GET', @uri, params: params)
 

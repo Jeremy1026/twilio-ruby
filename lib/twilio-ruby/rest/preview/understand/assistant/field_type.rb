@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -83,7 +83,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of FieldTypeInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -115,7 +115,7 @@ module Twilio
             #   resource. It is non-unique and can up to 255 characters long.
             # @return [FieldTypeInstance] Created FieldTypeInstance
             def create(unique_name: nil, friendly_name: :unset)
-              data = Twilio::Values.of({'UniqueName' => unique_name, 'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'UniqueName' => unique_name, 'FriendlyName' => friendly_name, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -202,7 +202,7 @@ module Twilio
             #   resource as an alternative to the sid. Unique up to 64 characters long.
             # @return [FieldTypeInstance] Updated FieldTypeInstance
             def update(friendly_name: :unset, unique_name: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, 'UniqueName' => unique_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, 'UniqueName' => unique_name, })
 
               payload = @version.update('POST', @uri, data: data)
 

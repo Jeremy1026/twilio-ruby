@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trusthub < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
             # @param [String] channel_endpoint_sid The SID of an channel endpoint
             # @return [TrustProductsChannelEndpointAssignmentInstance] Created TrustProductsChannelEndpointAssignmentInstance
             def create(channel_endpoint_type: nil, channel_endpoint_sid: nil)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'ChannelEndpointType' => channel_endpoint_type,
                   'ChannelEndpointSid' => channel_endpoint_sid,
               })
@@ -121,7 +121,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of TrustProductsChannelEndpointAssignmentInstance
             def page(channel_endpoint_sid: :unset, channel_endpoint_sids: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'ChannelEndpointSid' => channel_endpoint_sid,
                   'ChannelEndpointSids' => channel_endpoint_sids,
                   'PageToken' => page_token,

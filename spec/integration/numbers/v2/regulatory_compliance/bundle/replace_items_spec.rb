@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'ReplaceItems' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.numbers.v2.regulatory_compliance \
                         .bundles('BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                         .replace_items.create(from_bundle_sid: 'BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'FromBundleSid' => 'BUXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', }
     expect(
@@ -28,7 +28,7 @@ describe 'ReplaceItems' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V1 < Version
@@ -43,7 +43,7 @@ module Twilio
               #   application-specific data.
               # @return [MessageInstance] Created MessageInstance
               def create(body: nil, from: :unset, attributes: :unset)
-                data = Twilio::Values.of({'Body' => body, 'From' => from, 'Attributes' => attributes, })
+                data = Textgrid::Values.of({'Body' => body, 'From' => from, 'Attributes' => attributes, })
 
                 payload = @version.create('POST', @uri, data: data)
 
@@ -117,7 +117,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of MessageInstance
               def page(order: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Order' => order,
                     'PageToken' => page_token,
                     'Page' => page_number,
@@ -235,7 +235,7 @@ module Twilio
               #   application-specific data.
               # @return [MessageInstance] Updated MessageInstance
               def update(body: :unset, attributes: :unset)
-                data = Twilio::Values.of({'Body' => body, 'Attributes' => attributes, })
+                data = Textgrid::Values.of({'Body' => body, 'Attributes' => attributes, })
 
                 payload = @version.update('POST', @uri, data: data)
 

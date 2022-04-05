@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Wireless
       class V1 < Version
@@ -22,15 +22,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Wireless::V1::UsageRecordContext]
+        # @return [Textgrid::REST::Wireless::V1::UsageRecordContext]
         def usage_records
           @usage_records ||= UsageRecordList.new self
         end
 
         ##
         # @param [String] sid The SID of the Command resource to fetch.
-        # @return [Twilio::REST::Wireless::V1::CommandContext] if sid was passed.
-        # @return [Twilio::REST::Wireless::V1::CommandList]
+        # @return [Textgrid::REST::Wireless::V1::CommandContext] if sid was passed.
+        # @return [Textgrid::REST::Wireless::V1::CommandList]
         def commands(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -44,8 +44,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the RatePlan resource to fetch.
-        # @return [Twilio::REST::Wireless::V1::RatePlanContext] if sid was passed.
-        # @return [Twilio::REST::Wireless::V1::RatePlanList]
+        # @return [Textgrid::REST::Wireless::V1::RatePlanContext] if sid was passed.
+        # @return [Textgrid::REST::Wireless::V1::RatePlanList]
         def rate_plans(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -59,8 +59,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID or the `unique_name` of the Sim resource to fetch.
-        # @return [Twilio::REST::Wireless::V1::SimContext] if sid was passed.
-        # @return [Twilio::REST::Wireless::V1::SimList]
+        # @return [Textgrid::REST::Wireless::V1::SimContext] if sid was passed.
+        # @return [Textgrid::REST::Wireless::V1::SimList]
         def sims(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -75,7 +75,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Wireless::V1>'
+          '<Textgrid::REST::Wireless::V1>'
         end
       end
     end

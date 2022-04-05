@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class Understand < Version
@@ -21,8 +21,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   resource.
-        # @return [Twilio::REST::Preview::Understand::AssistantContext] if sid was passed.
-        # @return [Twilio::REST::Preview::Understand::AssistantList]
+        # @return [Textgrid::REST::Preview::Understand::AssistantContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::Understand::AssistantList]
         def assistants(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,7 +37,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::Understand>'
+          '<Textgrid::REST::Preview::Understand>'
         end
       end
     end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot
       class V1 < Version
@@ -22,8 +22,8 @@ module Twilio
         ##
         # @param [String] sid The Twilio-provided string that uniquely identifies the
         #   Assistant resource to fetch.
-        # @return [Twilio::REST::Autopilot::V1::AssistantContext] if sid was passed.
-        # @return [Twilio::REST::Autopilot::V1::AssistantList]
+        # @return [Textgrid::REST::Autopilot::V1::AssistantContext] if sid was passed.
+        # @return [Textgrid::REST::Autopilot::V1::AssistantList]
         def assistants(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,7 +36,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Autopilot::V1::RestoreAssistantContext]
+        # @return [Textgrid::REST::Autopilot::V1::RestoreAssistantContext]
         def restore_assistant
           @restore_assistant ||= RestoreAssistantList.new self
         end
@@ -44,7 +44,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Autopilot::V1>'
+          '<Textgrid::REST::Autopilot::V1>'
         end
       end
     end

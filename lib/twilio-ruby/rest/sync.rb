@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Service
       #   resource.
-      # @return [Twilio::REST::Sync::V1::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Sync::V1::ServiceList]
+      # @return [Textgrid::REST::Sync::V1::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Sync::V1::ServiceList]
       def services(sid=:unset)
         self.v1.services(sid)
       end
@@ -40,7 +40,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Sync>'
+        '#<Textgrid::REST::Sync>'
       end
     end
   end

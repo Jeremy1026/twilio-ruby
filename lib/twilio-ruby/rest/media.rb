@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Media < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string generated to identify the MediaProcessor
       #   resource.
-      # @return [Twilio::REST::Media::V1::MediaProcessorInstance] if sid was passed.
-      # @return [Twilio::REST::Media::V1::MediaProcessorList]
+      # @return [Textgrid::REST::Media::V1::MediaProcessorInstance] if sid was passed.
+      # @return [Textgrid::REST::Media::V1::MediaProcessorList]
       def media_processor(sid=:unset)
         self.v1.media_processor(sid)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] sid The unique string generated to identify the MediaRecording
       #   resource.
-      # @return [Twilio::REST::Media::V1::MediaRecordingInstance] if sid was passed.
-      # @return [Twilio::REST::Media::V1::MediaRecordingList]
+      # @return [Textgrid::REST::Media::V1::MediaRecordingInstance] if sid was passed.
+      # @return [Textgrid::REST::Media::V1::MediaRecordingList]
       def media_recording(sid=:unset)
         self.v1.media_recording(sid)
       end
@@ -49,8 +49,8 @@ module Twilio
       ##
       # @param [String] sid The unique string generated to identify the PlayerStreamer
       #   resource.
-      # @return [Twilio::REST::Media::V1::PlayerStreamerInstance] if sid was passed.
-      # @return [Twilio::REST::Media::V1::PlayerStreamerList]
+      # @return [Textgrid::REST::Media::V1::PlayerStreamerInstance] if sid was passed.
+      # @return [Textgrid::REST::Media::V1::PlayerStreamerList]
       def player_streamer(sid=:unset)
         self.v1.player_streamer(sid)
       end
@@ -58,7 +58,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Media>'
+        '#<Textgrid::REST::Media>'
       end
     end
   end

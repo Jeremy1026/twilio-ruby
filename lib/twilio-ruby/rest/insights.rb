@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights < Domain
       ##
@@ -29,45 +29,45 @@ module Twilio
       end
 
       ##
-      # @return [Twilio::REST::Insights::V1::SettingInstance]
+      # @return [Textgrid::REST::Insights::V1::SettingInstance]
       def settings
         self.v1.settings()
       end
 
       ##
       # @param [String] call_sid The call_sid
-      # @return [Twilio::REST::Insights::V1::AnnotationInstance] if call_sid was passed.
-      # @return [Twilio::REST::Insights::V1::AnnotationList]
+      # @return [Textgrid::REST::Insights::V1::AnnotationInstance] if call_sid was passed.
+      # @return [Textgrid::REST::Insights::V1::AnnotationList]
       def annotation(call_sid=:unset)
         self.v1.annotation(call_sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Insights::V1::CallInstance] if sid was passed.
-      # @return [Twilio::REST::Insights::V1::CallList]
+      # @return [Textgrid::REST::Insights::V1::CallInstance] if sid was passed.
+      # @return [Textgrid::REST::Insights::V1::CallList]
       def calls(sid=:unset)
         self.v1.calls(sid)
       end
 
       ##
-      # @return [Twilio::REST::Insights::V1::CallSummariesInstance]
+      # @return [Textgrid::REST::Insights::V1::CallSummariesInstance]
       def call_summaries
         self.v1.call_summaries()
       end
 
       ##
       # @param [String] conference_sid The unique SID identifier of the Conference.
-      # @return [Twilio::REST::Insights::V1::ConferenceInstance] if conference_sid was passed.
-      # @return [Twilio::REST::Insights::V1::ConferenceList]
+      # @return [Textgrid::REST::Insights::V1::ConferenceInstance] if conference_sid was passed.
+      # @return [Textgrid::REST::Insights::V1::ConferenceList]
       def conferences(conference_sid=:unset)
         self.v1.conferences(conference_sid)
       end
 
       ##
       # @param [String] room_sid Unique identifier for the room.
-      # @return [Twilio::REST::Insights::V1::RoomInstance] if room_sid was passed.
-      # @return [Twilio::REST::Insights::V1::RoomList]
+      # @return [Textgrid::REST::Insights::V1::RoomInstance] if room_sid was passed.
+      # @return [Textgrid::REST::Insights::V1::RoomList]
       def rooms(room_sid=:unset)
         self.v1.rooms(room_sid)
       end
@@ -75,7 +75,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Insights>'
+        '#<Textgrid::REST::Insights>'
       end
     end
   end

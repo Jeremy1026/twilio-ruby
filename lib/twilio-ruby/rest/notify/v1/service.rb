@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Notify < Domain
       class V1 < Version
@@ -64,7 +64,7 @@ module Twilio
           #   delivery callbacks, default false
           # @return [ServiceInstance] Created ServiceInstance
           def create(friendly_name: :unset, apn_credential_sid: :unset, gcm_credential_sid: :unset, messaging_service_sid: :unset, facebook_messenger_page_id: :unset, default_apn_notification_protocol_version: :unset, default_gcm_notification_protocol_version: :unset, fcm_credential_sid: :unset, default_fcm_notification_protocol_version: :unset, log_enabled: :unset, alexa_skill_id: :unset, default_alexa_notification_protocol_version: :unset, delivery_callback_url: :unset, delivery_callback_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'ApnCredentialSid' => apn_credential_sid,
                 'GcmCredentialSid' => gcm_credential_sid,
@@ -148,7 +148,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ServiceInstance
           def page(friendly_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'PageToken' => page_token,
                 'Page' => page_number,
@@ -287,7 +287,7 @@ module Twilio
           #   delivery callbacks, default false
           # @return [ServiceInstance] Updated ServiceInstance
           def update(friendly_name: :unset, apn_credential_sid: :unset, gcm_credential_sid: :unset, messaging_service_sid: :unset, facebook_messenger_page_id: :unset, default_apn_notification_protocol_version: :unset, default_gcm_notification_protocol_version: :unset, fcm_credential_sid: :unset, default_fcm_notification_protocol_version: :unset, log_enabled: :unset, alexa_skill_id: :unset, default_alexa_notification_protocol_version: :unset, delivery_callback_url: :unset, delivery_callback_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'ApnCredentialSid' => apn_credential_sid,
                 'GcmCredentialSid' => gcm_credential_sid,

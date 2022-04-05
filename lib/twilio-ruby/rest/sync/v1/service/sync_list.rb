@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       class V1 < Version
@@ -40,7 +40,7 @@ module Twilio
             #   the Sync List expires (time-to-live) and is deleted.
             # @return [SyncListInstance] Created SyncListInstance
             def create(unique_name: :unset, ttl: :unset, collection_ttl: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'Ttl' => ttl,
                   'CollectionTtl' => collection_ttl,
@@ -107,7 +107,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of SyncListInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -214,7 +214,7 @@ module Twilio
             #   the Sync List expires (time-to-live) and is deleted.
             # @return [SyncListInstance] Updated SyncListInstance
             def update(ttl: :unset, collection_ttl: :unset)
-              data = Twilio::Values.of({'Ttl' => ttl, 'CollectionTtl' => collection_ttl, })
+              data = Textgrid::Values.of({'Ttl' => ttl, 'CollectionTtl' => collection_ttl, })
 
               payload = @version.update('POST', @uri, data: data)
 

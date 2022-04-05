@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   class Request
     attr_reader :host, :port, :method, :url, :params, :data, :headers, :auth, :timeout
 

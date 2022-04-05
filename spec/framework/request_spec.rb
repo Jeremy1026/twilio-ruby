@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Twilio::Request do
+describe Textgrid::Request do
   before do
-    @request = Twilio::Request.new('host',
+    @request = Textgrid::Request.new('host',
                                    'port',
                                    'POST',
                                    'url',

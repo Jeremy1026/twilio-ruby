@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -34,7 +34,7 @@ module Twilio
             # @param [String] vetting_id The unique ID of the vetting
             # @return [BrandVettingInstance] Created BrandVettingInstance
             def create(vetting_provider: nil, vetting_id: :unset)
-              data = Twilio::Values.of({'VettingProvider' => vetting_provider, 'VettingId' => vetting_id, })
+              data = Textgrid::Values.of({'VettingProvider' => vetting_provider, 'VettingId' => vetting_id, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -103,7 +103,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of BrandVettingInstance
             def page(vetting_provider: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'VettingProvider' => vetting_provider,
                   'PageToken' => page_token,
                   'Page' => page_number,

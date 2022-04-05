@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Twilio::TwiML::MessagingResponse do
+describe Textgrid::TwiML::MessagingResponse do
   context 'Testing Response' do
     it 'should allow empty response' do
       expected_doc = parse <<-XML
         <Response/>
       XML
-      response = Twilio::TwiML::MessagingResponse.new.to_s
+      response = Textgrid::TwiML::MessagingResponse.new.to_s
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
@@ -15,13 +15,13 @@ describe Twilio::TwiML::MessagingResponse do
       expected_doc = parse <<-XML
         <Response/>
       XML
-      response = Twilio::TwiML::MessagingResponse.new.to_xml
+      response = Textgrid::TwiML::MessagingResponse.new.to_xml
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
 
     it 'should allow comments' do
-      twiml = Twilio::TwiML::MessagingResponse.new
+      twiml = Textgrid::TwiML::MessagingResponse.new
       twiml.comment 'This is awesome'
       expect(twiml.to_xml).to match(/<!--This is awesome-->/)
     end
@@ -30,7 +30,7 @@ describe Twilio::TwiML::MessagingResponse do
       expected_doc = parse <<-XML
         <Response>Look no tags</Response>
       XML
-      twiml = Twilio::TwiML::MessagingResponse.new
+      twiml = Textgrid::TwiML::MessagingResponse.new
       twiml.add_text 'Look no tags'
       expect(parse(twiml)).to be_equivalent_to(expected_doc).respecting_element_order
     end
@@ -44,7 +44,7 @@ describe Twilio::TwiML::MessagingResponse do
         </Response>
       XML
 
-      twiml = Twilio::TwiML::MessagingResponse.new
+      twiml = Textgrid::TwiML::MessagingResponse.new
       twiml.add_child('message', tag: 'global') do |custom|
         custom.add_child('bold', 'Hello')
       end
@@ -61,7 +61,7 @@ describe Twilio::TwiML::MessagingResponse do
         </Response>
       XML
 
-      twiml = Twilio::TwiML::MessagingResponse.new
+      twiml = Textgrid::TwiML::MessagingResponse.new
       twiml.add_text('before')
            .add_child('Child', 'content')
            .add_text('after')
@@ -76,7 +76,7 @@ describe Twilio::TwiML::MessagingResponse do
           <Redirect>example.com</Redirect>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       response.message(body: 'Hello')
       response.redirect('example.com')
       doc = parse(response)
@@ -90,7 +90,7 @@ describe Twilio::TwiML::MessagingResponse do
           <Redirect>example.com</Redirect>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new.message(body: 'Hello').redirect('example.com')
+      response = Textgrid::TwiML::MessagingResponse.new.message(body: 'Hello').redirect('example.com')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
@@ -104,7 +104,7 @@ describe Twilio::TwiML::MessagingResponse do
           </Message>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       response.message(body: 'Hello') do |message|
         message.media('foobar')
       end
@@ -122,7 +122,7 @@ describe Twilio::TwiML::MessagingResponse do
           <Redirect>example.com</Redirec>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       response.message(body: 'Hello') do |message|
         message.media('foobar')
       end
@@ -140,7 +140,7 @@ describe Twilio::TwiML::MessagingResponse do
           <Redirect>example.com</Redirec>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new do |res|
+      response = Textgrid::TwiML::MessagingResponse.new do |res|
         res.message(body: 'Hello')
         res.redirect('example.com')
       end
@@ -156,7 +156,7 @@ describe Twilio::TwiML::MessagingResponse do
           <Message>Hello</Message>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       response.message(body: 'Hello')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -168,10 +168,10 @@ describe Twilio::TwiML::MessagingResponse do
           <Message><Body>Hello World</Body></Message>
         </Response>
       XML
-      body = Twilio::TwiML::Body.new('Hello World')
-      message = Twilio::TwiML::Message.new
+      body = Textgrid::TwiML::Body.new('Hello World')
+      message = Textgrid::TwiML::Message.new
 
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       message.append(body)
       response.append(message)
 
@@ -188,11 +188,11 @@ describe Twilio::TwiML::MessagingResponse do
           </Message>
         </Response>
       XML
-      body = Twilio::TwiML::Body.new('Hello World')
-      media = Twilio::TwiML::Media.new('hey.jpg')
-      message = Twilio::TwiML::Message.new
+      body = Textgrid::TwiML::Body.new('Hello World')
+      media = Textgrid::TwiML::Media.new('hey.jpg')
+      message = Textgrid::TwiML::Message.new
 
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       message.append(body)
       message.append(media)
       response.append(message)
@@ -210,7 +210,7 @@ World
         </Response>
       XML
 
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       response.message(body: "Hello\nWorld")
 
       doc = parse(response)
@@ -225,7 +225,7 @@ World
           <Redirect>example.com</Redirect>
         </Response>
       XML
-      response = Twilio::TwiML::MessagingResponse.new
+      response = Textgrid::TwiML::MessagingResponse.new
       response.redirect('example.com')
 
       doc = parse(response)

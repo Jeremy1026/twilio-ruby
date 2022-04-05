@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class IpMessaging < Domain
       class V2 < Version
@@ -83,7 +83,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of WebhookInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -118,7 +118,7 @@ module Twilio
               # @param [String] configuration_retry_count The configuration.retry_count
               # @return [WebhookInstance] Created WebhookInstance
               def create(type: nil, configuration_url: :unset, configuration_method: :unset, configuration_filters: :unset, configuration_triggers: :unset, configuration_flow_sid: :unset, configuration_retry_count: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Type' => type,
                     'Configuration.Url' => configuration_url,
                     'Configuration.Method' => configuration_method,
@@ -220,7 +220,7 @@ module Twilio
               # @param [String] configuration_retry_count The configuration.retry_count
               # @return [WebhookInstance] Updated WebhookInstance
               def update(configuration_url: :unset, configuration_method: :unset, configuration_filters: :unset, configuration_triggers: :unset, configuration_flow_sid: :unset, configuration_retry_count: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Configuration.Url' => configuration_url,
                     'Configuration.Method' => configuration_method,
                     'Configuration.Filters' => Twilio.serialize_list(configuration_filters) { |e| e },

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Events < Domain
       ##
@@ -30,8 +30,8 @@ module Twilio
 
       ##
       # @param [String] type A string that uniquely identifies this Event Type.
-      # @return [Twilio::REST::Events::V1::EventTypeInstance] if type was passed.
-      # @return [Twilio::REST::Events::V1::EventTypeList]
+      # @return [Textgrid::REST::Events::V1::EventTypeInstance] if type was passed.
+      # @return [Textgrid::REST::Events::V1::EventTypeList]
       def event_types(type=:unset)
         self.v1.event_types(type)
       end
@@ -39,16 +39,16 @@ module Twilio
       ##
       # @param [String] id The unique identifier of the schema. Each schema can have
       #   multiple versions, that share the same id.
-      # @return [Twilio::REST::Events::V1::SchemaInstance] if id was passed.
-      # @return [Twilio::REST::Events::V1::SchemaList]
+      # @return [Textgrid::REST::Events::V1::SchemaInstance] if id was passed.
+      # @return [Textgrid::REST::Events::V1::SchemaList]
       def schemas(id=:unset)
         self.v1.schemas(id)
       end
 
       ##
       # @param [String] sid A 34 character string that uniquely identifies this Sink.
-      # @return [Twilio::REST::Events::V1::SinkInstance] if sid was passed.
-      # @return [Twilio::REST::Events::V1::SinkList]
+      # @return [Textgrid::REST::Events::V1::SinkInstance] if sid was passed.
+      # @return [Textgrid::REST::Events::V1::SinkList]
       def sinks(sid=:unset)
         self.v1.sinks(sid)
       end
@@ -56,8 +56,8 @@ module Twilio
       ##
       # @param [String] sid A 34 character string that uniquely identifies this
       #   Subscription.
-      # @return [Twilio::REST::Events::V1::SubscriptionInstance] if sid was passed.
-      # @return [Twilio::REST::Events::V1::SubscriptionList]
+      # @return [Textgrid::REST::Events::V1::SubscriptionInstance] if sid was passed.
+      # @return [Textgrid::REST::Events::V1::SubscriptionList]
       def subscriptions(sid=:unset)
         self.v1.subscriptions(sid)
       end
@@ -65,7 +65,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Events>'
+        '#<Textgrid::REST::Events>'
       end
     end
   end

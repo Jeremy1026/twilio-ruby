@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Version Action Methods' do
   it 'receives fetch responses' do
     @holodeck.mock(
-      Twilio::Response.new(
+      Textgrid::Response.new(
         200,
         '{
             "caller_name": null,
@@ -23,7 +23,7 @@ describe 'Version Action Methods' do
 
   it 'handles redirect fetch responses' do
     @holodeck.mock(
-      Twilio::Response.new(
+      Textgrid::Response.new(
         307,
         '{"phone_number": "+15108675310"}'
       )
@@ -35,7 +35,7 @@ describe 'Version Action Methods' do
   describe 'stream' do
     before(:each) do
       @holodeck.mock(
-        Twilio::Response.new(
+        Textgrid::Response.new(
           200,
           '{
             "next_page_uri": "/2010-04-01/Accounts/AC123/Messages.json?Page=1",
@@ -44,7 +44,7 @@ describe 'Version Action Methods' do
         )
       )
       @holodeck.mock(
-        Twilio::Response.new(
+        Textgrid::Response.new(
           200,
           '{
             "next_page_uri": "/2010-04-01/Accounts/AC123/Messages.json?Page=2",
@@ -53,7 +53,7 @@ describe 'Version Action Methods' do
         )
       )
       @holodeck.mock(
-        Twilio::Response.new(
+        Textgrid::Response.new(
           200,
           '{
             "next_page_uri": null,
@@ -76,7 +76,7 @@ describe 'Version Action Methods' do
 
   it 'receives create responses' do
     @holodeck.mock(
-      Twilio::Response.new(
+      Textgrid::Response.new(
         201,
         '{
           "auth_token": "auth_token",
@@ -119,7 +119,7 @@ describe 'Version Action Methods' do
 
   it 'receives update responses' do
     @holodeck.mock(
-      Twilio::Response.new(
+      Textgrid::Response.new(
         200,
         '{
           "auth_token": "auth_token",
@@ -162,7 +162,7 @@ describe 'Version Action Methods' do
 
   it 'receives read_full responses' do
     @holodeck.mock(
-      Twilio::Response.new(
+      Textgrid::Response.new(
         200,
         '{
           "first_page_uri": "/2010-04-01/Accounts.json?FriendlyName=friendly_name&Status=active&PageSize=50&Page=0",

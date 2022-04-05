@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -91,7 +91,7 @@ module Twilio
               #   `sms`, or `default`.
               # @return [WorkersCumulativeStatisticsInstance] Fetched WorkersCumulativeStatisticsInstance
               def fetch(end_date: :unset, minutes: :unset, start_date: :unset, task_channel: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'EndDate' => Twilio.serialize_iso8601_datetime(end_date),
                     'Minutes' => minutes,
                     'StartDate' => Twilio.serialize_iso8601_datetime(start_date),

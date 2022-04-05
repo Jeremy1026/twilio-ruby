@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Proxy < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Service
       #   resource.
-      # @return [Twilio::REST::Proxy::V1::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Proxy::V1::ServiceList]
+      # @return [Textgrid::REST::Proxy::V1::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Proxy::V1::ServiceList]
       def services(sid=:unset)
         self.v1.services(sid)
       end
@@ -40,7 +40,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Proxy>'
+        '#<Textgrid::REST::Proxy>'
       end
     end
   end

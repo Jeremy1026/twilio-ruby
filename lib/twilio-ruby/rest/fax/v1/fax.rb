@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Fax < Domain
       class V1 < Version
@@ -124,7 +124,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of FaxInstance
           def page(from: :unset, to: :unset, date_created_on_or_before: :unset, date_created_after: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'From' => from,
                 'To' => to,
                 'DateCreatedOnOrBefore' => Twilio.serialize_iso8601_datetime(date_created_on_or_before),

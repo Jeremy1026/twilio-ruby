@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights < Domain
       class V1 < Version
@@ -104,7 +104,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ConferenceParticipantInstance
             def page(participant_sid: :unset, label: :unset, events: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'ParticipantSid' => participant_sid,
                   'Label' => label,
                   'Events' => events,
@@ -189,7 +189,7 @@ module Twilio
             # @param [String] metrics Object. Contains participant call quality metrics.
             # @return [ConferenceParticipantInstance] Fetched ConferenceParticipantInstance
             def fetch(events: :unset, metrics: :unset)
-              params = Twilio::Values.of({'Events' => events, 'Metrics' => metrics, })
+              params = Textgrid::Values.of({'Events' => events, 'Metrics' => metrics, })
 
               payload = @version.fetch('GET', @uri, params: params)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -116,7 +116,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of CompositionInstance
           def page(status: :unset, date_created_after: :unset, date_created_before: :unset, room_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Status' => status,
                 'DateCreatedAfter' => Twilio.serialize_iso8601_datetime(date_created_after),
                 'DateCreatedBefore' => Twilio.serialize_iso8601_datetime(date_created_before),
@@ -208,7 +208,7 @@ module Twilio
           #   for more info.
           # @return [CompositionInstance] Created CompositionInstance
           def create(room_sid: nil, video_layout: :unset, audio_sources: :unset, audio_sources_excluded: :unset, resolution: :unset, format: :unset, status_callback: :unset, status_callback_method: :unset, trim: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'RoomSid' => room_sid,
                 'VideoLayout' => Twilio.serialize_object(video_layout),
                 'AudioSources' => Twilio.serialize_list(audio_sources) { |e| e },

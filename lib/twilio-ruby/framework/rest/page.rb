@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     # Page Base Class
     class Page
@@ -31,7 +31,7 @@ module Twilio
 
       def process_response(response)
         if response.status_code != 200
-          raise Twilio::REST::RestError.new('Unable to fetch page', response)
+          raise Textgrid::REST::RestError.new('Unable to fetch page', response)
         end
 
         response.body
@@ -46,7 +46,7 @@ module Twilio
           return payload[key.first] if key.size == 1
         end
 
-        raise Twilio::REST::TwilioError, 'Page Records can not be deserialized'
+        raise Textgrid::REST::TwilioError, 'Page Records can not be deserialized'
       end
 
       def previous_page_url
@@ -70,7 +70,7 @@ module Twilio
       end
 
       def get_instance(payload)
-        raise Twilio::REST::TwilioError, 'Page.get_instance() must be implemented in the derived class'
+        raise Textgrid::REST::TwilioError, 'Page.get_instance() must be implemented in the derived class'
       end
 
       def previous_page

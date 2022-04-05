@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Lookups < Domain
       class V1 < Version
@@ -95,7 +95,7 @@ module Twilio
           #   The content and format of this value depends on the add-on.
           # @return [PhoneNumberInstance] Fetched PhoneNumberInstance
           def fetch(country_code: :unset, type: :unset, add_ons: :unset, add_ons_data: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'CountryCode' => country_code,
                 'Type' => Twilio.serialize_list(type) { |e| e },
                 'AddOns' => Twilio.serialize_list(add_ons) { |e| e },

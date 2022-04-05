@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       ##
@@ -31,14 +31,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Channel
       #   resource.
-      # @return [Twilio::REST::Flex_api::V1::ChannelInstance] if sid was passed.
-      # @return [Twilio::REST::Flex_api::V1::ChannelList]
+      # @return [Textgrid::REST::Flex_api::V1::ChannelInstance] if sid was passed.
+      # @return [Textgrid::REST::Flex_api::V1::ChannelList]
       def channel(sid=:unset)
         self.v1.channel(sid)
       end
 
       ##
-      # @return [Twilio::REST::Flex_api::V1::ConfigurationInstance]
+      # @return [Textgrid::REST::Flex_api::V1::ConfigurationInstance]
       def configuration
         self.v1.configuration()
       end
@@ -46,8 +46,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Flex Flow
       #   resource.
-      # @return [Twilio::REST::Flex_api::V1::FlexFlowInstance] if sid was passed.
-      # @return [Twilio::REST::Flex_api::V1::FlexFlowList]
+      # @return [Textgrid::REST::Flex_api::V1::FlexFlowInstance] if sid was passed.
+      # @return [Textgrid::REST::Flex_api::V1::FlexFlowList]
       def flex_flow(sid=:unset)
         self.v1.flex_flow(sid)
       end
@@ -55,8 +55,8 @@ module Twilio
       ##
       # @param [String] sid The unique string created by Twilio to identify an
       #   Interaction resource.
-      # @return [Twilio::REST::Flex_api::V1::InteractionInstance] if sid was passed.
-      # @return [Twilio::REST::Flex_api::V1::InteractionList]
+      # @return [Textgrid::REST::Flex_api::V1::InteractionInstance] if sid was passed.
+      # @return [Textgrid::REST::Flex_api::V1::InteractionList]
       def interaction(sid=:unset)
         self.v1.interaction(sid)
       end
@@ -64,8 +64,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the WebChannel
       #   resource.
-      # @return [Twilio::REST::Flex_api::V1::WebChannelInstance] if sid was passed.
-      # @return [Twilio::REST::Flex_api::V1::WebChannelList]
+      # @return [Textgrid::REST::Flex_api::V1::WebChannelInstance] if sid was passed.
+      # @return [Textgrid::REST::Flex_api::V1::WebChannelList]
       def web_channel(sid=:unset)
         self.v1.web_channel(sid)
       end
@@ -73,7 +73,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::FlexApi>'
+        '#<Textgrid::REST::FlexApi>'
       end
     end
   end

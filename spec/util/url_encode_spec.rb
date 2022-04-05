@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Twilio::Util do
-  include Twilio::Util
+describe Textgrid::Util do
+  include Textgrid::Util
 
   it 'should parse a Date object' do
     today = Time.now

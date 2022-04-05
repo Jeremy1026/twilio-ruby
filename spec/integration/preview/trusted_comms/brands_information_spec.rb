@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'BrandsInformation' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.preview.trusted_comms.brands_information().fetch(if_none_match: 'if_none_match')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {'If-None-Match' => 'if_none_match', }
     expect(
@@ -26,7 +26,7 @@ describe 'BrandsInformation' do
   end
 
   it "receives fetch_results_with_etag responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

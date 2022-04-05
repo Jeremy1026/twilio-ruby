@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       ##
@@ -80,8 +80,8 @@ module Twilio
       ##
       # @param [String] resource_type The type of communication – Messages, Calls,
       #   Conferences, and Participants
-      # @return [Twilio::REST::Preview::BulkExports::ExportInstance] if resource_type was passed.
-      # @return [Twilio::REST::Preview::BulkExports::ExportList]
+      # @return [Textgrid::REST::Preview::BulkExports::ExportInstance] if resource_type was passed.
+      # @return [Textgrid::REST::Preview::BulkExports::ExportList]
       def exports(resource_type=:unset)
         self.bulk_exports.exports(resource_type)
       end
@@ -89,8 +89,8 @@ module Twilio
       ##
       # @param [String] resource_type The type of communication – Messages, Calls,
       #   Conferences, and Participants
-      # @return [Twilio::REST::Preview::BulkExports::ExportConfigurationInstance] if resource_type was passed.
-      # @return [Twilio::REST::Preview::BulkExports::ExportConfigurationList]
+      # @return [Textgrid::REST::Preview::BulkExports::ExportConfigurationInstance] if resource_type was passed.
+      # @return [Textgrid::REST::Preview::BulkExports::ExportConfigurationList]
       def export_configuration(resource_type=:unset)
         self.bulk_exports.export_configuration(resource_type)
       end
@@ -98,8 +98,8 @@ module Twilio
       ##
       # @param [String] sid Contains a 34 character string that uniquely identifies this
       #   Fleet resource.
-      # @return [Twilio::REST::Preview::DeployedDevices::FleetInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::DeployedDevices::FleetList]
+      # @return [Textgrid::REST::Preview::DeployedDevices::FleetInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::DeployedDevices::FleetList]
       def fleets(sid=:unset)
         self.deployed_devices.fleets(sid)
       end
@@ -107,8 +107,8 @@ module Twilio
       ##
       # @param [String] sid A 34 character string that uniquely identifies this
       #   AuthorizationDocument.
-      # @return [Twilio::REST::Preview::HostedNumbers::AuthorizationDocumentInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::HostedNumbers::AuthorizationDocumentList]
+      # @return [Textgrid::REST::Preview::HostedNumbers::AuthorizationDocumentInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::HostedNumbers::AuthorizationDocumentList]
       def authorization_documents(sid=:unset)
         self.hosted_numbers.authorization_documents(sid)
       end
@@ -116,8 +116,8 @@ module Twilio
       ##
       # @param [String] sid A 34 character string that uniquely identifies this
       #   HostedNumberOrder.
-      # @return [Twilio::REST::Preview::HostedNumbers::HostedNumberOrderInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::HostedNumbers::HostedNumberOrderList]
+      # @return [Textgrid::REST::Preview::HostedNumbers::HostedNumberOrderInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::HostedNumbers::HostedNumberOrderList]
       def hosted_number_orders(sid=:unset)
         self.hosted_numbers.hosted_number_orders(sid)
       end
@@ -125,8 +125,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the
       #   AvailableAddOn resource.
-      # @return [Twilio::REST::Preview::Marketplace::AvailableAddOnInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Marketplace::AvailableAddOnList]
+      # @return [Textgrid::REST::Preview::Marketplace::AvailableAddOnInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Marketplace::AvailableAddOnList]
       def available_add_ons(sid=:unset)
         self.marketplace.available_add_ons(sid)
       end
@@ -135,16 +135,16 @@ module Twilio
       # @param [String] sid The unique string that we created to identify the
       #   InstalledAddOn resource. This Sid can also be found in the Console on that
       #   specific Add-ons page as the 'Available Add-on Sid'.
-      # @return [Twilio::REST::Preview::Marketplace::InstalledAddOnInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Marketplace::InstalledAddOnList]
+      # @return [Textgrid::REST::Preview::Marketplace::InstalledAddOnInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Marketplace::InstalledAddOnList]
       def installed_add_ons(sid=:unset)
         self.marketplace.installed_add_ons(sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Preview::Sync::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Sync::ServiceList]
+      # @return [Textgrid::REST::Preview::Sync::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Sync::ServiceList]
       def services(sid=:unset)
         self.sync.services(sid)
       end
@@ -152,58 +152,58 @@ module Twilio
       ##
       # @param [String] sid A 34 character string that uniquely identifies this
       #   resource.
-      # @return [Twilio::REST::Preview::Understand::AssistantInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Understand::AssistantList]
+      # @return [Textgrid::REST::Preview::Understand::AssistantInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Understand::AssistantList]
       def assistants(sid=:unset)
         self.understand.assistants(sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Preview::Wireless::CommandInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Wireless::CommandList]
+      # @return [Textgrid::REST::Preview::Wireless::CommandInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Wireless::CommandList]
       def commands(sid=:unset)
         self.wireless.commands(sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Preview::Wireless::RatePlanInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Wireless::RatePlanList]
+      # @return [Textgrid::REST::Preview::Wireless::RatePlanInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Wireless::RatePlanList]
       def rate_plans(sid=:unset)
         self.wireless.rate_plans(sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Preview::Wireless::SimInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::Wireless::SimList]
+      # @return [Textgrid::REST::Preview::Wireless::SimInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::Wireless::SimList]
       def sims(sid=:unset)
         self.wireless.sims(sid)
       end
 
       ##
       # @param [String] sid The unique SID identifier of the Branded Channel.
-      # @return [Twilio::REST::Preview::TrustedComms::BrandedChannelInstance] if sid was passed.
-      # @return [Twilio::REST::Preview::TrustedComms::BrandedChannelList]
+      # @return [Textgrid::REST::Preview::TrustedComms::BrandedChannelInstance] if sid was passed.
+      # @return [Textgrid::REST::Preview::TrustedComms::BrandedChannelList]
       def branded_channels(sid=:unset)
         self.trusted_comms.branded_channels(sid)
       end
 
       ##
-      # @return [Twilio::REST::Preview::TrustedComms::BrandsInformationInstance]
+      # @return [Textgrid::REST::Preview::TrustedComms::BrandsInformationInstance]
       def brands_information
         self.trusted_comms.brands_information()
       end
 
       ##
-      # @return [Twilio::REST::Preview::TrustedComms::CpsInstance]
+      # @return [Textgrid::REST::Preview::TrustedComms::CpsInstance]
       def cps
         self.trusted_comms.cps()
       end
 
       ##
-      # @return [Twilio::REST::Preview::TrustedComms::CurrentCallInstance]
+      # @return [Textgrid::REST::Preview::TrustedComms::CurrentCallInstance]
       def current_calls
         self.trusted_comms.current_calls()
       end
@@ -211,7 +211,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Preview>'
+        '#<Textgrid::REST::Preview>'
       end
     end
   end

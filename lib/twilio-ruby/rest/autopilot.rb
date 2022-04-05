@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot < Domain
       ##
@@ -31,14 +31,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Assistant
       #   resource.
-      # @return [Twilio::REST::Autopilot::V1::AssistantInstance] if sid was passed.
-      # @return [Twilio::REST::Autopilot::V1::AssistantList]
+      # @return [Textgrid::REST::Autopilot::V1::AssistantInstance] if sid was passed.
+      # @return [Textgrid::REST::Autopilot::V1::AssistantList]
       def assistants(sid=:unset)
         self.v1.assistants(sid)
       end
 
       ##
-      # @return [Twilio::REST::Autopilot::V1::RestoreAssistantInstance]
+      # @return [Textgrid::REST::Autopilot::V1::RestoreAssistantInstance]
       def restore_assistant
         self.v1.restore_assistant()
       end
@@ -46,7 +46,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Autopilot>'
+        '#<Textgrid::REST::Autopilot>'
       end
     end
   end

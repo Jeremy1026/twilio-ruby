@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Wireless < Domain
       class V1 < Version
@@ -121,7 +121,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of SimInstance
           def page(status: :unset, iccid: :unset, rate_plan: :unset, e_id: :unset, sim_registration_code: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Status' => status,
                 'Iccid' => iccid,
                 'RatePlan' => rate_plan,
@@ -265,7 +265,7 @@ module Twilio
           #   documentation}[https://www.twilio.com/docs/wireless/api/sim-resource#move-sims-between-subaccounts].
           # @return [SimInstance] Updated SimInstance
           def update(unique_name: :unset, callback_method: :unset, callback_url: :unset, friendly_name: :unset, rate_plan: :unset, status: :unset, commands_callback_method: :unset, commands_callback_url: :unset, sms_fallback_method: :unset, sms_fallback_url: :unset, sms_method: :unset, sms_url: :unset, voice_fallback_method: :unset, voice_fallback_url: :unset, voice_method: :unset, voice_url: :unset, reset_status: :unset, account_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'UniqueName' => unique_name,
                 'CallbackMethod' => callback_method,
                 'CallbackUrl' => callback_url,

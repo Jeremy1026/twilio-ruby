@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -94,7 +94,7 @@ module Twilio
             # @param [Hash] initiation_actions The initiation_actions
             # @return [AssistantInitiationActionsInstance] Updated AssistantInitiationActionsInstance
             def update(initiation_actions: :unset)
-              data = Twilio::Values.of({'InitiationActions' => Twilio.serialize_object(initiation_actions), })
+              data = Textgrid::Values.of({'InitiationActions' => Twilio.serialize_object(initiation_actions), })
 
               payload = @version.update('POST', @uri, data: data)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Serverless < Domain
       class V1 < Version
@@ -84,7 +84,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of FunctionInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -114,7 +114,7 @@ module Twilio
             #   the Function resource. It can be a maximum of 255 characters.
             # @return [FunctionInstance] Created FunctionInstance
             def create(friendly_name: nil)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -202,7 +202,7 @@ module Twilio
             #   the Function resource. It can be a maximum of 255 characters.
             # @return [FunctionInstance] Updated FunctionInstance
             def update(friendly_name: nil)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
               payload = @version.update('POST', @uri, data: data)
 

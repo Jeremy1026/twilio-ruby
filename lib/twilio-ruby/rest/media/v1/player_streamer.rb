@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Media < Domain
       class V1 < Version
@@ -39,7 +39,7 @@ module Twilio
           #   still streaming.
           # @return [PlayerStreamerInstance] Created PlayerStreamerInstance
           def create(video: :unset, status_callback: :unset, status_callback_method: :unset, max_duration: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Video' => video,
                 'StatusCallback' => status_callback,
                 'StatusCallbackMethod' => status_callback_method,
@@ -122,7 +122,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of PlayerStreamerInstance
           def page(order: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Order' => order,
                 'Status' => status,
                 'PageToken' => page_token,
@@ -216,7 +216,7 @@ module Twilio
           #   should be transitioned to. Can be: `ended`.
           # @return [PlayerStreamerInstance] Updated PlayerStreamerInstance
           def update(status: nil)
-            data = Twilio::Values.of({'Status' => status, })
+            data = Textgrid::Values.of({'Status' => status, })
 
             payload = @version.update('POST', @uri, data: data)
 

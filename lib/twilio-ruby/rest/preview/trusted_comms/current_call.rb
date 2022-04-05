@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class TrustedComms < Version
@@ -87,7 +87,7 @@ module Twilio
           #   given in {E.164 format}[https://www.twilio.com/docs/glossary/what-e164].
           # @return [CurrentCallInstance] Fetched CurrentCallInstance
           def fetch(x_xcnam_sensitive_phone_number_from: :unset, x_xcnam_sensitive_phone_number_to: :unset)
-            headers = Twilio::Values.of({
+            headers = Textgrid::Values.of({
                 'X-Xcnam-Sensitive-Phone-Number-From' => x_xcnam_sensitive_phone_number_from,
                 'X-Xcnam-Sensitive-Phone-Number-To' => x_xcnam_sensitive_phone_number_to,
             })

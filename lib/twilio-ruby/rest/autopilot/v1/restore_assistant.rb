@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot < Domain
       class V1 < Version
@@ -31,7 +31,7 @@ module Twilio
           #   the Assistant resource to restore.
           # @return [RestoreAssistantInstance] Updated RestoreAssistantInstance
           def update(assistant: nil)
-            data = Twilio::Values.of({'Assistant' => assistant, })
+            data = Textgrid::Values.of({'Assistant' => assistant, })
 
             payload = @version.update('POST', @uri, data: data)
 

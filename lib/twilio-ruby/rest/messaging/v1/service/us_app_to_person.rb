@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -43,7 +43,7 @@ module Twilio
             #   messages that contain phone numbers.
             # @return [UsAppToPersonInstance] Created UsAppToPersonInstance
             def create(brand_registration_sid: nil, description: nil, message_samples: nil, us_app_to_person_usecase: nil, has_embedded_links: nil, has_embedded_phone: nil)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'BrandRegistrationSid' => brand_registration_sid,
                   'Description' => description,
                   'MessageSamples' => Twilio.serialize_list(message_samples) { |e| e },
@@ -117,7 +117,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of UsAppToPersonInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,

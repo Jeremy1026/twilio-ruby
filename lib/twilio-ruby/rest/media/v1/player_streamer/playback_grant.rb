@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Media < Domain
       class V1 < Version
@@ -84,7 +84,7 @@ module Twilio
             #   domain.
             # @return [PlaybackGrantInstance] Created PlaybackGrantInstance
             def create(ttl: :unset, access_control_allow_origin: :unset)
-              data = Twilio::Values.of({'Ttl' => ttl, 'AccessControlAllowOrigin' => access_control_allow_origin, })
+              data = Textgrid::Values.of({'Ttl' => ttl, 'AccessControlAllowOrigin' => access_control_allow_origin, })
 
               payload = @version.create('POST', @uri, data: data)
 

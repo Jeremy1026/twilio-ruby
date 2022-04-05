@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'BrandVetting' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.brand_registrations('BNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .brand_vettings.create(vetting_provider: 'campaign-verify')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'VettingProvider' => 'campaign-verify', }
     expect(
@@ -27,7 +27,7 @@ describe 'BrandVetting' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -52,12 +52,12 @@ describe 'BrandVetting' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.brand_registrations('BNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .brand_vettings.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -67,7 +67,7 @@ describe 'BrandVetting' do
   end
 
   it "receives read responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -105,12 +105,12 @@ describe 'BrandVetting' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.messaging.v1.brand_registrations('BNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                           .brand_vettings('VTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -120,7 +120,7 @@ describe 'BrandVetting' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

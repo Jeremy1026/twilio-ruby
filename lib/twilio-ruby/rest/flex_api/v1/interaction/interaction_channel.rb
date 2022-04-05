@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -81,7 +81,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of InteractionChannelInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -183,7 +183,7 @@ module Twilio
             #   `wrapup`.  Default is `wrapup` if unspecified.
             # @return [InteractionChannelInstance] Updated InteractionChannelInstance
             def update(status: nil, routing: :unset)
-              data = Twilio::Values.of({'Status' => status, 'Routing' => Twilio.serialize_object(routing), })
+              data = Textgrid::Values.of({'Status' => status, 'Routing' => Twilio.serialize_object(routing), })
 
               payload = @version.update('POST', @uri, data: data)
 

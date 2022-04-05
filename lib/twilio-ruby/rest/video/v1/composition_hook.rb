@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -125,7 +125,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of CompositionHookInstance
           def page(enabled: :unset, date_created_after: :unset, date_created_before: :unset, friendly_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Enabled' => enabled,
                 'DateCreatedAfter' => Twilio.serialize_iso8601_datetime(date_created_after),
                 'DateCreatedBefore' => Twilio.serialize_iso8601_datetime(date_created_before),
@@ -221,7 +221,7 @@ module Twilio
           #   for more info.
           # @return [CompositionHookInstance] Created CompositionHookInstance
           def create(friendly_name: nil, enabled: :unset, video_layout: :unset, audio_sources: :unset, audio_sources_excluded: :unset, resolution: :unset, format: :unset, status_callback: :unset, status_callback_method: :unset, trim: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Enabled' => enabled,
                 'VideoLayout' => Twilio.serialize_object(video_layout),
@@ -373,7 +373,7 @@ module Twilio
           #   `status_callback`. Can be: `POST` or `GET` and the default is `POST`.
           # @return [CompositionHookInstance] Updated CompositionHookInstance
           def update(friendly_name: nil, enabled: :unset, video_layout: :unset, audio_sources: :unset, audio_sources_excluded: :unset, trim: :unset, format: :unset, resolution: :unset, status_callback: :unset, status_callback_method: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Enabled' => enabled,
                 'VideoLayout' => Twilio.serialize_object(video_layout),

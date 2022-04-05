@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice
       class V1 < Version
@@ -27,8 +27,8 @@ module Twilio
         # @param [Date] date The date of the Call in UTC.
         # @param [String] sid The Twilio-provided Call SID that uniquely identifies the
         #   Call resource to delete
-        # @return [Twilio::REST::Voice::V1::ArchivedCallContext] if sid was passed.
-        # @return [Twilio::REST::Voice::V1::ArchivedCallList]
+        # @return [Textgrid::REST::Voice::V1::ArchivedCallContext] if sid was passed.
+        # @return [Textgrid::REST::Voice::V1::ArchivedCallList]
         def archived_calls(date=:unset, sid=:unset)
           if date.nil?
               raise ArgumentError, 'date cannot be nil'
@@ -46,8 +46,8 @@ module Twilio
         ##
         # @param [String] sid The Twilio-provided string that uniquely identifies the BYOC
         #   Trunk resource to fetch.
-        # @return [Twilio::REST::Voice::V1::ByocTrunkContext] if sid was passed.
-        # @return [Twilio::REST::Voice::V1::ByocTrunkList]
+        # @return [Textgrid::REST::Voice::V1::ByocTrunkContext] if sid was passed.
+        # @return [Textgrid::REST::Voice::V1::ByocTrunkList]
         def byoc_trunks(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -62,8 +62,8 @@ module Twilio
         ##
         # @param [String] sid The unique string that we created to identify the Connection
         #   Policy resource to fetch.
-        # @return [Twilio::REST::Voice::V1::ConnectionPolicyContext] if sid was passed.
-        # @return [Twilio::REST::Voice::V1::ConnectionPolicyList]
+        # @return [Textgrid::REST::Voice::V1::ConnectionPolicyContext] if sid was passed.
+        # @return [Textgrid::REST::Voice::V1::ConnectionPolicyList]
         def connection_policies(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -76,7 +76,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Voice::V1::DialingPermissionsContext]
+        # @return [Textgrid::REST::Voice::V1::DialingPermissionsContext]
         def dialing_permissions
           @dialing_permissions ||= DialingPermissionsList.new self
         end
@@ -84,8 +84,8 @@ module Twilio
         ##
         # @param [String] sid The Twilio-provided string that uniquely identifies the IP
         #   Record resource to fetch.
-        # @return [Twilio::REST::Voice::V1::IpRecordContext] if sid was passed.
-        # @return [Twilio::REST::Voice::V1::IpRecordList]
+        # @return [Textgrid::REST::Voice::V1::IpRecordContext] if sid was passed.
+        # @return [Textgrid::REST::Voice::V1::IpRecordList]
         def ip_records(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -100,8 +100,8 @@ module Twilio
         ##
         # @param [String] sid The Twilio-provided string that uniquely identifies the IP
         #   Record resource to fetch.
-        # @return [Twilio::REST::Voice::V1::SourceIpMappingContext] if sid was passed.
-        # @return [Twilio::REST::Voice::V1::SourceIpMappingList]
+        # @return [Textgrid::REST::Voice::V1::SourceIpMappingContext] if sid was passed.
+        # @return [Textgrid::REST::Voice::V1::SourceIpMappingList]
         def source_ip_mappings(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -116,7 +116,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Voice::V1>'
+          '<Textgrid::REST::Voice::V1>'
         end
       end
     end

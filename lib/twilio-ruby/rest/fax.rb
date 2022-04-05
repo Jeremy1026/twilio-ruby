@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Fax < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Fax
       #   resource.
-      # @return [Twilio::REST::Fax::V1::FaxInstance] if sid was passed.
-      # @return [Twilio::REST::Fax::V1::FaxList]
+      # @return [Textgrid::REST::Fax::V1::FaxInstance] if sid was passed.
+      # @return [Textgrid::REST::Fax::V1::FaxList]
       def faxes(sid=:unset)
         self.v1.faxes(sid)
       end
@@ -40,7 +40,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Fax>'
+        '#<Textgrid::REST::Fax>'
       end
     end
   end

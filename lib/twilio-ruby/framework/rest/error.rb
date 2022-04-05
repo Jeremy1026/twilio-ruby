@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class TwilioError < StandardError
-      # @deprecated all errors that have a body are now 'Twilio::RestError's
+      # @deprecated all errors that have a body are now 'Textgrid::RestError's
       def body
-        warn "'Twilio::REST::TwilioError#body' has been deprecated. No 'TwilioError' objects are raised with a body."
+        warn "'Textgrid::REST::TwilioError#body' has been deprecated. No 'TwilioError' objects are raised with a body."
         nil
       end
     end
@@ -25,7 +25,7 @@ module Twilio
 
       # @deprecated use #response instead
       def body
-        warn 'This error used to be a "Twilio::REST::TwilioError" but is now a "Twilio::REST::RestError". ' \
+        warn 'This error used to be a "Textgrid::REST::TwilioError" but is now a "Textgrid::REST::RestError". ' \
              'Please use #response instead of #body.'
         @response
       end

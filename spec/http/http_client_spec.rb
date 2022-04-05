@@ -1,13 +1,13 @@
 require 'spec_helper'
 require 'rack/mock'
 
-describe Twilio::HTTP::Client do
+describe Textgrid::HTTP::Client do
   before do
-    @client = Twilio::HTTP::Client.new
+    @client = Textgrid::HTTP::Client.new
   end
 
   it 'should allow adding a request configuration block' do
-    @client = Twilio::HTTP::Client.new
+    @client = Textgrid::HTTP::Client.new
     @connection = Faraday::Connection.new
 
     blocks_spy = spy('blocks')
@@ -30,7 +30,7 @@ describe Twilio::HTTP::Client do
   end
 
   it 'should allow setting a global timeout' do
-    @client = Twilio::HTTP::Client.new(timeout: 10)
+    @client = Textgrid::HTTP::Client.new(timeout: 10)
     @connection = Faraday::Connection.new
 
     expect(Faraday).to receive(:new).and_yield(@connection).and_return(@connection)
@@ -44,7 +44,7 @@ describe Twilio::HTTP::Client do
   end
 
   it 'should allow overriding timeout per request' do
-    @client = Twilio::HTTP::Client.new(timeout: 10)
+    @client = Textgrid::HTTP::Client.new(timeout: 10)
     @connection = Faraday::Connection.new
 
     expect(Faraday).to receive(:new).and_yield(@connection).and_return(@connection)
@@ -64,7 +64,7 @@ describe Twilio::HTTP::Client do
     @client.request('host', 'port', 'GET', 'url', nil, nil, {}, ['a', 'b'])
 
     expect(@client.last_response).to_not be_nil
-    expect(@client.last_response.is_a?(Twilio::Response)).to be(true)
+    expect(@client.last_response.is_a?(Textgrid::Response)).to be(true)
     expect(@client.last_response.status_code).to eq(301)
     expect(@client.last_response.headers).to eq(something: '1')
   end
@@ -84,7 +84,7 @@ describe Twilio::HTTP::Client do
                     'timeout')
 
     expect(@client.last_request).to_not be_nil
-    expect(@client.last_request.is_a?(Twilio::Request)).to be(true)
+    expect(@client.last_request.is_a?(Textgrid::Request)).to be(true)
     expect(@client.last_request.host).to eq('host')
     expect(@client.last_request.port).to eq('port')
     expect(@client.last_request.method).to eq('GET')
@@ -111,7 +111,7 @@ describe Twilio::HTTP::Client do
     expect(@client.last_request.headers).to eq({})
     expect(@client.last_request.auth).to eq(['a', 'b'])
     expect(@client.last_request.timeout).to be_nil
-    expect(@client.last_response.is_a?(Twilio::Response)).to be(true)
+    expect(@client.last_response.is_a?(Textgrid::Response)).to be(true)
     expect(@client.last_response.status_code).to eq(500)
   end
 
@@ -119,7 +119,7 @@ describe Twilio::HTTP::Client do
     expect(Faraday).to receive(:new).and_return(Faraday::Connection.new)
     allow_any_instance_of(Faraday::Connection).to receive(:send).and_raise(Faraday::ConnectionFailed.new('BOOM'))
 
-    expect { @client.request('host', 'port', 'GET', 'url', nil, nil, {}, ['a', 'b']) }.to raise_exception(Twilio::REST::TwilioError)
+    expect { @client.request('host', 'port', 'GET', 'url', nil, nil, {}, ['a', 'b']) }.to raise_exception(Textgrid::REST::TwilioError)
     expect(@client.last_response).to be_nil
     expect(@client.last_request).to_not be_nil
     expect(@client.last_request.host).to eq('host')
@@ -134,12 +134,12 @@ describe Twilio::HTTP::Client do
   end
 
   describe 'last_response' do
-    let(:last_response) { Twilio::Response.new(200, 'body') }
+    let(:last_response) { Textgrid::Response.new(200, 'body') }
   end
   it 'previous last_response should be cleared' do
     expect(Faraday).to receive(:new).and_return(Faraday::Connection.new)
     allow_any_instance_of(Faraday::Connection).to receive(:send).and_raise(Faraday::ConnectionFailed.new('BOOM'))
-    expect { @client.request('host', 'port', 'GET', 'url', nil, nil, {}, ['a', 'b']) }.to raise_exception(Twilio::REST::TwilioError)
+    expect { @client.request('host', 'port', 'GET', 'url', nil, nil, {}, ['a', 'b']) }.to raise_exception(Textgrid::REST::TwilioError)
     expect(@client.last_response).to be_nil
   end
 

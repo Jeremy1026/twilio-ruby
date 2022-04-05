@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -40,7 +40,7 @@ module Twilio
             #   integer between 60 and 300. Default is 60.
             # @return [AccessTokenInstance] Created AccessTokenInstance
             def create(identity: nil, factor_type: nil, factor_friendly_name: :unset, ttl: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Identity' => identity,
                   'FactorType' => factor_type,
                   'FactorFriendlyName' => factor_friendly_name,

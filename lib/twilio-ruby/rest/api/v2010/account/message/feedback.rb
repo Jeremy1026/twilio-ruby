@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -39,7 +39,7 @@ module Twilio
               #   update the value to `confirmed`.
               # @return [FeedbackInstance] Created FeedbackInstance
               def create(outcome: :unset)
-                data = Twilio::Values.of({'Outcome' => outcome, })
+                data = Textgrid::Values.of({'Outcome' => outcome, })
 
                 payload = @version.create('POST', @uri, data: data)
 

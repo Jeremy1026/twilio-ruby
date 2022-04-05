@@ -10,14 +10,14 @@ require 'spec_helper.rb'
 
 describe 'StepContext' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.studio.v1.flows('FWXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .engagements('FNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .steps('FTXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .step_context().fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -27,7 +27,7 @@ describe 'StepContext' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

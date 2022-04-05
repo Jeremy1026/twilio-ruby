@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -107,7 +107,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ShortCodeInstance
             def page(friendly_name: :unset, short_code: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'ShortCode' => short_code,
                   'PageToken' => page_token,
@@ -213,7 +213,7 @@ module Twilio
             #   the `sms_fallback_url`. Can be: `GET` or `POST`.
             # @return [ShortCodeInstance] Updated ShortCodeInstance
             def update(friendly_name: :unset, api_version: :unset, sms_url: :unset, sms_method: :unset, sms_fallback_url: :unset, sms_fallback_method: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'ApiVersion' => api_version,
                   'SmsUrl' => sms_url,

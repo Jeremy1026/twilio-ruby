@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -109,7 +109,7 @@ module Twilio
             #   for this Conversations Service. The default is `false`.
             # @return [ConfigurationInstance] Updated ConfigurationInstance
             def update(default_conversation_creator_role_sid: :unset, default_conversation_role_sid: :unset, default_chat_service_role_sid: :unset, reachability_enabled: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'DefaultConversationCreatorRoleSid' => default_conversation_creator_role_sid,
                   'DefaultConversationRoleSid' => default_conversation_role_sid,
                   'DefaultChatServiceRoleSid' => default_chat_service_role_sid,

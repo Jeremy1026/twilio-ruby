@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trusthub < Domain
       class V1 < Version
@@ -35,7 +35,7 @@ module Twilio
           #   status changes.
           # @return [TrustProductsInstance] Created TrustProductsInstance
           def create(friendly_name: nil, email: nil, policy_sid: nil, status_callback: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Email' => email,
                 'PolicySid' => policy_sid,
@@ -132,7 +132,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of TrustProductsInstance
           def page(status: :unset, friendly_name: :unset, policy_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Status' => status,
                 'FriendlyName' => friendly_name,
                 'PolicySid' => policy_sid,
@@ -236,7 +236,7 @@ module Twilio
           #   Customer-Profile resource changes status.
           # @return [TrustProductsInstance] Updated TrustProductsInstance
           def update(status: :unset, status_callback: :unset, friendly_name: :unset, email: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Status' => status,
                 'StatusCallback' => status_callback,
                 'FriendlyName' => friendly_name,

@@ -63,7 +63,7 @@ account_sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
 # set up a client to talk to the Twilio REST API
-@client = Twilio::REST::Client.new account_sid, auth_token
+@client = Textgrid::REST::Client.new account_sid, auth_token
 ```
 
 ### Use An API Key
@@ -77,7 +77,7 @@ api_key_sid = 'zzzzzzzzzzzzzzzzzzzzzz'
 api_key_secret = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
 # set up a client to talk to the Twilio REST API using an API Key
-@client = Twilio::REST::Client.new api_key_sid, api_key_secret, account_sid
+@client = Textgrid::REST::Client.new api_key_sid, api_key_secret, account_sid
 ```
 
 ### Specify a Region and/or Edge
@@ -86,11 +86,11 @@ To take advantage of Twilio's [Global Infrastructure](https://www.twilio.com/doc
 
 ```ruby
 # set up a client to talk to the Twilio REST API over a specific region and edge
-@client = Twilio::REST::Client.new account_sid, auth_token, nil, 'au1'
+@client = Textgrid::REST::Client.new account_sid, auth_token, nil, 'au1'
 @client.edge = 'sydney'
 
 # you may also specify the region and/or edge after client creation
-@client = Twilio::REST::Client.new account_sid, auth_token
+@client = Textgrid::REST::Client.new account_sid, auth_token
 @client.region = 'au1'
 @client.edge = 'sydney'
 ```
@@ -102,12 +102,12 @@ This will result in the `hostname` transforming from `api2.textgrid.com` to `api
 In order to enable debug logging, pass in a 'logger' instance to the client with the level set to at least 'DEBUG'
 
 ```ruby
-@client = Twilio::REST::Client.new account_sid, auth_token
+@client = Textgrid::REST::Client.new account_sid, auth_token
 myLogger = Logger.new(STDOUT)
 myLogger.level = Logger::DEBUG
 @client.logger = myLogger
 
-@client = Twilio::REST::Client.new account_sid, auth_token
+@client = Textgrid::REST::Client.new account_sid, auth_token
 myLogger = Logger.new('my_log.log')
 myLogger.level = Logger::DEBUG
 @client.logger = myLogger
@@ -149,7 +149,7 @@ message_sid = 'SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 ### Customizing your HTTP Client
 
-`twilio-ruby` uses [Faraday][faraday] to make HTTP requests. You can tell `Twilio::REST::Client` to use any of the Faraday adapters like so:
+`twilio-ruby` uses [Faraday][faraday] to make HTTP requests. You can tell `Textgrid::REST::Client` to use any of the Faraday adapters like so:
 
 ```ruby
 @client.http_client.adapter = :typhoeus
@@ -170,7 +170,7 @@ end
 ```ruby
 begin
   messages = @client.messages.list(limit: 20)
-rescue Twilio::REST::RestError => e
+rescue Textgrid::REST::RestError => e
   puts e.message
 end
 ```
@@ -189,14 +189,14 @@ account_sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
 # set up
-capability = Twilio::JWT::ClientCapability.new account_sid, auth_token
+capability = Textgrid::JWT::ClientCapability.new account_sid, auth_token
 
 # allow outgoing calls to an application
-outgoing_scope = Twilio::JWT::ClientCapability::OutgoingClientScope.new 'AP11111111111111111111111111111111'
+outgoing_scope = Textgrid::JWT::ClientCapability::OutgoingClientScope.new 'AP11111111111111111111111111111111'
 capability.add_scope(outgoing_scope)
 
 # allow incoming calls to 'andrew'
-incoming_scope = Twilio::JWT::ClientCapability::IncomingClientScope.new 'andrew'
+incoming_scope = Textgrid::JWT::ClientCapability::IncomingClientScope.new 'andrew'
 capability.add_scope(incoming_scope)
 
 # generate the token string
@@ -214,7 +214,7 @@ You can construct a TwiML response like this:
 ```ruby
 require 'twilio-ruby'
 
-response = Twilio::TwiML::VoiceResponse.new do |r|
+response = Textgrid::TwiML::VoiceResponse.new do |r|
   r.say(message: 'hello there', voice: 'alice')
   r.dial(caller_id: '+14159992222') do |d|
     d.client 'jenny'

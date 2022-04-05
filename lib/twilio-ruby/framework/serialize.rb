@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   def self.serialize_iso8601_date(date)
     if date.eql?(:unset)
       date

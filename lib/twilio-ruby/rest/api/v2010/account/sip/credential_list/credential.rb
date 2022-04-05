@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -86,7 +86,7 @@ module Twilio
                 # @param [Integer] page_size Number of records to return, defaults to 50
                 # @return [Page] Page of CredentialInstance
                 def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                  params = Twilio::Values.of({
+                  params = Textgrid::Values.of({
                       'PageToken' => page_token,
                       'Page' => page_number,
                       'PageSize' => page_size,
@@ -120,7 +120,7 @@ module Twilio
                 #   contain at least 1 digit, and have mixed case. (eg `IWasAtSignal2018`)
                 # @return [CredentialInstance] Created CredentialInstance
                 def create(username: nil, password: nil)
-                  data = Twilio::Values.of({'Username' => username, 'Password' => password, })
+                  data = Textgrid::Values.of({'Username' => username, 'Password' => password, })
 
                   payload = @version.create('POST', @uri, data: data)
 
@@ -213,7 +213,7 @@ module Twilio
                 #   contain at least 1 digit, and have mixed case. (eg `IWasAtSignal2018`)
                 # @return [CredentialInstance] Updated CredentialInstance
                 def update(password: :unset)
-                  data = Twilio::Values.of({'Password' => password, })
+                  data = Textgrid::Values.of({'Password' => password, })
 
                   payload = @version.update('POST', @uri, data: data)
 

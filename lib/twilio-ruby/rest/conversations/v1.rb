@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations
       class V1 < Version
@@ -26,7 +26,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Conversations::V1::ConfigurationContext]
+        # @return [Textgrid::REST::Conversations::V1::ConfigurationContext]
         def configuration
           @configuration ||= ConfigurationContext.new self
         end
@@ -34,8 +34,8 @@ module Twilio
         ##
         # @param [String] sid The SID of the Address Configuration resource. This value
         #   can be either the `sid` or the `address` of the configuration
-        # @return [Twilio::REST::Conversations::V1::AddressConfigurationContext] if sid was passed.
-        # @return [Twilio::REST::Conversations::V1::AddressConfigurationList]
+        # @return [Textgrid::REST::Conversations::V1::AddressConfigurationContext] if sid was passed.
+        # @return [Textgrid::REST::Conversations::V1::AddressConfigurationList]
         def address_configurations(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -50,8 +50,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   resource. Can also be the `unique_name` of the Conversation.
-        # @return [Twilio::REST::Conversations::V1::ConversationContext] if sid was passed.
-        # @return [Twilio::REST::Conversations::V1::ConversationList]
+        # @return [Textgrid::REST::Conversations::V1::ConversationContext] if sid was passed.
+        # @return [Textgrid::REST::Conversations::V1::ConversationList]
         def conversations(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -66,8 +66,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   resource.
-        # @return [Twilio::REST::Conversations::V1::CredentialContext] if sid was passed.
-        # @return [Twilio::REST::Conversations::V1::CredentialList]
+        # @return [Textgrid::REST::Conversations::V1::CredentialContext] if sid was passed.
+        # @return [Textgrid::REST::Conversations::V1::CredentialList]
         def credentials(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -80,15 +80,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Conversations::V1::ParticipantConversationContext]
+        # @return [Textgrid::REST::Conversations::V1::ParticipantConversationContext]
         def participant_conversations
           @participant_conversations ||= ParticipantConversationList.new self
         end
 
         ##
         # @param [String] sid The SID of the Role resource to fetch.
-        # @return [Twilio::REST::Conversations::V1::RoleContext] if sid was passed.
-        # @return [Twilio::REST::Conversations::V1::RoleList]
+        # @return [Textgrid::REST::Conversations::V1::RoleContext] if sid was passed.
+        # @return [Textgrid::REST::Conversations::V1::RoleList]
         def roles(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -103,8 +103,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   resource.
-        # @return [Twilio::REST::Conversations::V1::ServiceContext] if sid was passed.
-        # @return [Twilio::REST::Conversations::V1::ServiceList]
+        # @return [Textgrid::REST::Conversations::V1::ServiceContext] if sid was passed.
+        # @return [Textgrid::REST::Conversations::V1::ServiceList]
         def services(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -119,8 +119,8 @@ module Twilio
         ##
         # @param [String] sid The SID of the User resource to fetch. This value can be
         #   either the `sid` or the `identity` of the User resource to fetch.
-        # @return [Twilio::REST::Conversations::V1::UserContext] if sid was passed.
-        # @return [Twilio::REST::Conversations::V1::UserList]
+        # @return [Textgrid::REST::Conversations::V1::UserContext] if sid was passed.
+        # @return [Textgrid::REST::Conversations::V1::UserList]
         def users(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -135,7 +135,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Conversations::V1>'
+          '<Textgrid::REST::Conversations::V1>'
         end
       end
     end

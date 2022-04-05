@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -115,7 +115,7 @@ module Twilio
               #   is added to a conversation and `new_message.attachments.enabled` is `true`.
               # @return [NotificationInstance] Updated NotificationInstance
               def update(log_enabled: :unset, new_message_enabled: :unset, new_message_template: :unset, new_message_sound: :unset, new_message_badge_count_enabled: :unset, added_to_conversation_enabled: :unset, added_to_conversation_template: :unset, added_to_conversation_sound: :unset, removed_from_conversation_enabled: :unset, removed_from_conversation_template: :unset, removed_from_conversation_sound: :unset, new_message_with_media_enabled: :unset, new_message_with_media_template: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'LogEnabled' => log_enabled,
                     'NewMessage.Enabled' => new_message_enabled,
                     'NewMessage.Template' => new_message_template,

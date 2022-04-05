@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -91,7 +91,7 @@ module Twilio
               #   should accept. The default value is `visa mastercard amex`
               # @return [PaymentInstance] Created PaymentInstance
               def create(idempotency_key: nil, status_callback: nil, bank_account_type: :unset, charge_amount: :unset, currency: :unset, description: :unset, input: :unset, min_postal_code_length: :unset, parameter: :unset, payment_connector: :unset, payment_method: :unset, postal_code: :unset, security_code: :unset, timeout: :unset, token_type: :unset, valid_card_types: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'IdempotencyKey' => idempotency_key,
                     'StatusCallback' => status_callback,
                     'BankAccountType' => bank_account_type,
@@ -205,7 +205,7 @@ module Twilio
               #   <Pay> connector for processing.
               # @return [PaymentInstance] Updated PaymentInstance
               def update(idempotency_key: nil, status_callback: nil, capture: :unset, status: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'IdempotencyKey' => idempotency_key,
                     'StatusCallback' => status_callback,
                     'Capture' => capture,

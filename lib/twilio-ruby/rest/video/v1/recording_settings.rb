@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -99,7 +99,7 @@ module Twilio
           #   an encrypted form. The default is `false`.
           # @return [RecordingSettingsInstance] Created RecordingSettingsInstance
           def create(friendly_name: nil, aws_credentials_sid: :unset, encryption_key_sid: :unset, aws_s3_url: :unset, aws_storage_enabled: :unset, encryption_enabled: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'AwsCredentialsSid' => aws_credentials_sid,
                 'EncryptionKeySid' => encryption_key_sid,

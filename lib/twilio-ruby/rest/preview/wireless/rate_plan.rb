@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Wireless < Version
@@ -81,7 +81,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of RatePlanInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -119,7 +119,7 @@ module Twilio
           # @param [Array[String]] international_roaming The international_roaming
           # @return [RatePlanInstance] Created RatePlanInstance
           def create(unique_name: :unset, friendly_name: :unset, data_enabled: :unset, data_limit: :unset, data_metering: :unset, messaging_enabled: :unset, voice_enabled: :unset, commands_enabled: :unset, national_roaming_enabled: :unset, international_roaming: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'UniqueName' => unique_name,
                 'FriendlyName' => friendly_name,
                 'DataEnabled' => data_enabled,
@@ -206,7 +206,7 @@ module Twilio
           # @param [String] friendly_name The friendly_name
           # @return [RatePlanInstance] Updated RatePlanInstance
           def update(unique_name: :unset, friendly_name: :unset)
-            data = Twilio::Values.of({'UniqueName' => unique_name, 'FriendlyName' => friendly_name, })
+            data = Textgrid::Values.of({'UniqueName' => unique_name, 'FriendlyName' => friendly_name, })
 
             payload = @version.update('POST', @uri, data: data)
 

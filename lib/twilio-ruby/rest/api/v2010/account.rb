@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -29,7 +29,7 @@ module Twilio
           #   create, defaults to `SubAccount Created at {YYYY-MM-DD HH:MM meridian}`
           # @return [AccountInstance] Created AccountInstance
           def create(friendly_name: :unset)
-            data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+            data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
             payload = @version.create('POST', @uri, data: data)
 
@@ -109,7 +109,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of AccountInstance
           def page(friendly_name: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Status' => status,
                 'PageToken' => page_token,
@@ -230,7 +230,7 @@ module Twilio
           #   `active` to reactivate it.
           # @return [AccountInstance] Updated AccountInstance
           def update(friendly_name: :unset, status: :unset)
-            data = Twilio::Values.of({'FriendlyName' => friendly_name, 'Status' => status, })
+            data = Textgrid::Values.of({'FriendlyName' => friendly_name, 'Status' => status, })
 
             payload = @version.update('POST', @uri, data: data)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -183,7 +183,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of EventInstance
             def page(end_date: :unset, event_type: :unset, minutes: :unset, reservation_sid: :unset, start_date: :unset, task_queue_sid: :unset, task_sid: :unset, worker_sid: :unset, workflow_sid: :unset, task_channel: :unset, sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'EndDate' => Twilio.serialize_iso8601_datetime(end_date),
                   'EventType' => event_type,
                   'Minutes' => minutes,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -42,7 +42,7 @@ module Twilio
                 #   is attempted immediately, only once, and is not stored for future delivery.
                 # @return [NotificationInstance] Created NotificationInstance
                 def create(ttl: :unset)
-                  data = Twilio::Values.of({'Ttl' => ttl, })
+                  data = Textgrid::Values.of({'Ttl' => ttl, })
 
                   payload = @version.create('POST', @uri, data: data)
 

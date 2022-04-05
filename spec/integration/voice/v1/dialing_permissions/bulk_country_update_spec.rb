@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'BulkCountryUpdate' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.voice.v1.dialing_permissions \
                       .bulk_country_updates.create(update_request: 'update_request')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'UpdateRequest' => 'update_request', }
     expect(
@@ -27,7 +27,7 @@ describe 'BulkCountryUpdate' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {

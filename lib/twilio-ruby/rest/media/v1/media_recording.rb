@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Media < Domain
       class V1 < Version
@@ -115,7 +115,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of MediaRecordingInstance
           def page(order: :unset, status: :unset, processor_sid: :unset, source_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Order' => order,
                 'Status' => status,
                 'ProcessorSid' => processor_sid,

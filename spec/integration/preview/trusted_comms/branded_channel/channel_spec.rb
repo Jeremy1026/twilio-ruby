@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'Channel' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.preview.trusted_comms.branded_channels('BWXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                                    .channels.create(phone_number_sid: 'PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'PhoneNumberSid' => 'PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', }
     expect(
@@ -27,7 +27,7 @@ describe 'Channel' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {

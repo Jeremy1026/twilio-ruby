@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'InteractionChannelInvite' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.flex_api.v1.interaction('KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .channels('UOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .invites.create(routing: {})
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Routing' => Twilio.serialize_object({}), }
     expect(
@@ -28,7 +28,7 @@ describe 'InteractionChannelInvite' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -74,13 +74,13 @@ describe 'InteractionChannelInvite' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.flex_api.v1.interaction('KDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .channels('UOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                          .invites.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -90,7 +90,7 @@ describe 'InteractionChannelInvite' do
   end
 
   it "receives read responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

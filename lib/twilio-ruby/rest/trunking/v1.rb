@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trunking
       class V1 < Version
@@ -21,8 +21,8 @@ module Twilio
         ##
         # @param [String] sid The unique string that we created to identify the Trunk
         #   resource to fetch.
-        # @return [Twilio::REST::Trunking::V1::TrunkContext] if sid was passed.
-        # @return [Twilio::REST::Trunking::V1::TrunkList]
+        # @return [Textgrid::REST::Trunking::V1::TrunkContext] if sid was passed.
+        # @return [Textgrid::REST::Trunking::V1::TrunkList]
         def trunks(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,7 +37,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Trunking::V1>'
+          '<Textgrid::REST::Trunking::V1>'
         end
       end
     end

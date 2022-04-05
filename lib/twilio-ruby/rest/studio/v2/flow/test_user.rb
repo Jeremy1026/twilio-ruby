@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Studio < Domain
       class V2 < Version
@@ -89,7 +89,7 @@ module Twilio
             #   draft versions of the flow.
             # @return [FlowTestUserInstance] Updated FlowTestUserInstance
             def update(test_users: nil)
-              data = Twilio::Values.of({'TestUsers' => Twilio.serialize_list(test_users) { |e| e }, })
+              data = Textgrid::Values.of({'TestUsers' => Twilio.serialize_list(test_users) { |e| e }, })
 
               payload = @version.update('POST', @uri, data: data)
 

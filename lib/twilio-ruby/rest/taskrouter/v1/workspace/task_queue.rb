@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -117,7 +117,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of TaskQueueInstance
             def page(friendly_name: :unset, evaluate_worker_attributes: :unset, worker_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'EvaluateWorkerAttributes' => evaluate_worker_attributes,
                   'WorkerSid' => worker_sid,
@@ -168,7 +168,7 @@ module Twilio
             #   Workers when a task is assigned to them.
             # @return [TaskQueueInstance] Created TaskQueueInstance
             def create(friendly_name: nil, target_workers: :unset, max_reserved_workers: :unset, task_order: :unset, reservation_activity_sid: :unset, assignment_activity_sid: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'TargetWorkers' => target_workers,
                   'MaxReservedWorkers' => max_reserved_workers,
@@ -283,7 +283,7 @@ module Twilio
             #   Ordering}[https://www.twilio.com/docs/taskrouter/queue-ordering-last-first-out-lifo].
             # @return [TaskQueueInstance] Updated TaskQueueInstance
             def update(friendly_name: :unset, target_workers: :unset, reservation_activity_sid: :unset, assignment_activity_sid: :unset, max_reserved_workers: :unset, task_order: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'TargetWorkers' => target_workers,
                   'ReservationActivitySid' => reservation_activity_sid,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -88,7 +88,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of SampleInstance
               def page(language: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Language' => language,
                     'PageToken' => page_token,
                     'Page' => page_number,
@@ -123,7 +123,7 @@ module Twilio
               #   *slack*. If not included the value will be null
               # @return [SampleInstance] Created SampleInstance
               def create(language: nil, tagged_text: nil, source_channel: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Language' => language,
                     'TaggedText' => tagged_text,
                     'SourceChannel' => source_channel,
@@ -226,7 +226,7 @@ module Twilio
               #   *slack*. If not included the value will be null
               # @return [SampleInstance] Updated SampleInstance
               def update(language: :unset, tagged_text: :unset, source_channel: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Language' => language,
                     'TaggedText' => tagged_text,
                     'SourceChannel' => source_channel,

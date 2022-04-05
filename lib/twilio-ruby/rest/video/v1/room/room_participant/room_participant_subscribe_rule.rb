@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -50,7 +50,7 @@ module Twilio
               #   section for further information.
               # @return [SubscribeRulesInstance] Updated SubscribeRulesInstance
               def update(rules: :unset)
-                data = Twilio::Values.of({'Rules' => Twilio.serialize_object(rules), })
+                data = Textgrid::Values.of({'Rules' => Twilio.serialize_object(rules), })
 
                 payload = @version.update('POST', @uri, data: data)
 

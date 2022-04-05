@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Numbers < Domain
       class V2 < Version
@@ -106,7 +106,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of RegulationInstance
             def page(end_user_type: :unset, iso_country: :unset, number_type: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'EndUserType' => end_user_type,
                   'IsoCountry' => iso_country,
                   'NumberType' => number_type,

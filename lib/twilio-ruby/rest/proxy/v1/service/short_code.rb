@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Proxy < Domain
       class V1 < Version
@@ -35,7 +35,7 @@ module Twilio
             #   represents the short code you would like to assign to your Proxy Service.
             # @return [ShortCodeInstance] Created ShortCodeInstance
             def create(sid: nil)
-              data = Twilio::Values.of({'Sid' => sid, })
+              data = Textgrid::Values.of({'Sid' => sid, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -98,7 +98,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ShortCodeInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -204,7 +204,7 @@ module Twilio
             #   information.
             # @return [ShortCodeInstance] Updated ShortCodeInstance
             def update(is_reserved: :unset)
-              data = Twilio::Values.of({'IsReserved' => is_reserved, })
+              data = Textgrid::Values.of({'IsReserved' => is_reserved, })
 
               payload = @version.update('POST', @uri, data: data)
 

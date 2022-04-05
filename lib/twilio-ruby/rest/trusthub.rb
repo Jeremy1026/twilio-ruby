@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trusthub < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the
       #   Customer-Profile resource.
-      # @return [Twilio::REST::Trusthub::V1::CustomerProfilesInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::CustomerProfilesList]
+      # @return [Textgrid::REST::Trusthub::V1::CustomerProfilesInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::CustomerProfilesList]
       def customer_profiles(sid=:unset)
         self.v1.customer_profiles(sid)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] sid The unique string created by Twilio to identify the End User
       #   resource.
-      # @return [Twilio::REST::Trusthub::V1::EndUserInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::EndUserList]
+      # @return [Textgrid::REST::Trusthub::V1::EndUserInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::EndUserList]
       def end_users(sid=:unset)
         self.v1.end_users(sid)
       end
@@ -49,16 +49,16 @@ module Twilio
       ##
       # @param [String] sid The unique string that identifies the End-User Type
       #   resource.
-      # @return [Twilio::REST::Trusthub::V1::EndUserTypeInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::EndUserTypeList]
+      # @return [Textgrid::REST::Trusthub::V1::EndUserTypeInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::EndUserTypeList]
       def end_user_types(sid=:unset)
         self.v1.end_user_types(sid)
       end
 
       ##
       # @param [String] sid The unique string that identifies the Policy resource.
-      # @return [Twilio::REST::Trusthub::V1::PoliciesInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::PoliciesList]
+      # @return [Textgrid::REST::Trusthub::V1::PoliciesInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::PoliciesList]
       def policies(sid=:unset)
         self.v1.policies(sid)
       end
@@ -66,8 +66,8 @@ module Twilio
       ##
       # @param [String] sid The unique string created by Twilio to identify the
       #   Supporting Document resource.
-      # @return [Twilio::REST::Trusthub::V1::SupportingDocumentInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::SupportingDocumentList]
+      # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentList]
       def supporting_documents(sid=:unset)
         self.v1.supporting_documents(sid)
       end
@@ -75,8 +75,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that identifies the Supporting Document
       #   Type resource.
-      # @return [Twilio::REST::Trusthub::V1::SupportingDocumentTypeInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::SupportingDocumentTypeList]
+      # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentTypeInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::SupportingDocumentTypeList]
       def supporting_document_types(sid=:unset)
         self.v1.supporting_document_types(sid)
       end
@@ -84,8 +84,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the
       #   Customer-Profile resource.
-      # @return [Twilio::REST::Trusthub::V1::TrustProductsInstance] if sid was passed.
-      # @return [Twilio::REST::Trusthub::V1::TrustProductsList]
+      # @return [Textgrid::REST::Trusthub::V1::TrustProductsInstance] if sid was passed.
+      # @return [Textgrid::REST::Trusthub::V1::TrustProductsList]
       def trust_products(sid=:unset)
         self.v1.trust_products(sid)
       end
@@ -93,7 +93,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Trusthub>'
+        '#<Textgrid::REST::Trusthub>'
       end
     end
   end

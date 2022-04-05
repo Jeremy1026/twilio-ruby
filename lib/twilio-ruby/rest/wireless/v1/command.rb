@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Wireless < Domain
       class V1 < Version
@@ -116,7 +116,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of CommandInstance
           def page(sim: :unset, status: :unset, direction: :unset, transport: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Sim' => sim,
                 'Status' => status,
                 'Direction' => direction,
@@ -172,7 +172,7 @@ module Twilio
           #   from the device. The default value is `true`.
           # @return [CommandInstance] Created CommandInstance
           def create(command: nil, sim: :unset, callback_method: :unset, callback_url: :unset, command_mode: :unset, include_sid: :unset, delivery_receipt_requested: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Command' => command,
                 'Sim' => sim,
                 'CallbackMethod' => callback_method,

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot < Domain
       class V1 < Version
@@ -99,7 +99,7 @@ module Twilio
             #   the `assistant_initiation`, `collect`, and `fallback` situations.
             # @return [DefaultsInstance] Updated DefaultsInstance
             def update(defaults: :unset)
-              data = Twilio::Values.of({'Defaults' => Twilio.serialize_object(defaults), })
+              data = Textgrid::Values.of({'Defaults' => Twilio.serialize_object(defaults), })
 
               payload = @version.update('POST', @uri, data: data)
 

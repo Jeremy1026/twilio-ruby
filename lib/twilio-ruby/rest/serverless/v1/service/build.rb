@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Serverless < Domain
       class V1 < Version
@@ -84,7 +84,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of BuildInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -121,7 +121,7 @@ module Twilio
             #   resource when it is deployed.
             # @return [BuildInstance] Created BuildInstance
             def create(asset_versions: :unset, function_versions: :unset, dependencies: :unset, runtime: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'AssetVersions' => Twilio.serialize_list(asset_versions) { |e| e },
                   'FunctionVersions' => Twilio.serialize_list(function_versions) { |e| e },
                   'Dependencies' => dependencies,

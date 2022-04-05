@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Proxy < Domain
       class V1 < Version
@@ -44,7 +44,7 @@ module Twilio
             #   information.
             # @return [PhoneNumberInstance] Created PhoneNumberInstance
             def create(sid: :unset, phone_number: :unset, is_reserved: :unset)
-              data = Twilio::Values.of({'Sid' => sid, 'PhoneNumber' => phone_number, 'IsReserved' => is_reserved, })
+              data = Textgrid::Values.of({'Sid' => sid, 'PhoneNumber' => phone_number, 'IsReserved' => is_reserved, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -107,7 +107,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of PhoneNumberInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -218,7 +218,7 @@ module Twilio
             #   information.
             # @return [PhoneNumberInstance] Updated PhoneNumberInstance
             def update(is_reserved: :unset)
-              data = Twilio::Values.of({'IsReserved' => is_reserved, })
+              data = Textgrid::Values.of({'IsReserved' => is_reserved, })
 
               payload = @version.update('POST', @uri, data: data)
 

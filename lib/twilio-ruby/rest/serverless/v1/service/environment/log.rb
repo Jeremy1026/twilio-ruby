@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Serverless < Domain
       class V1 < Version
@@ -116,7 +116,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of LogInstance
               def page(function_sid: :unset, start_date: :unset, end_date: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'FunctionSid' => function_sid,
                     'StartDate' => Twilio.serialize_iso8601_datetime(start_date),
                     'EndDate' => Twilio.serialize_iso8601_datetime(end_date),

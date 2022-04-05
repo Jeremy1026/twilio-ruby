@@ -2,7 +2,7 @@
 
 require 'jwt'
 
-module Twilio
+module Textgrid
   module JWT
     autoload :AccessToken, File.join(File.dirname(__FILE__), 'access_token.rb')
     autoload :ClientCapability, File.join(File.dirname(__FILE__), 'client_capability.rb')

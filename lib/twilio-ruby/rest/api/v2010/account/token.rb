@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -33,7 +33,7 @@ module Twilio
             #   are valid. The default value is 86400 (24 hours).
             # @return [TokenInstance] Created TokenInstance
             def create(ttl: :unset)
-              data = Twilio::Values.of({'Ttl' => ttl, })
+              data = Textgrid::Values.of({'Ttl' => ttl, })
 
               payload = @version.create('POST', @uri, data: data)
 

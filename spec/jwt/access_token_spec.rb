@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Twilio::JWT::AccessToken do
+describe Textgrid::JWT::AccessToken do
   describe 'access_token functionality ' do
     it 'should generate a token for no grants' do
-      scat = Twilio::JWT::AccessToken.new 'AC123', 'SK123', 'secret'
+      scat = Textgrid::JWT::AccessToken.new 'AC123', 'SK123', 'secret'
       payload, _ = JWT.decode scat.to_s, 'secret'
       expect(payload['sub']).to eq('AC123')
       expect(payload['iss']).to eq('SK123')
@@ -15,30 +15,30 @@ describe Twilio::JWT::AccessToken do
     end
 
     it 'should add the proper headers without region' do
-      scat = Twilio::JWT::AccessToken.new 'AC123', 'SK123', 'secret'
+      scat = Textgrid::JWT::AccessToken.new 'AC123', 'SK123', 'secret'
       _, headers = JWT.decode scat.to_s, 'secret'
       expect(headers['cty']).to eq('twilio-fpa;v=1')
       expect(headers['twr']).to be_nil
     end
 
     it 'should add the proper headers with region' do
-      scat = Twilio::JWT::AccessToken.new 'AC123', 'SK123', 'secret', region: 'foo'
+      scat = Textgrid::JWT::AccessToken.new 'AC123', 'SK123', 'secret', region: 'foo'
       _, headers = JWT.decode scat.to_s, 'secret'
       expect(headers['cty']).to eq('twilio-fpa;v=1')
       expect(headers['twr']).to eq('foo')
     end
 
     it 'identity should exist in the grants' do
-      scat = Twilio::JWT::AccessToken.new 'AC123', 'SK123', 'secret', identity: 'test-identity'
+      scat = Textgrid::JWT::AccessToken.new 'AC123', 'SK123', 'secret', identity: 'test-identity'
       payload, _ = JWT.decode scat.to_s, 'secret'
       expect(payload['grants']).to eq({'identity' => 'test-identity'})
     end
 
     it 'grants during initialization' do
-      room_grant = Twilio::JWT::AccessToken::VideoGrant.new
+      room_grant = Textgrid::JWT::AccessToken::VideoGrant.new
       room_grant.room = 'RM123'
       grants = [room_grant]
-      scat = Twilio::JWT::AccessToken.new 'AC123', 'SK123', 'secret', grants
+      scat = Textgrid::JWT::AccessToken.new 'AC123', 'SK123', 'secret', grants
       payload, _ = JWT.decode scat.to_s, 'secret'
       expect(payload['grants'].count).to eq(1)
       expect(payload['grants']['video']['room']).to eq('RM123')
@@ -46,12 +46,12 @@ describe Twilio::JWT::AccessToken do
 
     describe 'all the grants' do
       before :each do
-        @scat = Twilio::JWT::AccessToken.new 'AC123', 'SK123', 'secret'
+        @scat = Textgrid::JWT::AccessToken.new 'AC123', 'SK123', 'secret'
       end
 
       it 'IpMessaging grant' do
         Gem::Deprecate.skip_during do
-          ip_messaging_grant = Twilio::JWT::AccessToken::IpMessagingGrant.new
+          ip_messaging_grant = Textgrid::JWT::AccessToken::IpMessagingGrant.new
           ip_messaging_grant.service_sid = 'SS123'
           ip_messaging_grant.endpoint_id = 'EP123'
           ip_messaging_grant.deployment_role_sid = 'DR123'
@@ -67,7 +67,7 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'Chat grant' do
-        chat_grant = Twilio::JWT::AccessToken::ChatGrant.new
+        chat_grant = Textgrid::JWT::AccessToken::ChatGrant.new
         chat_grant.service_sid = 'SS123'
         chat_grant.endpoint_id = 'EP123'
         chat_grant.deployment_role_sid = 'DR123'
@@ -82,7 +82,7 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'Voice grant' do
-        voice_grant = Twilio::JWT::AccessToken::VoiceGrant.new
+        voice_grant = Textgrid::JWT::AccessToken::VoiceGrant.new
         voice_grant.incoming_allow = true
         voice_grant.outgoing_application_sid = 'AP123'
         voice_grant.outgoing_application_params = {:foo => 'bar'}
@@ -99,7 +99,7 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'Sync grant' do
-        sync_grant = Twilio::JWT::AccessToken::SyncGrant.new
+        sync_grant = Textgrid::JWT::AccessToken::SyncGrant.new
         sync_grant.service_sid = 'SS123'
         sync_grant.endpoint_id = 'EP123'
         @scat.add_grant(sync_grant)
@@ -111,7 +111,7 @@ describe Twilio::JWT::AccessToken do
 
       it 'Conversations grant' do
         Gem::Deprecate.skip_during do
-          conversation_grant = Twilio::JWT::AccessToken::ConversationsGrant.new
+          conversation_grant = Textgrid::JWT::AccessToken::ConversationsGrant.new
           conversation_grant.configuration_profile_sid = 'VS123'
           @scat.add_grant(conversation_grant)
           payload, _ = JWT.decode @scat.to_s, 'secret'
@@ -121,7 +121,7 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'Room grant' do
-        room_grant = Twilio::JWT::AccessToken::VideoGrant.new
+        room_grant = Textgrid::JWT::AccessToken::VideoGrant.new
         room_grant.room = 'RM123'
         @scat.add_grant(room_grant)
         payload, _ = JWT.decode @scat.to_s, 'secret'
@@ -130,7 +130,7 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'TaskRouter grant' do
-        task_router_grant = Twilio::JWT::AccessToken::TaskRouterGrant.new
+        task_router_grant = Textgrid::JWT::AccessToken::TaskRouterGrant.new
         task_router_grant.workspace_sid = 'WS123'
         task_router_grant.worker_sid = 'WK123'
         task_router_grant.role = 'worker'
@@ -143,7 +143,7 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'Playback grant' do
-        playback_grant = Twilio::JWT::AccessToken::PlaybackGrant.new
+        playback_grant = Textgrid::JWT::AccessToken::PlaybackGrant.new
         grant = {
           'requestCredentials' => nil,
           'playbackUrl' => 'https://000.us-east-1.playback.live-video.net/api/video/v1/us-east-000.channel.000?token=xxxxx',
@@ -157,10 +157,10 @@ describe Twilio::JWT::AccessToken do
       end
 
       it 'multiple grants' do
-        room_grant = Twilio::JWT::AccessToken::VideoGrant.new
+        room_grant = Textgrid::JWT::AccessToken::VideoGrant.new
         room_grant.room = 'RM123'
         @scat.add_grant(room_grant)
-        task_router_grant = Twilio::JWT::AccessToken::TaskRouterGrant.new
+        task_router_grant = Textgrid::JWT::AccessToken::TaskRouterGrant.new
         task_router_grant.workspace_sid = 'WS123'
         @scat.add_grant(task_router_grant)
         payload, _ = JWT.decode @scat.to_s, 'secret'

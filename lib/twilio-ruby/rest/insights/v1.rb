@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Insights
       class V1 < Version
@@ -24,15 +24,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Insights::V1::SettingContext]
+        # @return [Textgrid::REST::Insights::V1::SettingContext]
         def settings
           @settings ||= SettingContext.new self
         end
 
         ##
         # @param [String] call_sid The call_sid
-        # @return [Twilio::REST::Insights::V1::AnnotationContext] if call_sid was passed.
-        # @return [Twilio::REST::Insights::V1::AnnotationList]
+        # @return [Textgrid::REST::Insights::V1::AnnotationContext] if call_sid was passed.
+        # @return [Textgrid::REST::Insights::V1::AnnotationList]
         def annotation(call_sid=:unset)
           if call_sid.nil?
               raise ArgumentError, 'call_sid cannot be nil'
@@ -46,8 +46,8 @@ module Twilio
 
         ##
         # @param [String] sid The sid
-        # @return [Twilio::REST::Insights::V1::CallContext] if sid was passed.
-        # @return [Twilio::REST::Insights::V1::CallList]
+        # @return [Textgrid::REST::Insights::V1::CallContext] if sid was passed.
+        # @return [Textgrid::REST::Insights::V1::CallList]
         def calls(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -60,15 +60,15 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Insights::V1::CallSummariesContext]
+        # @return [Textgrid::REST::Insights::V1::CallSummariesContext]
         def call_summaries
           @call_summaries ||= CallSummariesList.new self
         end
 
         ##
         # @param [String] conference_sid The unique SID identifier of the Conference.
-        # @return [Twilio::REST::Insights::V1::ConferenceContext] if conference_sid was passed.
-        # @return [Twilio::REST::Insights::V1::ConferenceList]
+        # @return [Textgrid::REST::Insights::V1::ConferenceContext] if conference_sid was passed.
+        # @return [Textgrid::REST::Insights::V1::ConferenceList]
         def conferences(conference_sid=:unset)
           if conference_sid.nil?
               raise ArgumentError, 'conference_sid cannot be nil'
@@ -82,8 +82,8 @@ module Twilio
 
         ##
         # @param [String] room_sid The SID of the Room resource.
-        # @return [Twilio::REST::Insights::V1::RoomContext] if room_sid was passed.
-        # @return [Twilio::REST::Insights::V1::RoomList]
+        # @return [Textgrid::REST::Insights::V1::RoomContext] if room_sid was passed.
+        # @return [Textgrid::REST::Insights::V1::RoomList]
         def rooms(room_sid=:unset)
           if room_sid.nil?
               raise ArgumentError, 'room_sid cannot be nil'
@@ -98,7 +98,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Insights::V1>'
+          '<Textgrid::REST::Insights::V1>'
         end
       end
     end

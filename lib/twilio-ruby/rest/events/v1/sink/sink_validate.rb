@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Events < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
             #   event for a Sink being validated.
             # @return [SinkValidateInstance] Created SinkValidateInstance
             def create(test_id: nil)
-              data = Twilio::Values.of({'TestId' => test_id, })
+              data = Textgrid::Values.of({'TestId' => test_id, })
 
               payload = @version.create('POST', @uri, data: data)
 

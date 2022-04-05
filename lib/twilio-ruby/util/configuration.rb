@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module Util
     class Configuration
       attr_accessor :account_sid, :auth_token, :http_client, :region, :edge, :logger

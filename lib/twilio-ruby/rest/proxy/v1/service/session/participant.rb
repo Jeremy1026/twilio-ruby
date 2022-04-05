@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Proxy < Domain
       class V1 < Version
@@ -87,7 +87,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of ParticipantInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -135,7 +135,7 @@ module Twilio
               #   will eventually be the default for all accounts.
               # @return [ParticipantInstance] Created ParticipantInstance
               def create(identifier: nil, friendly_name: :unset, proxy_identifier: :unset, proxy_identifier_sid: :unset, fail_on_participant_conflict: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Identifier' => identifier,
                     'FriendlyName' => friendly_name,
                     'ProxyIdentifier' => proxy_identifier,

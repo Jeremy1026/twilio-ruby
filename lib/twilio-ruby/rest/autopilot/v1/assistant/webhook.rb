@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot < Domain
       class V1 < Version
@@ -85,7 +85,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of WebhookInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -122,7 +122,7 @@ module Twilio
             #   URL.
             # @return [WebhookInstance] Created WebhookInstance
             def create(unique_name: nil, events: nil, webhook_url: nil, webhook_method: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'Events' => events,
                   'WebhookUrl' => webhook_url,
@@ -219,7 +219,7 @@ module Twilio
             #   URL.
             # @return [WebhookInstance] Updated WebhookInstance
             def update(unique_name: :unset, events: :unset, webhook_url: :unset, webhook_method: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'Events' => events,
                   'WebhookUrl' => webhook_url,

@@ -10,12 +10,12 @@ require 'spec_helper.rb'
 
 describe 'DependentHostedNumberOrder' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.preview.hosted_numbers.authorization_documents('PXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                                     .dependent_hosted_number_orders.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -25,7 +25,7 @@ describe 'DependentHostedNumberOrder' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -50,7 +50,7 @@ describe 'DependentHostedNumberOrder' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

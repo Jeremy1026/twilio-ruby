@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trusthub < Domain
       class V1 < Version
@@ -32,7 +32,7 @@ module Twilio
             #   the different items.
             # @return [CustomerProfilesEntityAssignmentsInstance] Created CustomerProfilesEntityAssignmentsInstance
             def create(object_sid: nil)
-              data = Twilio::Values.of({'ObjectSid' => object_sid, })
+              data = Textgrid::Values.of({'ObjectSid' => object_sid, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -99,7 +99,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of CustomerProfilesEntityAssignmentsInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,

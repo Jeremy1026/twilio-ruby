@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'Cps' do
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.preview.trusted_comms.cps().fetch(x_xcnam_sensitive_phone_number: 'x_xcnam_sensitive_phone_number')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {'X-Xcnam-Sensitive-Phone-Number' => 'x_xcnam_sensitive_phone_number', }
     expect(
@@ -26,7 +26,7 @@ describe 'Cps' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

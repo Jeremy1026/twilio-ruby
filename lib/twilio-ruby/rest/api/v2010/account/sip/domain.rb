@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -83,7 +83,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of DomainInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -141,7 +141,7 @@ module Twilio
               #   callback for the emergency call.
               # @return [DomainInstance] Created DomainInstance
               def create(domain_name: nil, friendly_name: :unset, voice_url: :unset, voice_method: :unset, voice_fallback_url: :unset, voice_fallback_method: :unset, voice_status_callback_url: :unset, voice_status_callback_method: :unset, sip_registration: :unset, emergency_calling_enabled: :unset, secure: :unset, byoc_trunk_sid: :unset, emergency_caller_sid: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'DomainName' => domain_name,
                     'FriendlyName' => friendly_name,
                     'VoiceUrl' => voice_url,
@@ -264,7 +264,7 @@ module Twilio
               #   callback for the emergency call.
               # @return [DomainInstance] Updated DomainInstance
               def update(friendly_name: :unset, voice_fallback_method: :unset, voice_fallback_url: :unset, voice_method: :unset, voice_status_callback_method: :unset, voice_status_callback_url: :unset, voice_url: :unset, sip_registration: :unset, domain_name: :unset, emergency_calling_enabled: :unset, secure: :unset, byoc_trunk_sid: :unset, emergency_caller_sid: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'FriendlyName' => friendly_name,
                     'VoiceFallbackMethod' => voice_fallback_method,
                     'VoiceFallbackUrl' => voice_fallback_url,

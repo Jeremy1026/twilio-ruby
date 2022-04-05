@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'UsageRecord' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.supersim.v1.usage_records.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -24,7 +24,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_all responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -63,7 +63,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_all_day responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -116,7 +116,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_all_hour responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -169,7 +169,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_sim_filter responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -222,7 +222,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_network_filter responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -275,7 +275,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_country_filter responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -328,7 +328,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_fleet_filter responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -381,7 +381,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_group_by_sim responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -434,7 +434,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_group_by_fleet responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -487,7 +487,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_group_by_network responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -540,7 +540,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_group_by_iso_country responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -593,7 +593,7 @@ describe 'UsageRecord' do
   end
 
   it "receives read_day_group_by_sim_and_filter_by_country responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

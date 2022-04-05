@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Studio < Domain
       class V1 < Version
@@ -81,7 +81,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of EngagementInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -121,7 +121,7 @@ module Twilio
             #   string.
             # @return [EngagementInstance] Created EngagementInstance
             def create(to: nil, from: nil, parameters: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'To' => to,
                   'From' => from,
                   'Parameters' => Twilio.serialize_object(parameters),

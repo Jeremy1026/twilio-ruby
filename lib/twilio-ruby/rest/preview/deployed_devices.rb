@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class DeployedDevices < Version
@@ -21,8 +21,8 @@ module Twilio
         ##
         # @param [String] sid Provides a 34 character string that uniquely identifies the
         #   requested Fleet resource.
-        # @return [Twilio::REST::Preview::DeployedDevices::FleetContext] if sid was passed.
-        # @return [Twilio::REST::Preview::DeployedDevices::FleetList]
+        # @return [Textgrid::REST::Preview::DeployedDevices::FleetContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::DeployedDevices::FleetList]
         def fleets(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,7 +37,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::DeployedDevices>'
+          '<Textgrid::REST::Preview::DeployedDevices>'
         end
       end
     end

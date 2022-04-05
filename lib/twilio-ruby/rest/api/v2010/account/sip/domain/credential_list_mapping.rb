@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -36,7 +36,7 @@ module Twilio
                 #   identifies the CredentialList resource to map to the SIP domain.
                 # @return [CredentialListMappingInstance] Created CredentialListMappingInstance
                 def create(credential_list_sid: nil)
-                  data = Twilio::Values.of({'CredentialListSid' => credential_list_sid, })
+                  data = Textgrid::Values.of({'CredentialListSid' => credential_list_sid, })
 
                   payload = @version.create('POST', @uri, data: data)
 
@@ -104,7 +104,7 @@ module Twilio
                 # @param [Integer] page_size Number of records to return, defaults to 50
                 # @return [Page] Page of CredentialListMappingInstance
                 def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                  params = Twilio::Values.of({
+                  params = Textgrid::Values.of({
                       'PageToken' => page_token,
                       'Page' => page_number,
                       'PageSize' => page_size,

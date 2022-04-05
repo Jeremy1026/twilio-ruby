@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'Participant' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.conversations.v1.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .conversations('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .participants.create(x_twilio_webhook_enabled: 'true')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {'X-Twilio-Webhook-Enabled' => 'true', }
     expect(
@@ -28,7 +28,7 @@ describe 'Participant' do
   end
 
   it "receives create_sms responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -61,7 +61,7 @@ describe 'Participant' do
   end
 
   it "receives create_chat responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -90,7 +90,7 @@ describe 'Participant' do
   end
 
   it "receives create_gmms responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -122,7 +122,7 @@ describe 'Participant' do
   end
 
   it "receives create_gmms_chat_no_attributes responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -154,7 +154,7 @@ describe 'Participant' do
   end
 
   it "receives create_gmms_sms_no_attributes responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -186,13 +186,13 @@ describe 'Participant' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.conversations.v1.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .conversations('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .participants('MBXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update(x_twilio_webhook_enabled: 'true')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {'X-Twilio-Webhook-Enabled' => 'true', }
     expect(
@@ -204,7 +204,7 @@ describe 'Participant' do
   end
 
   it "receives update responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -237,7 +237,7 @@ describe 'Participant' do
   end
 
   it "receives update_gmms responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -269,13 +269,13 @@ describe 'Participant' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.conversations.v1.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .conversations('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .participants('MBXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete(x_twilio_webhook_enabled: 'true')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {'X-Twilio-Webhook-Enabled' => 'true', }
     expect(
@@ -287,7 +287,7 @@ describe 'Participant' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))
@@ -300,13 +300,13 @@ describe 'Participant' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.conversations.v1.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .conversations('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .participants('MBXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -316,7 +316,7 @@ describe 'Participant' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -349,13 +349,13 @@ describe 'Participant' do
   end
 
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.conversations.v1.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .conversations('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                               .participants.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -365,7 +365,7 @@ describe 'Participant' do
   end
 
   it "receives read responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

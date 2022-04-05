@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Studio
       class V1 < Version
@@ -20,8 +20,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Flow resource to fetch.
-        # @return [Twilio::REST::Studio::V1::FlowContext] if sid was passed.
-        # @return [Twilio::REST::Studio::V1::FlowList]
+        # @return [Textgrid::REST::Studio::V1::FlowContext] if sid was passed.
+        # @return [Textgrid::REST::Studio::V1::FlowList]
         def flows(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,7 +36,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Studio::V1>'
+          '<Textgrid::REST::Studio::V1>'
         end
       end
     end

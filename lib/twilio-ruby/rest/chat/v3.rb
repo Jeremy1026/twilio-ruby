@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat
       class V3 < Version
@@ -21,8 +21,8 @@ module Twilio
         ##
         # @param [String] service_sid The unique SID identifier of the Service.
         # @param [String] sid A 34 character string that uniquely identifies this Channel.
-        # @return [Twilio::REST::Chat::V3::ChannelContext] if sid was passed.
-        # @return [Twilio::REST::Chat::V3::ChannelList]
+        # @return [Textgrid::REST::Chat::V3::ChannelContext] if sid was passed.
+        # @return [Textgrid::REST::Chat::V3::ChannelList]
         def channels(service_sid=:unset, sid=:unset)
           if service_sid.nil?
               raise ArgumentError, 'service_sid cannot be nil'
@@ -40,7 +40,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Chat::V3>'
+          '<Textgrid::REST::Chat::V3>'
         end
       end
     end

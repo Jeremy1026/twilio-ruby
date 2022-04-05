@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'StreamMessage' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.sync.v1.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                      .sync_streams('TOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                      .stream_messages.create(data: {})
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Data' => Twilio.serialize_object({}), }
     expect(
@@ -28,7 +28,7 @@ describe 'StreamMessage' do
   end
 
   it "receives create responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {

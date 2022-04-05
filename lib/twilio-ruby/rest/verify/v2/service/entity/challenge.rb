@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -57,7 +57,7 @@ module Twilio
               #   long.
               # @return [ChallengeInstance] Created ChallengeInstance
               def create(factor_sid: nil, expiration_date: :unset, details_message: :unset, details_fields: :unset, hidden_details: :unset, auth_payload: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'FactorSid' => factor_sid,
                     'ExpirationDate' => Twilio.serialize_iso8601_datetime(expiration_date),
                     'Details.Message' => details_message,
@@ -161,7 +161,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of ChallengeInstance
               def page(factor_sid: :unset, status: :unset, order: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'FactorSid' => factor_sid,
                     'Status' => status,
                     'Order' => order,
@@ -283,7 +283,7 @@ module Twilio
               #   "Android"}`. Can be up to 1024 characters in length.
               # @return [ChallengeInstance] Updated ChallengeInstance
               def update(auth_payload: :unset, metadata: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'AuthPayload' => auth_payload,
                     'Metadata' => Twilio.serialize_object(metadata),
                 })

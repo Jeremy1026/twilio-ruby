@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -82,7 +82,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of SigningKeyInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -176,7 +176,7 @@ module Twilio
             # @param [String] friendly_name The friendly_name
             # @return [SigningKeyInstance] Updated SigningKeyInstance
             def update(friendly_name: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, })
 
               payload = @version.update('POST', @uri, data: data)
 

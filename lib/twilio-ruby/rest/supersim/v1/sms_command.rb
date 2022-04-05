@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       class V1 < Version
@@ -37,7 +37,7 @@ module Twilio
           #   after we have sent the command.
           # @return [SmsCommandInstance] Created SmsCommandInstance
           def create(sim: nil, payload: nil, callback_method: :unset, callback_url: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Sim' => sim,
                 'Payload' => payload,
                 'CallbackMethod' => callback_method,
@@ -144,7 +144,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of SmsCommandInstance
           def page(sim: :unset, status: :unset, direction: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Sim' => sim,
                 'Status' => status,
                 'Direction' => direction,

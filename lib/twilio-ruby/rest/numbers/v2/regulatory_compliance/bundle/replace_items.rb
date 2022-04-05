@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Numbers < Domain
       class V2 < Version
@@ -35,7 +35,7 @@ module Twilio
               #   assignments from.
               # @return [ReplaceItemsInstance] Created ReplaceItemsInstance
               def create(from_bundle_sid: nil)
-                data = Twilio::Values.of({'FromBundleSid' => from_bundle_sid, })
+                data = Textgrid::Values.of({'FromBundleSid' => from_bundle_sid, })
 
                 payload = @version.create('POST', @uri, data: data)
 

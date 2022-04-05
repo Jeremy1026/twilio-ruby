@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class HostedNumbers < Version
@@ -132,7 +132,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of HostedNumberOrderInstance
           def page(status: :unset, phone_number: :unset, incoming_phone_number_sid: :unset, friendly_name: :unset, unique_name: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Status' => status,
                 'PhoneNumber' => phone_number,
                 'IncomingPhoneNumberSid' => incoming_phone_number_sid,
@@ -210,7 +210,7 @@ module Twilio
           #   the number to be hosted. Required when VerificationType is phone-bill.
           # @return [HostedNumberOrderInstance] Created HostedNumberOrderInstance
           def create(phone_number: nil, sms_capability: nil, account_sid: :unset, friendly_name: :unset, unique_name: :unset, cc_emails: :unset, sms_url: :unset, sms_method: :unset, sms_fallback_url: :unset, sms_fallback_method: :unset, status_callback_url: :unset, status_callback_method: :unset, sms_application_sid: :unset, address_sid: :unset, email: :unset, verification_type: :unset, verification_document_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'PhoneNumber' => phone_number,
                 'SmsCapability' => sms_capability,
                 'AccountSid' => account_sid,
@@ -333,7 +333,7 @@ module Twilio
           #   before initiating the verification call. Defaults to 0.
           # @return [HostedNumberOrderInstance] Updated HostedNumberOrderInstance
           def update(friendly_name: :unset, unique_name: :unset, email: :unset, cc_emails: :unset, status: :unset, verification_code: :unset, verification_type: :unset, verification_document_sid: :unset, extension: :unset, call_delay: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'UniqueName' => unique_name,
                 'Email' => email,

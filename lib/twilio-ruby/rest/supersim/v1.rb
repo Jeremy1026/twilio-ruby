@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim
       class V1 < Version
@@ -27,8 +27,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the eSIM Profile resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::EsimProfileContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::EsimProfileList]
+        # @return [Textgrid::REST::Supersim::V1::EsimProfileContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::EsimProfileList]
         def esim_profiles(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -42,8 +42,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Fleet resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::FleetContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::FleetList]
+        # @return [Textgrid::REST::Supersim::V1::FleetContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::FleetList]
         def fleets(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -57,8 +57,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the IP Command resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::IpCommandContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::IpCommandList]
+        # @return [Textgrid::REST::Supersim::V1::IpCommandContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::IpCommandList]
         def ip_commands(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -72,8 +72,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Network resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::NetworkContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::NetworkList]
+        # @return [Textgrid::REST::Supersim::V1::NetworkContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::NetworkList]
         def networks(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -87,8 +87,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Network Access Profile resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::NetworkAccessProfileContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::NetworkAccessProfileList]
+        # @return [Textgrid::REST::Supersim::V1::NetworkAccessProfileContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::NetworkAccessProfileList]
         def network_access_profiles(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -102,8 +102,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Sim resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::SimContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::SimList]
+        # @return [Textgrid::REST::Supersim::V1::SimContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::SimList]
         def sims(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -117,8 +117,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the SMS Command resource to fetch.
-        # @return [Twilio::REST::Supersim::V1::SmsCommandContext] if sid was passed.
-        # @return [Twilio::REST::Supersim::V1::SmsCommandList]
+        # @return [Textgrid::REST::Supersim::V1::SmsCommandContext] if sid was passed.
+        # @return [Textgrid::REST::Supersim::V1::SmsCommandList]
         def sms_commands(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -131,7 +131,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Supersim::V1::UsageRecordContext]
+        # @return [Textgrid::REST::Supersim::V1::UsageRecordContext]
         def usage_records
           @usage_records ||= UsageRecordList.new self
         end
@@ -139,7 +139,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Supersim::V1>'
+          '<Textgrid::REST::Supersim::V1>'
         end
       end
     end

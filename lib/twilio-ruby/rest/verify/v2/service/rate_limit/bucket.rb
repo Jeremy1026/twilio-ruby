@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -37,7 +37,7 @@ module Twilio
               #   over.
               # @return [BucketInstance] Created BucketInstance
               def create(max: nil, interval: nil)
-                data = Twilio::Values.of({'Max' => max, 'Interval' => interval, })
+                data = Textgrid::Values.of({'Max' => max, 'Interval' => interval, })
 
                 payload = @version.create('POST', @uri, data: data)
 
@@ -105,7 +105,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of BucketInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,
@@ -196,7 +196,7 @@ module Twilio
               #   over.
               # @return [BucketInstance] Updated BucketInstance
               def update(max: :unset, interval: :unset)
-                data = Twilio::Values.of({'Max' => max, 'Interval' => interval, })
+                data = Textgrid::Values.of({'Max' => max, 'Interval' => interval, })
 
                 payload = @version.update('POST', @uri, data: data)
 

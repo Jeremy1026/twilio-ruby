@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'CallSummaries' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.insights.v1.call_summaries.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -24,7 +24,7 @@ describe 'CallSummaries' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -48,7 +48,7 @@ describe 'CallSummaries' do
   end
 
   it "receives read_with_carrier responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -246,7 +246,7 @@ describe 'CallSummaries' do
   end
 
   it "receives read_with_subaccount responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -418,7 +418,7 @@ describe 'CallSummaries' do
   end
 
   it "receives read_with_trust responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -684,7 +684,7 @@ describe 'CallSummaries' do
   end
 
   it "receives read_with_abnormal_session responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

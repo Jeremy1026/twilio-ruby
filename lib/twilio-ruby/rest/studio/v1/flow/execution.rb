@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Studio < Domain
       class V1 < Version
@@ -108,7 +108,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ExecutionInstance
             def page(date_created_from: :unset, date_created_to: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'DateCreatedFrom' => Twilio.serialize_iso8601_datetime(date_created_from),
                   'DateCreatedTo' => Twilio.serialize_iso8601_datetime(date_created_to),
                   'PageToken' => page_token,
@@ -149,7 +149,7 @@ module Twilio
             #   library, you may need to add quotes or URL encode the JSON string.
             # @return [ExecutionInstance] Created ExecutionInstance
             def create(to: nil, from: nil, parameters: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'To' => to,
                   'From' => from,
                   'Parameters' => Twilio.serialize_object(parameters),
@@ -238,7 +238,7 @@ module Twilio
             #   `ended`.
             # @return [ExecutionInstance] Updated ExecutionInstance
             def update(status: nil)
-              data = Twilio::Values.of({'Status' => status, })
+              data = Textgrid::Values.of({'Status' => status, })
 
               payload = @version.update('POST', @uri, data: data)
 

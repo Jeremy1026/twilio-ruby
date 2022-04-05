@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Autopilot < Domain
       class V1 < Version
@@ -128,7 +128,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of QueryInstance
             def page(language: :unset, model_build: :unset, status: :unset, dialogue_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'Language' => language,
                   'ModelBuild' => model_build,
                   'Status' => status,
@@ -171,7 +171,7 @@ module Twilio
             #   Build}[https://www.twilio.com/docs/autopilot/api/model-build] to be queried.
             # @return [QueryInstance] Created QueryInstance
             def create(language: nil, query: nil, tasks: :unset, model_build: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Language' => language,
                   'Query' => query,
                   'Tasks' => tasks,
@@ -259,7 +259,7 @@ module Twilio
             #   `reviewed`, or `discarded`
             # @return [QueryInstance] Updated QueryInstance
             def update(sample_sid: :unset, status: :unset)
-              data = Twilio::Values.of({'SampleSid' => sample_sid, 'Status' => status, })
+              data = Textgrid::Values.of({'SampleSid' => sample_sid, 'Status' => status, })
 
               payload = @version.update('POST', @uri, data: data)
 

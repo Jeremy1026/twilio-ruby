@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Conversations < Domain
       class V1 < Version
@@ -97,7 +97,7 @@ module Twilio
               #   request. One of `GET` or `POST`.
               # @return [WebhookInstance] Updated WebhookInstance
               def update(pre_webhook_url: :unset, post_webhook_url: :unset, filters: :unset, method: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'PreWebhookUrl' => pre_webhook_url,
                     'PostWebhookUrl' => post_webhook_url,
                     'Filters' => Twilio.serialize_list(filters) { |e| e },

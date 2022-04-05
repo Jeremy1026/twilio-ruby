@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Fax
       class V1 < Version
@@ -21,8 +21,8 @@ module Twilio
         ##
         # @param [String] sid The Twilio-provided string that uniquely identifies the Fax
         #   resource to fetch.
-        # @return [Twilio::REST::Fax::V1::FaxContext] if sid was passed.
-        # @return [Twilio::REST::Fax::V1::FaxList]
+        # @return [Textgrid::REST::Fax::V1::FaxContext] if sid was passed.
+        # @return [Textgrid::REST::Fax::V1::FaxList]
         def faxes(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,7 +37,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Fax::V1>'
+          '<Textgrid::REST::Fax::V1>'
         end
       end
     end

@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'UserChannel' do
   it "can read" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.ip_messaging.v2.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .users('USXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .user_channels.list()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -26,7 +26,7 @@ describe 'UserChannel' do
   end
 
   it "receives read_full responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -69,7 +69,7 @@ describe 'UserChannel' do
   end
 
   it "receives read_empty responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -95,13 +95,13 @@ describe 'UserChannel' do
   end
 
   it "can fetch" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.ip_messaging.v2.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .users('USXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .user_channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -111,7 +111,7 @@ describe 'UserChannel' do
   end
 
   it "receives fetch responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -141,13 +141,13 @@ describe 'UserChannel' do
   end
 
   it "can delete" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.ip_messaging.v2.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .users('USXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .user_channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').delete()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -157,7 +157,7 @@ describe 'UserChannel' do
   end
 
   it "receives delete responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         204,
       nil,
     ))
@@ -170,13 +170,13 @@ describe 'UserChannel' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.ip_messaging.v2.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .users('USXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                              .user_channels('CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update()
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     expect(
     @holodeck.has_request?(Holodeck::Request.new(
@@ -186,7 +186,7 @@ describe 'UserChannel' do
   end
 
   it "receives update_notification_level responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -216,7 +216,7 @@ describe 'UserChannel' do
   end
 
   it "receives update_last_consumed_message_index responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

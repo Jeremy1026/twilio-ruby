@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api
       class V2010 < Version
@@ -22,8 +22,8 @@ module Twilio
         ##
         # @param [String] sid The Account Sid that uniquely identifies the account to
         #   fetch
-        # @return [Twilio::REST::Api::V2010::AccountContext] if sid was passed.
-        # @return [Twilio::REST::Api::V2010::AccountList]
+        # @return [Textgrid::REST::Api::V2010::AccountContext] if sid was passed.
+        # @return [Textgrid::REST::Api::V2010::AccountList]
         def accounts(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -146,7 +146,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Api::V2010>'
+          '<Textgrid::REST::Api::V2010>'
         end
       end
     end

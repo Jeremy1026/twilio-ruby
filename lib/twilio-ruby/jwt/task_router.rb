@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module JWT
     class TaskRouterCapability < BaseJWT
       TASK_ROUTER_VERSION = 'v1'.freeze
@@ -25,7 +25,7 @@ module Twilio
       protected
 
       def _generate_payload
-        Twilio::JWT::TaskRouterCapability::TaskRouterUtils
+        Textgrid::JWT::TaskRouterCapability::TaskRouterUtils
           .web_socket_policies(@account_sid, @channel_id)
           .each { |policy| add_policy(policy) }
         policies = @policies.map(&:_generate_payload)

@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'NewFactor' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.verify.v2.services('VAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .entities('identity') \
                        .new_factors.create(friendly_name: 'friendly_name', factor_type: 'push')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'FriendlyName' => 'friendly_name', 'FactorType' => 'push', }
     expect(
@@ -28,7 +28,7 @@ describe 'NewFactor' do
   end
 
   it "receives create_push responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -68,7 +68,7 @@ describe 'NewFactor' do
   end
 
   it "receives create_totp responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {

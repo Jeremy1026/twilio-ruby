@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class HostedNumbers < Version
@@ -22,8 +22,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   AuthorizationDocument.
-        # @return [Twilio::REST::Preview::HostedNumbers::AuthorizationDocumentContext] if sid was passed.
-        # @return [Twilio::REST::Preview::HostedNumbers::AuthorizationDocumentList]
+        # @return [Textgrid::REST::Preview::HostedNumbers::AuthorizationDocumentContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::HostedNumbers::AuthorizationDocumentList]
         def authorization_documents(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -38,8 +38,8 @@ module Twilio
         ##
         # @param [String] sid A 34 character string that uniquely identifies this
         #   HostedNumberOrder.
-        # @return [Twilio::REST::Preview::HostedNumbers::HostedNumberOrderContext] if sid was passed.
-        # @return [Twilio::REST::Preview::HostedNumbers::HostedNumberOrderList]
+        # @return [Textgrid::REST::Preview::HostedNumbers::HostedNumberOrderContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::HostedNumbers::HostedNumberOrderList]
         def hosted_number_orders(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -54,7 +54,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::HostedNumbers>'
+          '<Textgrid::REST::Preview::HostedNumbers>'
         end
       end
     end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -116,7 +116,7 @@ module Twilio
             #   per message. You can send images in an SMS message in only the US and Canada.
             # @return [MessageInstance] Created MessageInstance
             def create(to: nil, status_callback: :unset, application_sid: :unset, max_price: :unset, provide_feedback: :unset, attempt: :unset, validity_period: :unset, force_delivery: :unset, content_retention: :unset, address_retention: :unset, smart_encoded: :unset, persistent_action: :unset, schedule_type: :unset, send_at: :unset, send_as_mms: :unset, from: :unset, messaging_service_sid: :unset, body: :unset, media_url: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'To' => to,
                   'From' => from,
                   'MessagingServiceSid' => messaging_service_sid,
@@ -232,7 +232,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of MessageInstance
             def page(to: :unset, from: :unset, date_sent_before: :unset, date_sent: :unset, date_sent_after: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'To' => to,
                   'From' => from,
                   'DateSent<' => Twilio.serialize_iso8601_datetime(date_sent_before),
@@ -343,7 +343,7 @@ module Twilio
             #   cancelation request if a message has not yet been sent.
             # @return [MessageInstance] Updated MessageInstance
             def update(body: :unset, status: :unset)
-              data = Twilio::Values.of({'Body' => body, 'Status' => status, })
+              data = Textgrid::Values.of({'Body' => body, 'Status' => status, })
 
               payload = @version.update('POST', @uri, data: data)
 

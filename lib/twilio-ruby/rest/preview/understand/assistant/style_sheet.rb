@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Understand < Version
@@ -94,7 +94,7 @@ module Twilio
             # @param [Hash] style_sheet The JSON Style sheet string
             # @return [StyleSheetInstance] Updated StyleSheetInstance
             def update(style_sheet: :unset)
-              data = Twilio::Values.of({'StyleSheet' => Twilio.serialize_object(style_sheet), })
+              data = Textgrid::Values.of({'StyleSheet' => Twilio.serialize_object(style_sheet), })
 
               payload = @version.update('POST', @uri, data: data)
 

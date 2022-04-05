@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Notify < Domain
       class V1 < Version
@@ -59,7 +59,7 @@ module Twilio
             # @param [String] endpoint Deprecated.
             # @return [BindingInstance] Created BindingInstance
             def create(identity: nil, binding_type: nil, address: nil, tag: :unset, notification_protocol_version: :unset, credential_sid: :unset, endpoint: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Identity' => identity,
                   'BindingType' => binding_type,
                   'Address' => address,
@@ -173,7 +173,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of BindingInstance
             def page(start_date: :unset, end_date: :unset, identity: :unset, tag: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'StartDate' => Twilio.serialize_iso8601_date(start_date),
                   'EndDate' => Twilio.serialize_iso8601_date(end_date),
                   'Identity' => Twilio.serialize_list(identity) { |e| e },

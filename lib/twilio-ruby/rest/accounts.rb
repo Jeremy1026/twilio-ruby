@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Accounts < Domain
       ##
@@ -29,19 +29,19 @@ module Twilio
       end
 
       ##
-      # @return [Twilio::REST::Accounts::V1::AuthTokenPromotionInstance]
+      # @return [Textgrid::REST::Accounts::V1::AuthTokenPromotionInstance]
       def auth_token_promotion
         self.v1.auth_token_promotion()
       end
 
       ##
-      # @return [Twilio::REST::Accounts::V1::CredentialInstance]
+      # @return [Textgrid::REST::Accounts::V1::CredentialInstance]
       def credentials
         self.v1.credentials()
       end
 
       ##
-      # @return [Twilio::REST::Accounts::V1::SecondaryAuthTokenInstance]
+      # @return [Textgrid::REST::Accounts::V1::SecondaryAuthTokenInstance]
       def secondary_auth_token
         self.v1.secondary_auth_token()
       end
@@ -49,7 +49,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Accounts>'
+        '#<Textgrid::REST::Accounts>'
       end
     end
   end

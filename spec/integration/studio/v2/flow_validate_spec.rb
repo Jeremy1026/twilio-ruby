@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'FlowValidate' do
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.studio.v2.flow_validate.update(friendly_name: 'friendly_name', status: 'draft', definition: {})
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {
         'FriendlyName' => 'friendly_name',
@@ -30,7 +30,7 @@ describe 'FlowValidate' do
   end
 
   it "receives update responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

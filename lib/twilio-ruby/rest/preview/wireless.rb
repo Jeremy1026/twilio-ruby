@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class Wireless < Version
@@ -22,8 +22,8 @@ module Twilio
 
         ##
         # @param [String] sid The sid
-        # @return [Twilio::REST::Preview::Wireless::CommandContext] if sid was passed.
-        # @return [Twilio::REST::Preview::Wireless::CommandList]
+        # @return [Textgrid::REST::Preview::Wireless::CommandContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::Wireless::CommandList]
         def commands(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,8 +37,8 @@ module Twilio
 
         ##
         # @param [String] sid The sid
-        # @return [Twilio::REST::Preview::Wireless::RatePlanContext] if sid was passed.
-        # @return [Twilio::REST::Preview::Wireless::RatePlanList]
+        # @return [Textgrid::REST::Preview::Wireless::RatePlanContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::Wireless::RatePlanList]
         def rate_plans(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -52,8 +52,8 @@ module Twilio
 
         ##
         # @param [String] sid The sid
-        # @return [Twilio::REST::Preview::Wireless::SimContext] if sid was passed.
-        # @return [Twilio::REST::Preview::Wireless::SimList]
+        # @return [Textgrid::REST::Preview::Wireless::SimContext] if sid was passed.
+        # @return [Textgrid::REST::Preview::Wireless::SimList]
         def sims(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -68,7 +68,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::Wireless>'
+          '<Textgrid::REST::Preview::Wireless>'
         end
       end
     end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -81,7 +81,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of BrandRegistrationInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -119,7 +119,7 @@ module Twilio
           #   vetting for brands which it would otherwise be done.
           # @return [BrandRegistrationInstance] Created BrandRegistrationInstance
           def create(customer_profile_bundle_sid: nil, a2p_profile_bundle_sid: nil, brand_type: :unset, mock: :unset, skip_automatic_sec_vet: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'CustomerProfileBundleSid' => customer_profile_bundle_sid,
                 'A2PProfileBundleSid' => a2p_profile_bundle_sid,
                 'BrandType' => brand_type,

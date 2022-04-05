@@ -2,7 +2,7 @@
 
 require 'faraday'
 
-module Twilio
+module Textgrid
   module HTTP
     class Client
       attr_accessor :adapter
@@ -52,7 +52,7 @@ module Twilio
           object = { message: 'Bad request', code: 400 }.to_json
         end
 
-        twilio_response = Twilio::Response.new(response.status, object, headers: response.headers)
+        twilio_response = Textgrid::Response.new(response.status, object, headers: response.headers)
         @last_response = twilio_response
 
         twilio_response
@@ -63,11 +63,11 @@ module Twilio
                          request.url,
                          request.method == 'GET' ? request.params : request.data)
       rescue Faraday::Error => e
-        raise Twilio::REST::TwilioError, e
+        raise Textgrid::REST::TwilioError, e
       end
 
       def request(host, port, method, url, params = {}, data = {}, headers = {}, auth = nil, timeout = nil)
-        request = Twilio::Request.new(host, port, method, url, params, data, headers, auth, timeout)
+        request = Textgrid::Request.new(host, port, method, url, params, data, headers, auth, timeout)
         _request(request)
       end
     end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Serverless < Domain
       class V1 < Version
@@ -81,7 +81,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ServiceInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -119,7 +119,7 @@ module Twilio
           #   can be edited via the UI. The default value is `false`.
           # @return [ServiceInstance] Created ServiceInstance
           def create(unique_name: nil, friendly_name: nil, include_credentials: :unset, ui_editable: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'UniqueName' => unique_name,
                 'FriendlyName' => friendly_name,
                 'IncludeCredentials' => include_credentials,
@@ -217,7 +217,7 @@ module Twilio
           #   subresources can be edited via the UI. The default value is `false`.
           # @return [ServiceInstance] Updated ServiceInstance
           def update(include_credentials: :unset, friendly_name: :unset, ui_editable: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'IncludeCredentials' => include_credentials,
                 'FriendlyName' => friendly_name,
                 'UiEditable' => ui_editable,

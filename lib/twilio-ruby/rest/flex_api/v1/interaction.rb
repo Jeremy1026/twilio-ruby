@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -29,7 +29,7 @@ module Twilio
           # @param [Hash] routing The Interaction's routing logic.
           # @return [InteractionInstance] Created InteractionInstance
           def create(channel: nil, routing: nil)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Channel' => Twilio.serialize_object(channel),
                 'Routing' => Twilio.serialize_object(routing),
             })

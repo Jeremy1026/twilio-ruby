@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FrontlineApi
       class V1 < Version
@@ -21,8 +21,8 @@ module Twilio
         ##
         # @param [String] sid The SID of the User resource to fetch. This value can be
         #   either the `sid` or the `identity` of the User resource to fetch.
-        # @return [Twilio::REST::Frontline_api::V1::UserContext] if sid was passed.
-        # @return [Twilio::REST::Frontline_api::V1::UserList]
+        # @return [Textgrid::REST::Frontline_api::V1::UserContext] if sid was passed.
+        # @return [Textgrid::REST::Frontline_api::V1::UserList]
         def users(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -37,7 +37,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::FrontlineApi::V1>'
+          '<Textgrid::REST::FrontlineApi::V1>'
         end
       end
     end

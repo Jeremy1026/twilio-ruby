@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Sync < Version
@@ -32,7 +32,7 @@ module Twilio
             # @param [String] unique_name The unique_name
             # @return [SyncListInstance] Created SyncListInstance
             def create(unique_name: :unset)
-              data = Twilio::Values.of({'UniqueName' => unique_name, })
+              data = Textgrid::Values.of({'UniqueName' => unique_name, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -95,7 +95,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of SyncListInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,

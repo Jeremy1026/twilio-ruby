@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging
       class V1 < Version
@@ -24,8 +24,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Brand Registration resource to fetch.
-        # @return [Twilio::REST::Messaging::V1::BrandRegistrationContext] if sid was passed.
-        # @return [Twilio::REST::Messaging::V1::BrandRegistrationList]
+        # @return [Textgrid::REST::Messaging::V1::BrandRegistrationContext] if sid was passed.
+        # @return [Textgrid::REST::Messaging::V1::BrandRegistrationList]
         def brand_registrations(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -38,21 +38,21 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Messaging::V1::DeactivationsContext]
+        # @return [Textgrid::REST::Messaging::V1::DeactivationsContext]
         def deactivations
           @deactivations ||= DeactivationsContext.new self
         end
 
         ##
-        # @return [Twilio::REST::Messaging::V1::ExternalCampaignContext]
+        # @return [Textgrid::REST::Messaging::V1::ExternalCampaignContext]
         def external_campaign
           @external_campaign ||= ExternalCampaignList.new self
         end
 
         ##
         # @param [String] sid The SID of the Service resource to fetch.
-        # @return [Twilio::REST::Messaging::V1::ServiceContext] if sid was passed.
-        # @return [Twilio::REST::Messaging::V1::ServiceList]
+        # @return [Textgrid::REST::Messaging::V1::ServiceContext] if sid was passed.
+        # @return [Textgrid::REST::Messaging::V1::ServiceList]
         def services(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -65,7 +65,7 @@ module Twilio
         end
 
         ##
-        # @return [Twilio::REST::Messaging::V1::UsecaseContext]
+        # @return [Textgrid::REST::Messaging::V1::UsecaseContext]
         def usecases
           @usecases ||= UsecaseList.new self
         end
@@ -73,7 +73,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Messaging::V1>'
+          '<Textgrid::REST::Messaging::V1>'
         end
       end
     end

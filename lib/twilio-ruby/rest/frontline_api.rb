@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FrontlineApi < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the User
       #   resource.
-      # @return [Twilio::REST::Frontline_api::V1::UserInstance] if sid was passed.
-      # @return [Twilio::REST::Frontline_api::V1::UserList]
+      # @return [Textgrid::REST::Frontline_api::V1::UserInstance] if sid was passed.
+      # @return [Textgrid::REST::Frontline_api::V1::UserList]
       def users(sid=:unset)
         self.v1.users(sid)
       end
@@ -40,7 +40,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::FrontlineApi>'
+        '#<Textgrid::REST::FrontlineApi>'
       end
     end
   end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -82,7 +82,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of TaskChannelInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -117,7 +117,7 @@ module Twilio
             #   the longest are prioritized.
             # @return [TaskChannelInstance] Created TaskChannelInstance
             def create(friendly_name: nil, unique_name: nil, channel_optimized_routing: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'UniqueName' => unique_name,
                   'ChannelOptimizedRouting' => channel_optimized_routing,
@@ -203,7 +203,7 @@ module Twilio
             #   the longest are prioritized.
             # @return [TaskChannelInstance] Updated TaskChannelInstance
             def update(friendly_name: :unset, channel_optimized_routing: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'ChannelOptimizedRouting' => channel_optimized_routing,
               })

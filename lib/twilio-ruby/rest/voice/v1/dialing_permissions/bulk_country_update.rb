@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -34,7 +34,7 @@ module Twilio
             #   "high_risk_tollfraud_numbers_enabled": "false" } ]`
             # @return [BulkCountryUpdateInstance] Created BulkCountryUpdateInstance
             def create(update_request: nil)
-              data = Twilio::Values.of({'UpdateRequest' => update_request, })
+              data = Textgrid::Values.of({'UpdateRequest' => update_request, })
 
               payload = @version.create('POST', @uri, data: data)
 

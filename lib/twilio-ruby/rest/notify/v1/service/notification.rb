@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Notify < Domain
       class V1 < Version
@@ -127,7 +127,7 @@ module Twilio
             #   are available to notify all Bindings in a specific channel.
             # @return [NotificationInstance] Created NotificationInstance
             def create(body: :unset, priority: :unset, ttl: :unset, title: :unset, sound: :unset, action: :unset, data: :unset, apn: :unset, gcm: :unset, sms: :unset, facebook_messenger: :unset, fcm: :unset, segment: :unset, alexa: :unset, to_binding: :unset, delivery_callback_url: :unset, identity: :unset, tag: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Identity' => Twilio.serialize_list(identity) { |e| e },
                   'Tag' => Twilio.serialize_list(tag) { |e| e },
                   'Body' => body,

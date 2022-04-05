@@ -26,7 +26,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    @client = Twilio::REST::Client.new('AC' + 'a' * 32, 'AUTHTOKEN')
+    @client = Textgrid::REST::Client.new('AC' + 'a' * 32, 'AUTHTOKEN')
     @holodeck = Holodeck.new
     @client.http_client = @holodeck
   end

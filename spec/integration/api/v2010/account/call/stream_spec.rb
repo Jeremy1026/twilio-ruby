@@ -10,13 +10,13 @@ require 'spec_helper.rb'
 
 describe 'Stream' do
   it "can create" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .calls('CAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .streams.create(url: 'https://example.com')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Url' => 'https://example.com', }
     expect(
@@ -28,7 +28,7 @@ describe 'Stream' do
   end
 
   it "receives create_no_args responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -51,7 +51,7 @@ describe 'Stream' do
   end
 
   it "receives create_with_args responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         201,
       %q[
       {
@@ -74,13 +74,13 @@ describe 'Stream' do
   end
 
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.api.v2010.accounts('ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .calls('CAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
                        .streams('MZXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update(status: 'stopped')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Status' => 'stopped', }
     expect(
@@ -92,7 +92,7 @@ describe 'Stream' do
   end
 
   it "receives update_by_sid responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {
@@ -115,7 +115,7 @@ describe 'Stream' do
   end
 
   it "receives update_by_name responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

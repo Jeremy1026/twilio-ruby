@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -31,7 +31,7 @@ module Twilio
           #   should be mapped to.
           # @return [SourceIpMappingInstance] Created SourceIpMappingInstance
           def create(ip_record_sid: nil, sip_domain_sid: nil)
-            data = Twilio::Values.of({'IpRecordSid' => ip_record_sid, 'SipDomainSid' => sip_domain_sid, })
+            data = Textgrid::Values.of({'IpRecordSid' => ip_record_sid, 'SipDomainSid' => sip_domain_sid, })
 
             payload = @version.create('POST', @uri, data: data)
 
@@ -94,7 +94,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of SourceIpMappingInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -184,7 +184,7 @@ module Twilio
           #   should be mapped to.
           # @return [SourceIpMappingInstance] Updated SourceIpMappingInstance
           def update(sip_domain_sid: nil)
-            data = Twilio::Values.of({'SipDomainSid' => sip_domain_sid, })
+            data = Textgrid::Values.of({'SipDomainSid' => sip_domain_sid, })
 
             payload = @version.update('POST', @uri, data: data)
 

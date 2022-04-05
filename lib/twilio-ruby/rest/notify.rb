@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Notify < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Credential
       #   resource.
-      # @return [Twilio::REST::Notify::V1::CredentialInstance] if sid was passed.
-      # @return [Twilio::REST::Notify::V1::CredentialList]
+      # @return [Textgrid::REST::Notify::V1::CredentialInstance] if sid was passed.
+      # @return [Textgrid::REST::Notify::V1::CredentialList]
       def credentials(sid=:unset)
         self.v1.credentials(sid)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Service
       #   resource.
-      # @return [Twilio::REST::Notify::V1::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Notify::V1::ServiceList]
+      # @return [Textgrid::REST::Notify::V1::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Notify::V1::ServiceList]
       def services(sid=:unset)
         self.v1.services(sid)
       end
@@ -49,7 +49,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Notify>'
+        '#<Textgrid::REST::Notify>'
       end
     end
   end

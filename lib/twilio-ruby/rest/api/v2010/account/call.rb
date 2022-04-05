@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -165,7 +165,7 @@ module Twilio
             #   handle the call, if the call will be handled by an application.
             # @return [CallInstance] Created CallInstance
             def create(to: nil, from: nil, method: :unset, fallback_url: :unset, fallback_method: :unset, status_callback: :unset, status_callback_event: :unset, status_callback_method: :unset, send_digits: :unset, timeout: :unset, record: :unset, recording_channels: :unset, recording_status_callback: :unset, recording_status_callback_method: :unset, sip_auth_username: :unset, sip_auth_password: :unset, machine_detection: :unset, machine_detection_timeout: :unset, recording_status_callback_event: :unset, trim: :unset, caller_id: :unset, machine_detection_speech_threshold: :unset, machine_detection_speech_end_threshold: :unset, machine_detection_silence_timeout: :unset, async_amd: :unset, async_amd_status_callback: :unset, async_amd_status_callback_method: :unset, byoc: :unset, call_reason: :unset, call_token: :unset, recording_track: :unset, time_limit: :unset, url: :unset, twiml: :unset, application_sid: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'To' => to,
                   'From' => from,
                   'Url' => url,
@@ -334,7 +334,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of CallInstance
             def page(to: :unset, from: :unset, parent_call_sid: :unset, status: :unset, start_time_before: :unset, start_time: :unset, start_time_after: :unset, end_time_before: :unset, end_time: :unset, end_time_after: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'To' => to,
                   'From' => from,
                   'ParentCallSid' => parent_call_sid,
@@ -497,7 +497,7 @@ module Twilio
             #   Constraints depend on account and configuration.
             # @return [CallInstance] Updated CallInstance
             def update(url: :unset, method: :unset, status: :unset, fallback_url: :unset, fallback_method: :unset, status_callback: :unset, status_callback_method: :unset, twiml: :unset, time_limit: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Url' => url,
                   'Method' => method,
                   'Status' => status,

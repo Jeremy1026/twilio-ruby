@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Studio < Domain
       class V2 < Version
@@ -32,7 +32,7 @@ module Twilio
           # @param [String] commit_message Description of change made in the revision.
           # @return [FlowInstance] Created FlowInstance
           def create(friendly_name: nil, status: nil, definition: nil, commit_message: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Status' => status,
                 'Definition' => Twilio.serialize_object(definition),
@@ -100,7 +100,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of FlowInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -188,7 +188,7 @@ module Twilio
           # @param [String] commit_message Description of change made in the revision.
           # @return [FlowInstance] Updated FlowInstance
           def update(status: nil, friendly_name: :unset, definition: :unset, commit_message: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Status' => status,
                 'FriendlyName' => friendly_name,
                 'Definition' => Twilio.serialize_object(definition),

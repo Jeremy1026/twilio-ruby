@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -39,7 +39,7 @@ module Twilio
             # @param [Hash] rules A JSON-encoded array of recording rules.
             # @return [RecordingRulesInstance] Updated RecordingRulesInstance
             def update(rules: :unset)
-              data = Twilio::Values.of({'Rules' => Twilio.serialize_object(rules), })
+              data = Textgrid::Values.of({'Rules' => Twilio.serialize_object(rules), })
 
               payload = @version.update('POST', @uri, data: data)
 

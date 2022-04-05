@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -34,7 +34,7 @@ module Twilio
             #   brand.
             # @return [UsAppToPersonUsecaseInstance] Fetched UsAppToPersonUsecaseInstance
             def fetch(brand_registration_sid: :unset)
-              params = Twilio::Values.of({'BrandRegistrationSid' => brand_registration_sid, })
+              params = Textgrid::Values.of({'BrandRegistrationSid' => brand_registration_sid, })
 
               payload = @version.fetch('GET', @uri, params: params)
 

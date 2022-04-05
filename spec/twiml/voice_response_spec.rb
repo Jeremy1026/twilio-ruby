@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Twilio::TwiML::VoiceResponse do
+describe Textgrid::TwiML::VoiceResponse do
   context 'Testing Response' do
     it 'should allow empty response' do
       expected_doc = parse <<-XML
         <Response/>
       XML
-      response = Twilio::TwiML::VoiceResponse.new.to_s
+      response = Textgrid::TwiML::VoiceResponse.new.to_s
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
@@ -15,23 +15,23 @@ describe Twilio::TwiML::VoiceResponse do
       expected_doc = parse <<-XML
         <Response/>
       XML
-      response = Twilio::TwiML::VoiceResponse.new.to_xml
+      response = Textgrid::TwiML::VoiceResponse.new.to_xml
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
 
     it 'should have an xml declaration by default' do
-      twiml = Twilio::TwiML::VoiceResponse.new.to_xml
+      twiml = Textgrid::TwiML::VoiceResponse.new.to_xml
       expect(twiml).to match(/\A<\?xml version="1.0" encoding="UTF-8"\?>/)
     end
 
     it 'should allow no xml_declaration' do
-      twiml = Twilio::TwiML::VoiceResponse.new.to_xml(false)
+      twiml = Textgrid::TwiML::VoiceResponse.new.to_xml(false)
       expect(twiml).not_to match(/\A<\?xml version="1.0" encoding="UTF-8"\?>/)
     end
 
     it 'should allow comments' do
-      twiml = Twilio::TwiML::VoiceResponse.new
+      twiml = Textgrid::TwiML::VoiceResponse.new
       twiml.comment 'This is awesome'
       expect(twiml.to_xml).to match(/<!--This is awesome-->/)
     end
@@ -40,7 +40,7 @@ describe Twilio::TwiML::VoiceResponse do
       expected_doc = parse <<-XML
         <Response>Look no tags</Response>
       XML
-      twiml = Twilio::TwiML::VoiceResponse.new
+      twiml = Textgrid::TwiML::VoiceResponse.new
       twiml.add_text 'Look no tags'
       expect(parse(twiml)).to be_equivalent_to(expected_doc).respecting_element_order
     end
@@ -54,7 +54,7 @@ describe Twilio::TwiML::VoiceResponse do
         </Response>
       XML
 
-      twiml = Twilio::TwiML::VoiceResponse.new
+      twiml = Textgrid::TwiML::VoiceResponse.new
       twiml.add_child('alexa', omnipresent: 'true') do |alexa|
         alexa.add_child('purchase', 'Kindle')
       end
@@ -69,7 +69,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms to="+11234567890" from="+10987654321">twilio sms</Sms>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.hangup
       response.leave
       response.sms('twilio sms', to: '+11234567890', from: '+10987654321')
@@ -86,7 +86,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms to="+11234567890" from="+10987654321">twilio sms</Sms>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new.hangup.leave.sms(
+      response = Textgrid::TwiML::VoiceResponse.new.hangup.leave.sms(
         'twilio sms',
         to: '+11234567890',
         from: '+10987654321'
@@ -104,7 +104,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms to="+11234567890" from="+10987654321">twilio sms</Sms>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new do |r|
+      response = Textgrid::TwiML::VoiceResponse.new do |r|
         r.hangup
         r.leave
         r.sms('twilio sms', to: '+11234567890', from: '+10987654321')
@@ -122,7 +122,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Say></Say>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say(message: '')
 
       doc = parse(response)
@@ -135,7 +135,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Say>Hello World</Say>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say(message: 'Hello World')
 
       doc = parse(response)
@@ -148,7 +148,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Say>nécessaire et d'autres</Say>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say(message: 'nécessaire et d\'autres')
 
       doc = parse(response)
@@ -161,7 +161,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Say loop="3">Hello Monkey</Say>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say(message: 'Hello Monkey', loop: 3)
 
       doc = parse(response)
@@ -174,7 +174,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Say language="en-gb">Hello Monkey</Say>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say(message: 'Hello Monkey', language: 'en-gb')
 
       doc = parse(response)
@@ -187,7 +187,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Say loop="3" voice="man" language="fr">Hello Monkey</Say>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say(message: 'Hello Monkey', loop: 3, voice: 'man', language: 'fr')
 
       doc = parse(response)
@@ -202,7 +202,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Play></Play>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.play
 
       doc = parse(response)
@@ -215,7 +215,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Play>http://hellomonkey.mp3</Play>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.play(url: 'http://hellomonkey.mp3')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -227,7 +227,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Play loop="3">http://hellomonkey.mp3</Play>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.play(url: 'http://hellomonkey.mp3', loop: 3)
 
       doc = parse(response)
@@ -240,7 +240,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Play digits="w123"></Play>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.play(digits: 'w123')
 
       doc = parse(response)
@@ -255,7 +255,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Record/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.record
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -267,7 +267,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Record action="example.com" method="GET" />
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.record(action: 'example.com', method: 'GET')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -279,7 +279,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Record timeout="4" finishOnKey="#" maxLength="30" />
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.record(timeout: 4, finish_on_key: '#', max_length: 30)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -291,7 +291,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Record transcribeCallback="example.com" />
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.record(transcribe_callback: 'example.com')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -305,7 +305,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Redirect/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.redirect ''
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -317,7 +317,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Redirect method="POST">example.com</Redirect>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.redirect('example.com', method: 'POST')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -329,7 +329,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Redirect method="POST">example.com?id=34&amp;action=hey</Redirect>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.redirect('example.com?id=34&action=hey', method: 'POST')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -343,14 +343,14 @@ describe Twilio::TwiML::VoiceResponse do
           <Hangup/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.hangup
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
 
     it 'should not allow content in the hangup' do
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       expect { response.hangup 'Goodbye' }.to raise_error(ArgumentError)
     end
   end
@@ -362,14 +362,14 @@ describe Twilio::TwiML::VoiceResponse do
           <Leave/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.leave
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
 
     it 'should not allow content in the leave' do
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       expect { response.leave 'Goodbye' }.to raise_error(ArgumentError)
     end
   end
@@ -381,14 +381,14 @@ describe Twilio::TwiML::VoiceResponse do
           <Reject/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.reject
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
     end
 
     it 'should not allow content in the reject' do
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       expect { response.reject 'Goodbye' }.to raise_error(ArgumentError)
     end
   end
@@ -400,7 +400,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.sms ''
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -412,7 +412,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms>Hello, World</Sms>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.sms 'Hello, World'
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -424,7 +424,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms to="1231231234" from="3453453456" statusCallback="example.com?id=34&amp;action=hey">Hello, World</Sms>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.sms('Hello, World', to: 1_231_231_234, from: 3_453_453_456, status_callback: 'example.com?id=34&action=hey')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -436,7 +436,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Sms method="POST" action="example.com?id=34&amp;action=hey">Hello</Sms>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.sms('Hello', method: 'POST', action: 'example.com?id=34&action=hey')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -454,7 +454,7 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.conference(
         'TestConferenceAttributes',
         beep: false,
@@ -463,7 +463,7 @@ describe Twilio::TwiML::VoiceResponse do
         end_conference_on_exit: true
       )
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -479,7 +479,7 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.conference(
         'TestConferenceMutedAttribute',
         beep: false,
@@ -489,7 +489,7 @@ describe Twilio::TwiML::VoiceResponse do
         end_conference_on_exit: true
       )
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -505,10 +505,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.queue('TestQueueAttribute', url: '', method: 'GET')
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -522,7 +522,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Echo/>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.echo
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -536,7 +536,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Enqueue action="act" method="GET" waitUrl="wait" waitUrlMethod="POST">TestEnqueueAttribute</Enqueue>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.enqueue(
         name: 'TestEnqueueAttribute',
         action: 'act',
@@ -557,10 +557,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Enqueue>
         </Response>
       XML
-      enqueue_elem = Twilio::TwiML::Enqueue.new(name: nil, workflow_sid: '123123123')
+      enqueue_elem = Textgrid::TwiML::Enqueue.new(name: nil, workflow_sid: '123123123')
       enqueue_elem.task(task_json)
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(enqueue_elem)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -574,10 +574,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Enqueue>
         </Response>
       XML
-      enqueue_elem = Twilio::TwiML::Enqueue.new(name: nil, workflow_sid: '123123123')
+      enqueue_elem = Textgrid::TwiML::Enqueue.new(name: nil, workflow_sid: '123123123')
       enqueue_elem.task({ account_sid: 'AC123123123' })
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(enqueue_elem)
 
       doc = parse(response)
@@ -592,7 +592,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Dial>1231231234</Dial>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.dial(number: '1231231234')
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -606,10 +606,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.sim '123123123'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
 
       doc = parse(response)
@@ -624,10 +624,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.sip 'foo@example.com'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -641,10 +641,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.sip('foo@example.com', username: 'foo', password: 'bar')
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -658,10 +658,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.number '1231231234'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -675,10 +675,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.number('1231231234', status_callback: 'http://example.com', status_callback_event: 'initiated completed')
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -692,10 +692,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.conference 'My Room'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -709,10 +709,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.queue 'The Cute Queue'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -726,10 +726,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.client
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -743,10 +743,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
+      dial = Textgrid::TwiML::Dial.new
       dial.client identity: 'alice'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(dial)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -763,12 +763,12 @@ describe Twilio::TwiML::VoiceResponse do
           </Dial>
         </Response>
       XML
-      dial = Twilio::TwiML::Dial.new
-      client = Twilio::TwiML::Client.new
+      dial = Textgrid::TwiML::Dial.new
+      client = Textgrid::TwiML::Client.new
       client.identity 'alice'
       client.parameter name: 'hello', value: 'world'
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       dial.append(client)
       response.append(dial)
       doc = parse(response)
@@ -783,7 +783,7 @@ describe Twilio::TwiML::VoiceResponse do
           <Gather></Gather>
         </Response>
       XML
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.gather
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -797,10 +797,10 @@ describe Twilio::TwiML::VoiceResponse do
           </Gather>
         </Response>
       XML
-      gather_elem = Twilio::TwiML::Gather.new
+      gather_elem = Textgrid::TwiML::Gather.new
       gather_elem.say(message: 'Hello')
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(gather_elem)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -816,12 +816,12 @@ describe Twilio::TwiML::VoiceResponse do
           </Gather>
         </Response>
       XML
-      gather = Twilio::TwiML::Gather.new
+      gather = Textgrid::TwiML::Gather.new
       gather.say(message: 'Hey')
       gather.play(url: 'hey.mp3')
       gather.pause
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.append(gather)
       doc = parse(response)
       expect(doc).to be_equivalent_to(expected_doc).respecting_element_order
@@ -836,7 +836,7 @@ describe Twilio::TwiML::VoiceResponse do
         </Response>
       XML
 
-      response = Twilio::TwiML::VoiceResponse.new
+      response = Textgrid::TwiML::VoiceResponse.new
       response.say do |s|
         s.say_as('Twilio', interpretAs: 'spell-out')
       end

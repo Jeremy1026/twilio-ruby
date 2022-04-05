@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V1 < Version
@@ -43,7 +43,7 @@ module Twilio
             #   the new resource. This value is often used for display purposes.
             # @return [UserInstance] Created UserInstance
             def create(identity: nil, role_sid: :unset, attributes: :unset, friendly_name: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Identity' => identity,
                   'RoleSid' => role_sid,
                   'Attributes' => attributes,
@@ -111,7 +111,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of UserInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -218,7 +218,7 @@ module Twilio
             #   the resource. It is often used for display purposes.
             # @return [UserInstance] Updated UserInstance
             def update(role_sid: :unset, attributes: :unset, friendly_name: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'RoleSid' => role_sid,
                   'Attributes' => attributes,
                   'FriendlyName' => friendly_name,

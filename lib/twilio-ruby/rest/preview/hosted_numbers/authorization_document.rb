@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class HostedNumbers < Version
@@ -102,7 +102,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of AuthorizationDocumentInstance
           def page(email: :unset, status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Email' => email,
                 'Status' => status,
                 'PageToken' => page_token,
@@ -145,7 +145,7 @@ module Twilio
           #   Authorization Document has been sent and signed.
           # @return [AuthorizationDocumentInstance] Created AuthorizationDocumentInstance
           def create(hosted_number_order_sids: nil, address_sid: nil, email: nil, contact_title: nil, contact_phone_number: nil, cc_emails: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'HostedNumberOrderSids' => Twilio.serialize_list(hosted_number_order_sids) { |e| e },
                 'AddressSid' => address_sid,
                 'Email' => email,
@@ -248,7 +248,7 @@ module Twilio
           #   authorized to sign the Authorization Document.
           # @return [AuthorizationDocumentInstance] Updated AuthorizationDocumentInstance
           def update(hosted_number_order_sids: :unset, address_sid: :unset, email: :unset, cc_emails: :unset, status: :unset, contact_title: :unset, contact_phone_number: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'HostedNumberOrderSids' => Twilio.serialize_list(hosted_number_order_sids) { |e| e },
                 'AddressSid' => address_sid,
                 'Email' => email,

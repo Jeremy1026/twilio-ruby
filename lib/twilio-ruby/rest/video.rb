@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the
       #   Composition resource.
-      # @return [Twilio::REST::Video::V1::CompositionInstance] if sid was passed.
-      # @return [Twilio::REST::Video::V1::CompositionList]
+      # @return [Textgrid::REST::Video::V1::CompositionInstance] if sid was passed.
+      # @return [Textgrid::REST::Video::V1::CompositionList]
       def compositions(sid=:unset)
         self.v1.compositions(sid)
       end
@@ -40,14 +40,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the
       #   CompositionHook resource.
-      # @return [Twilio::REST::Video::V1::CompositionHookInstance] if sid was passed.
-      # @return [Twilio::REST::Video::V1::CompositionHookList]
+      # @return [Textgrid::REST::Video::V1::CompositionHookInstance] if sid was passed.
+      # @return [Textgrid::REST::Video::V1::CompositionHookList]
       def composition_hooks(sid=:unset)
         self.v1.composition_hooks(sid)
       end
 
       ##
-      # @return [Twilio::REST::Video::V1::CompositionSettingsInstance]
+      # @return [Textgrid::REST::Video::V1::CompositionSettingsInstance]
       def composition_settings
         self.v1.composition_settings()
       end
@@ -55,14 +55,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Recording
       #   resource.
-      # @return [Twilio::REST::Video::V1::RecordingInstance] if sid was passed.
-      # @return [Twilio::REST::Video::V1::RecordingList]
+      # @return [Textgrid::REST::Video::V1::RecordingInstance] if sid was passed.
+      # @return [Textgrid::REST::Video::V1::RecordingList]
       def recordings(sid=:unset)
         self.v1.recordings(sid)
       end
 
       ##
-      # @return [Twilio::REST::Video::V1::RecordingSettingsInstance]
+      # @return [Textgrid::REST::Video::V1::RecordingSettingsInstance]
       def recording_settings
         self.v1.recording_settings()
       end
@@ -70,8 +70,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Room
       #   resource.
-      # @return [Twilio::REST::Video::V1::RoomInstance] if sid was passed.
-      # @return [Twilio::REST::Video::V1::RoomList]
+      # @return [Textgrid::REST::Video::V1::RoomInstance] if sid was passed.
+      # @return [Textgrid::REST::Video::V1::RoomList]
       def rooms(sid=:unset)
         self.v1.rooms(sid)
       end
@@ -79,7 +79,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Video>'
+        '#<Textgrid::REST::Video>'
       end
     end
   end

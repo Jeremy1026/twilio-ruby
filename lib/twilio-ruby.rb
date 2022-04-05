@@ -9,7 +9,7 @@ require 'forwardable'
 require 'time'
 require 'json'
 
-require 'twilio-ruby/version' unless defined?(Twilio::VERSION)
+require 'twilio-ruby/version' unless defined?(Textgrid::VERSION)
 require 'rack/twilio_webhook_authentication' if defined?(Rack)
 
 require 'twilio-ruby/util'
@@ -20,7 +20,7 @@ Dir[File.join(__dir__, 'twilio-ruby/framework/*.rb')].sort.each do |file|
   require file
 end
 
-module Twilio
+module Textgrid
   extend SingleForwardable
 
   autoload :JWT, File.join(__dir__, 'twilio-ruby', 'jwt', 'jwt.rb')

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Api < Domain
       class V2010 < Version
@@ -145,7 +145,7 @@ module Twilio
                 # @param [Integer] page_size Number of records to return, defaults to 50
                 # @return [Page] Page of AllTimeInstance
                 def page(category: :unset, start_date: :unset, end_date: :unset, include_subaccounts: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                  params = Twilio::Values.of({
+                  params = Textgrid::Values.of({
                       'Category' => category,
                       'StartDate' => Twilio.serialize_iso8601_date(start_date),
                       'EndDate' => Twilio.serialize_iso8601_date(end_date),

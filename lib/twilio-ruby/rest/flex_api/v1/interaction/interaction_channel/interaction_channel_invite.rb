@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class FlexApi < Domain
       class V1 < Version
@@ -32,7 +32,7 @@ module Twilio
               # @param [Hash] routing The routing
               # @return [InteractionChannelInviteInstance] Created InteractionChannelInviteInstance
               def create(routing: nil)
-                data = Twilio::Values.of({'Routing' => Twilio.serialize_object(routing), })
+                data = Textgrid::Values.of({'Routing' => Twilio.serialize_object(routing), })
 
                 payload = @version.create('POST', @uri, data: data)
 
@@ -100,7 +100,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of InteractionChannelInviteInstance
               def page(page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'PageToken' => page_token,
                     'Page' => page_number,
                     'PageSize' => page_size,

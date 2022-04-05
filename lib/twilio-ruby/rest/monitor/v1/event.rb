@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Monitor < Domain
       class V1 < Version
@@ -141,7 +141,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of EventInstance
           def page(actor_sid: :unset, event_type: :unset, resource_sid: :unset, source_ip_address: :unset, start_date: :unset, end_date: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'ActorSid' => actor_sid,
                 'EventType' => event_type,
                 'ResourceSid' => resource_sid,

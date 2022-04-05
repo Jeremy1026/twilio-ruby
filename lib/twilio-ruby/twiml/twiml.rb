@@ -1,6 +1,6 @@
 require 'nokogiri'
 
-module Twilio
+module Textgrid
   module TwiML
     autoload :FaxResponse, File.join(File.dirname(__FILE__), "fax_response.rb")
     autoload :MessagingResponse, File.join(File.dirname(__FILE__), "messaging_response.rb")

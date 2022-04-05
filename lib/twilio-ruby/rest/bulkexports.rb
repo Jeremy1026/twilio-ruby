@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Bulkexports < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] resource_type The type of communication – Messages, Calls,
       #   Conferences, and Participants
-      # @return [Twilio::REST::Bulkexports::V1::ExportInstance] if resource_type was passed.
-      # @return [Twilio::REST::Bulkexports::V1::ExportList]
+      # @return [Textgrid::REST::Bulkexports::V1::ExportInstance] if resource_type was passed.
+      # @return [Textgrid::REST::Bulkexports::V1::ExportList]
       def exports(resource_type=:unset)
         self.v1.exports(resource_type)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] resource_type The type of communication – Messages, Calls,
       #   Conferences, and Participants
-      # @return [Twilio::REST::Bulkexports::V1::ExportConfigurationInstance] if resource_type was passed.
-      # @return [Twilio::REST::Bulkexports::V1::ExportConfigurationList]
+      # @return [Textgrid::REST::Bulkexports::V1::ExportConfigurationInstance] if resource_type was passed.
+      # @return [Textgrid::REST::Bulkexports::V1::ExportConfigurationList]
       def export_configuration(resource_type=:unset)
         self.v1.export_configuration(resource_type)
       end
@@ -49,7 +49,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Bulkexports>'
+        '#<Textgrid::REST::Bulkexports>'
       end
     end
   end

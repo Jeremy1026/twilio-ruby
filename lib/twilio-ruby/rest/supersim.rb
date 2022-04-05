@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the eSIM
       #   Profile resource.
-      # @return [Twilio::REST::Supersim::V1::EsimProfileInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::EsimProfileList]
+      # @return [Textgrid::REST::Supersim::V1::EsimProfileInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::EsimProfileList]
       def esim_profiles(sid=:unset)
         self.v1.esim_profiles(sid)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Fleet
       #   resource.
-      # @return [Twilio::REST::Supersim::V1::FleetInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::FleetList]
+      # @return [Textgrid::REST::Supersim::V1::FleetInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::FleetList]
       def fleets(sid=:unset)
         self.v1.fleets(sid)
       end
@@ -49,8 +49,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the IP Command
       #   resource.
-      # @return [Twilio::REST::Supersim::V1::IpCommandInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::IpCommandList]
+      # @return [Textgrid::REST::Supersim::V1::IpCommandInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::IpCommandList]
       def ip_commands(sid=:unset)
         self.v1.ip_commands(sid)
       end
@@ -58,8 +58,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Network
       #   resource.
-      # @return [Twilio::REST::Supersim::V1::NetworkInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::NetworkList]
+      # @return [Textgrid::REST::Supersim::V1::NetworkInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::NetworkList]
       def networks(sid=:unset)
         self.v1.networks(sid)
       end
@@ -67,16 +67,16 @@ module Twilio
       ##
       # @param [String] sid The unique string that identifies the Network Access Profile
       #   resource.
-      # @return [Twilio::REST::Supersim::V1::NetworkAccessProfileInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::NetworkAccessProfileList]
+      # @return [Textgrid::REST::Supersim::V1::NetworkAccessProfileInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::NetworkAccessProfileList]
       def network_access_profiles(sid=:unset)
         self.v1.network_access_profiles(sid)
       end
 
       ##
       # @param [String] sid The unique string that identifies the Sim resource.
-      # @return [Twilio::REST::Supersim::V1::SimInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::SimList]
+      # @return [Textgrid::REST::Supersim::V1::SimInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::SimList]
       def sims(sid=:unset)
         self.v1.sims(sid)
       end
@@ -84,14 +84,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the SMS
       #   Command resource.
-      # @return [Twilio::REST::Supersim::V1::SmsCommandInstance] if sid was passed.
-      # @return [Twilio::REST::Supersim::V1::SmsCommandList]
+      # @return [Textgrid::REST::Supersim::V1::SmsCommandInstance] if sid was passed.
+      # @return [Textgrid::REST::Supersim::V1::SmsCommandList]
       def sms_commands(sid=:unset)
         self.v1.sms_commands(sid)
       end
 
       ##
-      # @return [Twilio::REST::Supersim::V1::UsageRecordInstance]
+      # @return [Textgrid::REST::Supersim::V1::UsageRecordInstance]
       def usage_records
         self.v1.usage_records()
       end
@@ -99,7 +99,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Supersim>'
+        '#<Textgrid::REST::Supersim>'
       end
     end
   end

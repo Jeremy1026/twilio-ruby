@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class DeployedDevices < Version
@@ -38,7 +38,7 @@ module Twilio
             #   Device to become authenticated with this Certificate credential.
             # @return [CertificateInstance] Created CertificateInstance
             def create(certificate_data: nil, friendly_name: :unset, device_sid: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'CertificateData' => certificate_data,
                   'FriendlyName' => friendly_name,
                   'DeviceSid' => device_sid,
@@ -111,7 +111,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of CertificateInstance
             def page(device_sid: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'DeviceSid' => device_sid,
                   'PageToken' => page_token,
                   'Page' => page_number,
@@ -216,7 +216,7 @@ module Twilio
             #   Device to become authenticated with this Certificate credential.
             # @return [CertificateInstance] Updated CertificateInstance
             def update(friendly_name: :unset, device_sid: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, 'DeviceSid' => device_sid, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, 'DeviceSid' => device_sid, })
 
               payload = @version.update('POST', @uri, data: data)
 

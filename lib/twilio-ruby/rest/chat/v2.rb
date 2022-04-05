@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat
       class V2 < Version
@@ -21,8 +21,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Credential resource to fetch.
-        # @return [Twilio::REST::Chat::V2::CredentialContext] if sid was passed.
-        # @return [Twilio::REST::Chat::V2::CredentialList]
+        # @return [Textgrid::REST::Chat::V2::CredentialContext] if sid was passed.
+        # @return [Textgrid::REST::Chat::V2::CredentialList]
         def credentials(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -36,8 +36,8 @@ module Twilio
 
         ##
         # @param [String] sid The SID of the Service resource to fetch.
-        # @return [Twilio::REST::Chat::V2::ServiceContext] if sid was passed.
-        # @return [Twilio::REST::Chat::V2::ServiceList]
+        # @return [Textgrid::REST::Chat::V2::ServiceContext] if sid was passed.
+        # @return [Textgrid::REST::Chat::V2::ServiceList]
         def services(sid=:unset)
           if sid.nil?
               raise ArgumentError, 'sid cannot be nil'
@@ -52,7 +52,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Chat::V2>'
+          '<Textgrid::REST::Chat::V2>'
         end
       end
     end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       class V1 < Version
@@ -78,7 +78,7 @@ module Twilio
           #   should be specified in YYYY-MM-DD format.
           # @return [DeactivationsInstance] Fetched DeactivationsInstance
           def fetch(date: :unset)
-            params = Twilio::Values.of({'Date' => Twilio.serialize_iso8601_date(date), })
+            params = Textgrid::Values.of({'Date' => Twilio.serialize_iso8601_date(date), })
 
             payload = @version.fetch('GET', @uri, params: params)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -74,7 +74,7 @@ module Twilio
             #   substitutions.
             # @return [VerificationInstance] Created VerificationInstance
             def create(to: nil, channel: nil, custom_friendly_name: :unset, custom_message: :unset, send_digits: :unset, locale: :unset, custom_code: :unset, amount: :unset, payee: :unset, rate_limits: :unset, channel_configuration: :unset, app_hash: :unset, template_sid: :unset, template_custom_substitutions: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'To' => to,
                   'Channel' => channel,
                   'CustomFriendlyName' => custom_friendly_name,
@@ -156,7 +156,7 @@ module Twilio
             #   `canceled` or `approved`.
             # @return [VerificationInstance] Updated VerificationInstance
             def update(status: nil)
-              data = Twilio::Values.of({'Status' => status, })
+              data = Textgrid::Values.of({'Status' => status, })
 
               payload = @version.update('POST', @uri, data: data)
 

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Monitor < Domain
       ##
@@ -31,8 +31,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Alert
       #   resource.
-      # @return [Twilio::REST::Monitor::V1::AlertInstance] if sid was passed.
-      # @return [Twilio::REST::Monitor::V1::AlertList]
+      # @return [Textgrid::REST::Monitor::V1::AlertInstance] if sid was passed.
+      # @return [Textgrid::REST::Monitor::V1::AlertList]
       def alerts(sid=:unset)
         self.v1.alerts(sid)
       end
@@ -40,8 +40,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Event
       #   resource.
-      # @return [Twilio::REST::Monitor::V1::EventInstance] if sid was passed.
-      # @return [Twilio::REST::Monitor::V1::EventList]
+      # @return [Textgrid::REST::Monitor::V1::EventInstance] if sid was passed.
+      # @return [Textgrid::REST::Monitor::V1::EventList]
       def events(sid=:unset)
         self.v1.events(sid)
       end
@@ -49,7 +49,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Monitor>'
+        '#<Textgrid::REST::Monitor>'
       end
     end
   end

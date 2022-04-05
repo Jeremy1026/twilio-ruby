@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class DeployedDevices < Version
@@ -37,7 +37,7 @@ module Twilio
             #   Deployment.
             # @return [DeploymentInstance] Created DeploymentInstance
             def create(friendly_name: :unset, sync_service_sid: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, 'SyncServiceSid' => sync_service_sid, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, 'SyncServiceSid' => sync_service_sid, })
 
               payload = @version.create('POST', @uri, data: data)
 
@@ -100,7 +100,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of DeploymentInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -205,7 +205,7 @@ module Twilio
             #   Deployment.
             # @return [DeploymentInstance] Updated DeploymentInstance
             def update(friendly_name: :unset, sync_service_sid: :unset)
-              data = Twilio::Values.of({'FriendlyName' => friendly_name, 'SyncServiceSid' => sync_service_sid, })
+              data = Textgrid::Values.of({'FriendlyName' => friendly_name, 'SyncServiceSid' => sync_service_sid, })
 
               payload = @version.update('POST', @uri, data: data)
 

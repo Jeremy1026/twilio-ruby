@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Supersim < Domain
       class V1 < Version
@@ -41,7 +41,7 @@ module Twilio
           #   `callback_url`. Can be `GET` or `POST`, and the default is `POST`.
           # @return [IpCommandInstance] Created IpCommandInstance
           def create(sim: nil, payload: nil, device_port: nil, payload_type: :unset, callback_url: :unset, callback_method: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'Sim' => sim,
                 'Payload' => payload,
                 'DevicePort' => device_port,
@@ -160,7 +160,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of IpCommandInstance
           def page(sim: :unset, sim_iccid: :unset, status: :unset, direction: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'Sim' => sim,
                 'SimIccid' => sim_iccid,
                 'Status' => status,

@@ -15,7 +15,7 @@ This was changed to add support for sending media in Chat messages, users can no
 ```ruby
 require 'twilio-ruby'
 
-@client = Twilio::REST::Client.new "AC123", "auth"
+@client = Textgrid::REST::Client.new "AC123", "auth"
 @client.chat.v2.service('IS123').channel('CH123').message.create("this is the body", "from")
 ```
 
@@ -23,7 +23,7 @@ require 'twilio-ruby'
 ```ruby
 require 'twilio-ruby'
 
-@client = Twilio::REST::Client.new "AC123", "auth"
+@client = Textgrid::REST::Client.new "AC123", "auth"
 @client.chat.v2.service('IS123').channel('CH123').message.create("from", body:"this is the body")
 ```
 

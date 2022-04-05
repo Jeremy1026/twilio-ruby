@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Proxy < Domain
       class V1 < Version
@@ -85,7 +85,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of SessionInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -141,7 +141,7 @@ module Twilio
             #   as described.  This will eventually be the default for all accounts.
             # @return [SessionInstance] Created SessionInstance
             def create(unique_name: :unset, date_expiry: :unset, ttl: :unset, mode: :unset, status: :unset, participants: :unset, fail_on_participant_conflict: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'UniqueName' => unique_name,
                   'DateExpiry' => Twilio.serialize_iso8601_datetime(date_expiry),
                   'Ttl' => ttl,
@@ -256,7 +256,7 @@ module Twilio
             #   as described.  This will eventually be the default for all accounts.
             # @return [SessionInstance] Updated SessionInstance
             def update(date_expiry: :unset, ttl: :unset, status: :unset, fail_on_participant_conflict: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'DateExpiry' => Twilio.serialize_iso8601_datetime(date_expiry),
                   'Ttl' => ttl,
                   'Status' => status,

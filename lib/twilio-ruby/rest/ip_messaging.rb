@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class IpMessaging < Domain
       ##
@@ -37,16 +37,16 @@ module Twilio
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Ip_messaging::V2::CredentialInstance] if sid was passed.
-      # @return [Twilio::REST::Ip_messaging::V2::CredentialList]
+      # @return [Textgrid::REST::Ip_messaging::V2::CredentialInstance] if sid was passed.
+      # @return [Textgrid::REST::Ip_messaging::V2::CredentialList]
       def credentials(sid=:unset)
         self.v2.credentials(sid)
       end
 
       ##
       # @param [String] sid The sid
-      # @return [Twilio::REST::Ip_messaging::V2::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Ip_messaging::V2::ServiceList]
+      # @return [Textgrid::REST::Ip_messaging::V2::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Ip_messaging::V2::ServiceList]
       def services(sid=:unset)
         self.v2.services(sid)
       end
@@ -54,7 +54,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::IpMessaging>'
+        '#<Textgrid::REST::IpMessaging>'
       end
     end
   end

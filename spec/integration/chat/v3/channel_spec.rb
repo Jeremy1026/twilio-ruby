@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'Channel' do
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.chat.v3.channels('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', 'CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').update(x_twilio_webhook_enabled: 'true')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     headers = {'X-Twilio-Webhook-Enabled' => 'true', }
     expect(
@@ -26,7 +26,7 @@ describe 'Channel' do
   end
 
   it "receives update responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

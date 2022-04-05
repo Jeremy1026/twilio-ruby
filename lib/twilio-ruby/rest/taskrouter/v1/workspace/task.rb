@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -188,7 +188,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of TaskInstance
             def page(priority: :unset, assignment_status: :unset, workflow_sid: :unset, workflow_name: :unset, task_queue_sid: :unset, task_queue_name: :unset, evaluate_task_attributes: :unset, ordering: :unset, has_addons: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'Priority' => priority,
                   'AssignmentStatus' => Twilio.serialize_list(assignment_status) { |e| e },
                   'WorkflowSid' => workflow_sid,
@@ -244,7 +244,7 @@ module Twilio
             #   "twilio_call_sid": "CAxxx", "customer_ticket_number": "12345" }`.
             # @return [TaskInstance] Created TaskInstance
             def create(timeout: :unset, priority: :unset, task_channel: :unset, workflow_sid: :unset, attributes: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Timeout' => timeout,
                   'Priority' => priority,
                   'TaskChannel' => task_channel,
@@ -344,14 +344,14 @@ module Twilio
             #   header}[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match].
             # @return [TaskInstance] Updated TaskInstance
             def update(attributes: :unset, assignment_status: :unset, reason: :unset, priority: :unset, task_channel: :unset, if_match: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'Attributes' => attributes,
                   'AssignmentStatus' => assignment_status,
                   'Reason' => reason,
                   'Priority' => priority,
                   'TaskChannel' => task_channel,
               })
-              headers = Twilio::Values.of({'If-Match' => if_match, })
+              headers = Textgrid::Values.of({'If-Match' => if_match, })
 
               payload = @version.update('POST', @uri, data: data, headers: headers)
 
@@ -367,7 +367,7 @@ module Twilio
             #   header}[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match].
             # @return [Boolean] true if delete succeeds, false otherwise
             def delete(if_match: :unset)
-              headers = Twilio::Values.of({'If-Match' => if_match, })
+              headers = Textgrid::Values.of({'If-Match' => if_match, })
 
                @version.delete('DELETE', @uri, headers: headers)
             end

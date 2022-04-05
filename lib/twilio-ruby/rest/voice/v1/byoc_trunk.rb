@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Voice < Domain
       class V1 < Version
@@ -54,7 +54,7 @@ module Twilio
           #   "sip.twilio.com".
           # @return [ByocTrunkInstance] Created ByocTrunkInstance
           def create(friendly_name: :unset, voice_url: :unset, voice_method: :unset, voice_fallback_url: :unset, voice_fallback_method: :unset, status_callback_url: :unset, status_callback_method: :unset, cnam_lookup_enabled: :unset, connection_policy_sid: :unset, from_domain_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'VoiceUrl' => voice_url,
                 'VoiceMethod' => voice_method,
@@ -128,7 +128,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of ByocTrunkInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -242,7 +242,7 @@ module Twilio
           #   "sip.twilio.com".
           # @return [ByocTrunkInstance] Updated ByocTrunkInstance
           def update(friendly_name: :unset, voice_url: :unset, voice_method: :unset, voice_fallback_url: :unset, voice_fallback_method: :unset, status_callback_url: :unset, status_callback_method: :unset, cnam_lookup_enabled: :unset, connection_policy_sid: :unset, from_domain_sid: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'VoiceUrl' => voice_url,
                 'VoiceMethod' => voice_method,

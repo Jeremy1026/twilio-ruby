@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       class V3 < Version
@@ -83,8 +83,8 @@ module Twilio
           #   X-Twilio-Webhook-Enabled HTTP request header
           # @return [ChannelInstance] Updated ChannelInstance
           def update(type: :unset, messaging_service_sid: :unset, x_twilio_webhook_enabled: :unset)
-            data = Twilio::Values.of({'Type' => type, 'MessagingServiceSid' => messaging_service_sid, })
-            headers = Twilio::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
+            data = Textgrid::Values.of({'Type' => type, 'MessagingServiceSid' => messaging_service_sid, })
+            headers = Textgrid::Values.of({'X-Twilio-Webhook-Enabled' => x_twilio_webhook_enabled, })
 
             payload = @version.update('POST', @uri, data: data, headers: headers)
 

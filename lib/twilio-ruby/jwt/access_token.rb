@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module JWT
     module AccessTokenGrant
       def _key

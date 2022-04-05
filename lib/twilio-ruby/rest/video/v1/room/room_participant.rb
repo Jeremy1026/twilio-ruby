@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Video < Domain
       class V1 < Version
@@ -124,7 +124,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of ParticipantInstance
             def page(status: :unset, identity: :unset, date_created_after: :unset, date_created_before: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'Status' => status,
                   'Identity' => identity,
                   'DateCreatedAfter' => Twilio.serialize_iso8601_datetime(date_created_after),
@@ -226,7 +226,7 @@ module Twilio
             #   returned.
             # @return [ParticipantInstance] Updated ParticipantInstance
             def update(status: :unset)
-              data = Twilio::Values.of({'Status' => status, })
+              data = Textgrid::Values.of({'Status' => status, })
 
               payload = @version.update('POST', @uri, data: data)
 

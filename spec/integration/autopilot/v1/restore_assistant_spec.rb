@@ -10,11 +10,11 @@ require 'spec_helper.rb'
 
 describe 'RestoreAssistant' do
   it "can update" do
-    @holodeck.mock(Twilio::Response.new(500, ''))
+    @holodeck.mock(Textgrid::Response.new(500, ''))
 
     expect {
       @client.autopilot.v1.restore_assistant.update(assistant: 'UAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    }.to raise_exception(Twilio::REST::TwilioError)
+    }.to raise_exception(Textgrid::REST::TwilioError)
 
     values = {'Assistant' => 'UAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', }
     expect(
@@ -26,7 +26,7 @@ describe 'RestoreAssistant' do
   end
 
   it "receives update responses" do
-    @holodeck.mock(Twilio::Response.new(
+    @holodeck.mock(Textgrid::Response.new(
         200,
       %q[
       {

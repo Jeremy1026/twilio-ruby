@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Trusthub < Domain
       class V1 < Version
@@ -33,7 +33,7 @@ module Twilio
           #   End User resource which are derived End User Types.
           # @return [EndUserInstance] Created EndUserInstance
           def create(friendly_name: nil, type: nil, attributes: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Type' => type,
                 'Attributes' => Twilio.serialize_object(attributes),
@@ -100,7 +100,7 @@ module Twilio
           # @param [Integer] page_size Number of records to return, defaults to 50
           # @return [Page] Page of EndUserInstance
           def page(page_token: :unset, page_number: :unset, page_size: :unset)
-            params = Twilio::Values.of({
+            params = Textgrid::Values.of({
                 'PageToken' => page_token,
                 'Page' => page_number,
                 'PageSize' => page_size,
@@ -192,7 +192,7 @@ module Twilio
           #   End User resource which are derived End User Types.
           # @return [EndUserInstance] Updated EndUserInstance
           def update(friendly_name: :unset, attributes: :unset)
-            data = Twilio::Values.of({
+            data = Textgrid::Values.of({
                 'FriendlyName' => friendly_name,
                 'Attributes' => Twilio.serialize_object(attributes),
             })

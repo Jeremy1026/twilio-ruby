@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview
       class BulkExports < Version
@@ -22,8 +22,8 @@ module Twilio
         ##
         # @param [String] resource_type The type of communication – Messages, Calls,
         #   Conferences, and Participants
-        # @return [Twilio::REST::Preview::BulkExports::ExportContext] if resource_type was passed.
-        # @return [Twilio::REST::Preview::BulkExports::ExportList]
+        # @return [Textgrid::REST::Preview::BulkExports::ExportContext] if resource_type was passed.
+        # @return [Textgrid::REST::Preview::BulkExports::ExportList]
         def exports(resource_type=:unset)
           if resource_type.nil?
               raise ArgumentError, 'resource_type cannot be nil'
@@ -38,8 +38,8 @@ module Twilio
         ##
         # @param [String] resource_type The type of communication – Messages, Calls,
         #   Conferences, and Participants
-        # @return [Twilio::REST::Preview::BulkExports::ExportConfigurationContext] if resource_type was passed.
-        # @return [Twilio::REST::Preview::BulkExports::ExportConfigurationList]
+        # @return [Textgrid::REST::Preview::BulkExports::ExportConfigurationContext] if resource_type was passed.
+        # @return [Textgrid::REST::Preview::BulkExports::ExportConfigurationList]
         def export_configuration(resource_type=:unset)
           if resource_type.nil?
               raise ArgumentError, 'resource_type cannot be nil'
@@ -54,7 +54,7 @@ module Twilio
         ##
         # Provide a user friendly representation
         def to_s
-          '<Twilio::REST::Preview::BulkExports>'
+          '<Textgrid::REST::Preview::BulkExports>'
         end
       end
     end

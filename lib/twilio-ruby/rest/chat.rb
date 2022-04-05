@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Chat < Domain
       ##
@@ -45,8 +45,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Credential
       #   resource.
-      # @return [Twilio::REST::Chat::V2::CredentialInstance] if sid was passed.
-      # @return [Twilio::REST::Chat::V2::CredentialList]
+      # @return [Textgrid::REST::Chat::V2::CredentialInstance] if sid was passed.
+      # @return [Textgrid::REST::Chat::V2::CredentialList]
       def credentials(sid=:unset)
         self.v2.credentials(sid)
       end
@@ -54,8 +54,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Service
       #   resource.
-      # @return [Twilio::REST::Chat::V2::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Chat::V2::ServiceList]
+      # @return [Textgrid::REST::Chat::V2::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Chat::V2::ServiceList]
       def services(sid=:unset)
         self.v2.services(sid)
       end
@@ -63,8 +63,8 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Channel
       #   resource.
-      # @return [Twilio::REST::Chat::V3::ChannelInstance] if sid was passed.
-      # @return [Twilio::REST::Chat::V3::ChannelList]
+      # @return [Textgrid::REST::Chat::V3::ChannelInstance] if sid was passed.
+      # @return [Textgrid::REST::Chat::V3::ChannelList]
       def channels(service_sid=:unset, sid=:unset)
         self.v3.channels(service_sid, sid)
       end
@@ -72,7 +72,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Chat>'
+        '#<Textgrid::REST::Chat>'
       end
     end
   end

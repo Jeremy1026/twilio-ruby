@@ -10,7 +10,7 @@ account_sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
 # set up a client
-client = Twilio::REST::Client.new(account_sid, auth_token)
+client = Textgrid::REST::Client.new(account_sid, auth_token)
 
 calls = client.calls.list
 

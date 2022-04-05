@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Messaging < Domain
       ##
@@ -30,20 +30,20 @@ module Twilio
 
       ##
       # @param [String] sid The unique string to identify Brand Registration.
-      # @return [Twilio::REST::Messaging::V1::BrandRegistrationInstance] if sid was passed.
-      # @return [Twilio::REST::Messaging::V1::BrandRegistrationList]
+      # @return [Textgrid::REST::Messaging::V1::BrandRegistrationInstance] if sid was passed.
+      # @return [Textgrid::REST::Messaging::V1::BrandRegistrationList]
       def brand_registrations(sid=:unset)
         self.v1.brand_registrations(sid)
       end
 
       ##
-      # @return [Twilio::REST::Messaging::V1::DeactivationsInstance]
+      # @return [Textgrid::REST::Messaging::V1::DeactivationsInstance]
       def deactivations
         self.v1.deactivations()
       end
 
       ##
-      # @return [Twilio::REST::Messaging::V1::ExternalCampaignInstance]
+      # @return [Textgrid::REST::Messaging::V1::ExternalCampaignInstance]
       def external_campaign
         self.v1.external_campaign()
       end
@@ -51,14 +51,14 @@ module Twilio
       ##
       # @param [String] sid The unique string that we created to identify the Service
       #   resource.
-      # @return [Twilio::REST::Messaging::V1::ServiceInstance] if sid was passed.
-      # @return [Twilio::REST::Messaging::V1::ServiceList]
+      # @return [Textgrid::REST::Messaging::V1::ServiceInstance] if sid was passed.
+      # @return [Textgrid::REST::Messaging::V1::ServiceList]
       def services(sid=:unset)
         self.v1.services(sid)
       end
 
       ##
-      # @return [Twilio::REST::Messaging::V1::UsecaseInstance]
+      # @return [Textgrid::REST::Messaging::V1::UsecaseInstance]
       def usecases
         self.v1.usecases()
       end
@@ -66,7 +66,7 @@ module Twilio
       ##
       # Provide a user friendly representation
       def to_s
-        '#<Twilio::REST::Messaging>'
+        '#<Textgrid::REST::Messaging>'
       end
     end
   end

@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Verify < Domain
       class V2 < Version
@@ -42,7 +42,7 @@ module Twilio
             #   in the future.
             # @return [WebhookInstance] Created WebhookInstance
             def create(friendly_name: nil, event_types: nil, webhook_url: nil, status: :unset, version: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'EventTypes' => Twilio.serialize_list(event_types) { |e| e },
                   'WebhookUrl' => webhook_url,
@@ -111,7 +111,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of WebhookInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -206,7 +206,7 @@ module Twilio
             #   in the future.
             # @return [WebhookInstance] Updated WebhookInstance
             def update(friendly_name: :unset, event_types: :unset, webhook_url: :unset, status: :unset, version: :unset)
-              data = Twilio::Values.of({
+              data = Textgrid::Values.of({
                   'FriendlyName' => friendly_name,
                   'EventTypes' => Twilio.serialize_list(event_types) { |e| e },
                   'WebhookUrl' => webhook_url,

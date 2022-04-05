@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Sync < Domain
       class V1 < Version
@@ -45,7 +45,7 @@ module Twilio
               #   the Map Item's parent Sync Map expires (time-to-live) and is deleted.
               # @return [SyncMapItemInstance] Created SyncMapItemInstance
               def create(key: nil, data: nil, ttl: :unset, item_ttl: :unset, collection_ttl: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Key' => key,
                     'Data' => Twilio.serialize_object(data),
                     'Ttl' => ttl,
@@ -152,7 +152,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of SyncMapItemInstance
               def page(order: :unset, from: :unset, bounds: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'Order' => order,
                     'From' => from,
                     'Bounds' => bounds,
@@ -262,7 +262,7 @@ module Twilio
               #   header}[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match].
               # @return [Boolean] true if delete succeeds, false otherwise
               def delete(if_match: :unset)
-                headers = Twilio::Values.of({'If-Match' => if_match, })
+                headers = Textgrid::Values.of({'If-Match' => if_match, })
 
                  @version.delete('DELETE', @uri, headers: headers)
               end
@@ -287,13 +287,13 @@ module Twilio
               #   header}[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match].
               # @return [SyncMapItemInstance] Updated SyncMapItemInstance
               def update(data: :unset, ttl: :unset, item_ttl: :unset, collection_ttl: :unset, if_match: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'Data' => Twilio.serialize_object(data),
                     'Ttl' => ttl,
                     'ItemTtl' => item_ttl,
                     'CollectionTtl' => collection_ttl,
                 })
-                headers = Twilio::Values.of({'If-Match' => if_match, })
+                headers = Textgrid::Values.of({'If-Match' => if_match, })
 
                 payload = @version.update('POST', @uri, data: data, headers: headers)
 

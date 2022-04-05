@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Preview < Domain
       class Marketplace < Version
@@ -84,7 +84,7 @@ module Twilio
             # @param [Integer] page_size Number of records to return, defaults to 50
             # @return [Page] Page of InstalledAddOnExtensionInstance
             def page(page_token: :unset, page_number: :unset, page_size: :unset)
-              params = Twilio::Values.of({
+              params = Textgrid::Values.of({
                   'PageToken' => page_token,
                   'Page' => page_number,
                   'PageSize' => page_size,
@@ -187,7 +187,7 @@ module Twilio
             # @param [Boolean] enabled Whether the Extension should be invoked.
             # @return [InstalledAddOnExtensionInstance] Updated InstalledAddOnExtensionInstance
             def update(enabled: nil)
-              data = Twilio::Values.of({'Enabled' => enabled, })
+              data = Textgrid::Values.of({'Enabled' => enabled, })
 
               payload = @version.update('POST', @uri, data: data)
 

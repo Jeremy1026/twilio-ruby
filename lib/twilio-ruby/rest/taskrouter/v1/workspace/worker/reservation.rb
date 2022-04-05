@@ -6,7 +6,7 @@
 #
 # frozen_string_literal: true
 
-module Twilio
+module Textgrid
   module REST
     class Taskrouter < Domain
       class V1 < Version
@@ -93,7 +93,7 @@ module Twilio
               # @param [Integer] page_size Number of records to return, defaults to 50
               # @return [Page] Page of ReservationInstance
               def page(reservation_status: :unset, page_token: :unset, page_number: :unset, page_size: :unset)
-                params = Twilio::Values.of({
+                params = Textgrid::Values.of({
                     'ReservationStatus' => reservation_status,
                     'PageToken' => page_token,
                     'Page' => page_number,
@@ -325,7 +325,7 @@ module Twilio
               # @param [String] if_match The If-Match HTTP request header
               # @return [ReservationInstance] Updated ReservationInstance
               def update(reservation_status: :unset, worker_activity_sid: :unset, instruction: :unset, dequeue_post_work_activity_sid: :unset, dequeue_from: :unset, dequeue_record: :unset, dequeue_timeout: :unset, dequeue_to: :unset, dequeue_status_callback_url: :unset, call_from: :unset, call_record: :unset, call_timeout: :unset, call_to: :unset, call_url: :unset, call_status_callback_url: :unset, call_accept: :unset, redirect_call_sid: :unset, redirect_accept: :unset, redirect_url: :unset, to: :unset, from: :unset, status_callback: :unset, status_callback_method: :unset, status_callback_event: :unset, timeout: :unset, record: :unset, muted: :unset, beep: :unset, start_conference_on_enter: :unset, end_conference_on_exit: :unset, wait_url: :unset, wait_method: :unset, early_media: :unset, max_participants: :unset, conference_status_callback: :unset, conference_status_callback_method: :unset, conference_status_callback_event: :unset, conference_record: :unset, conference_trim: :unset, recording_channels: :unset, recording_status_callback: :unset, recording_status_callback_method: :unset, conference_recording_status_callback: :unset, conference_recording_status_callback_method: :unset, region: :unset, sip_auth_username: :unset, sip_auth_password: :unset, dequeue_status_callback_event: :unset, post_work_activity_sid: :unset, end_conference_on_customer_exit: :unset, beep_on_customer_entrance: :unset, if_match: :unset)
-                data = Twilio::Values.of({
+                data = Textgrid::Values.of({
                     'ReservationStatus' => reservation_status,
                     'WorkerActivitySid' => worker_activity_sid,
                     'Instruction' => instruction,
@@ -378,7 +378,7 @@ module Twilio
                     'EndConferenceOnCustomerExit' => end_conference_on_customer_exit,
                     'BeepOnCustomerEntrance' => beep_on_customer_entrance,
                 })
-                headers = Twilio::Values.of({'If-Match' => if_match, })
+                headers = Textgrid::Values.of({'If-Match' => if_match, })
 
                 payload = @version.update('POST', @uri, data: data, headers: headers)
 
